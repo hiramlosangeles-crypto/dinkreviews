@@ -233,6 +233,18 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
 @keyframes barGrow{from{width:0}}
 .sbar-fill{animation:barGrow .8s .3s ease both}
 .score-bar-fill{animation:barGrow .6s .2s ease both}
+
+/* ── BOTTOM NAV (mobile only) ── */
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--warm-white);border-top:1px solid var(--rule);padding:0 0 env(safe-area-inset-bottom,0);box-shadow:0 -4px 20px rgba(26,58,42,.08)}
+.bn-inner{display:flex;align-items:stretch;height:60px}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--mist);font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:color .15s;cursor:pointer;border:none;background:none;font-family:var(--font);padding:0}
+.bn-item .bn-icon{font-size:1.3rem;line-height:1}
+.bn-item.active{color:var(--forest)}
+.bn-item.active .bn-icon{transform:scale(1.1)}
+.bn-item.bn-write{background:var(--amber);color:var(--forest);border-radius:99px;margin:8px 6px;flex:1.2;font-size:.65rem;font-weight:800;box-shadow:0 2px 12px rgba(245,166,35,.4)}
+.bn-item.bn-write .bn-icon{font-size:1.1rem}
+
+/* ── TABLET ── */
 @media(max-width:1024px){
   .app-shell{grid-template-columns:1fr}
   .sidebar{display:none}
@@ -241,6 +253,61 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
   .content-grid{grid-template-columns:1fr}
   .right-panel{display:none}
   .trending-strip{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .bottom-nav{display:block}
+  .main{padding:1rem 1rem 80px;gap:1.2rem}
+  .app-footer{display:none}
+  .topbar{padding:0 .8rem 0 0}
+  .topbar-brand{padding:0 .9rem;gap:7px}
+  .brand-mark{width:28px;height:28px;font-size:.85rem}
+  .brand-name{font-size:.92rem}
+  .brand-tagline{display:none}
+  .topbar-search{margin-left:.9rem}
+  .topbar-search input{font-size:.82rem;padding:.45rem .9rem .45rem 2.2rem}
+  .topbar-right{gap:.5rem}
+  .tb-pill.ghost{display:none}
+  .tb-pill.solid{padding:.4rem .9rem;font-size:.72rem}
+  .tb-av{width:28px;height:28px;font-size:.6rem}
+  .welcome-bar{grid-template-columns:1fr;padding:1.4rem 1.2rem;gap:1rem}
+  .welcome-eyebrow{font-size:.65rem;margin-bottom:.4rem}
+  .welcome-h{font-size:1.6rem}
+  .welcome-sub{font-size:.82rem}
+  .welcome-stats{gap:.7rem;justify-content:flex-start}
+  .wstat{padding:.65rem .9rem;min-width:70px}
+  .wstat-n{font-size:1.3rem}
+  .wstat-l{font-size:.55rem}
+  .quick-actions{grid-template-columns:repeat(2,1fr);gap:.8rem}
+  .qa-card{padding:1rem;gap:.5rem}
+  .qa-icon{width:36px;height:36px;font-size:1rem}
+  .qa-label{font-size:.78rem}
+  .qa-count{font-size:.68rem}
+  .rev-card{grid-template-columns:90px 1fr}
+  .rev-card-thumb{min-height:110px;font-size:1.8rem}
+  .rev-card-body{padding:.85rem .9rem;gap:.3rem}
+  .rev-title{font-size:.88rem}
+  .rev-excerpt{font-size:.78rem}
+  .rev-loc{font-size:.7rem}
+  .score-num{font-size:1.1rem}
+  .score-bar-track{width:44px}
+  .section-head{padding:0}
+  .section-title{font-size:.92rem}
+  .sort-bar{gap:.4rem}
+  .sort-btn{font-size:.68rem;padding:.3rem .65rem}
+  .trending-strip{grid-template-columns:1fr 1fr;gap:.7rem}
+  .trend-card{padding:.9rem}
+  .trend-rank{font-size:1.8rem;margin-bottom:.3rem}
+  .trend-name{font-size:.78rem}
+  .trend-n{font-size:1rem}
+  .modal-overlay{padding:0;align-items:flex-end}
+  .modal{border-radius:var(--r-xl) var(--r-xl) 0 0;max-height:92vh}
+  .modal-header{border-radius:var(--r-xl) var(--r-xl) 0 0;padding:1.4rem 1.5rem}
+  .modal-header h2{font-size:1.2rem}
+  .modal-body{padding:1.4rem 1.5rem}
+  .modal-footer{padding:.3rem 1.5rem 1.5rem}
+  .mf-row{margin-bottom:1rem}
 }
 </style>
 </head>
@@ -359,15 +426,14 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
           <button class="sort-btn" onclick="setSort(this)">Near Me</button>
           <button class="sort-btn" onclick="setSort(this)">Trending</button>
         </div>
-        <!-- Sample cards shown until real reviews load -->
         <div class="rev-card">
           <div class="rev-card-thumb" style="background:linear-gradient(150deg,#0D3B2E,#1E5C44);">🏟️</div>
           <div class="rev-card-body">
             <div class="rev-top"><span class="rev-cat cat-c">Court</span><div class="rev-score"><span class="score-num">4.9</span><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:98%"></div></div><div class="score-count">147 reviews</div></div></div></div>
             <div class="rev-title">Plummer Park Pickleball Courts</div>
-            <div class="rev-loc">📍 West Hollywood, CA · 0.4 mi away</div>
+            <div class="rev-loc">📍 West Hollywood, CA</div>
             <div class="rev-excerpt">"Best free courts in the LA area. Well-maintained, regulation nets, and the Sunday open play group is the most welcoming community I've found."</div>
-            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sage),var(--amber));">JK</div><div><div class="rev-name">JamieK</div><div class="rev-date">2 days ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 32</button><button class="rev-btn">Read →</button></div></div>
+            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sage),var(--amber));">JK</div><div><div class="rev-name">JamieK</div><div class="rev-date">2 days ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 32</button></div></div>
           </div>
         </div>
         <div class="rev-card">
@@ -377,7 +443,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
             <div class="rev-title">Joola Ben Johns Hyperion CFS 16mm</div>
             <div class="rev-loc">🏓 Carbon Fiber · 16mm Core</div>
             <div class="rev-excerpt">"The spin control is next-level. Once you dial it in, the pop on third-shot drops is genuinely something special."</div>
-            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--coral),#FF9A3A);">MR</div><div><div class="rev-name">Marco_R</div><div class="rev-date">1 week ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 55</button><button class="rev-btn">Read →</button></div></div>
+            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--coral),#FF9A3A);">MR</div><div><div class="rev-name">Marco_R</div><div class="rev-date">1 week ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 55</button></div></div>
           </div>
         </div>
         <div class="rev-card">
@@ -386,13 +452,13 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
             <div class="rev-top"><span class="rev-cat cat-g">Gear</span><div class="rev-score"><span class="score-num">5.0</span><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:100%"></div></div><div class="score-count">203 reviews</div></div></div></div>
             <div class="rev-title">ASICS Gel-Rocket 11 Court Shoes</div>
             <div class="rev-loc">👟 Non-Marking · All Surfaces</div>
-            <div class="rev-excerpt">"Incredible lateral support at the kitchen. Zero ankle roll on hard outdoor surfaces. The definitive court shoe."</div>
-            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sky),var(--sage));">TL</div><div><div class="rev-name">TinaL</div><div class="rev-date">5 days ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 76</button><button class="rev-btn">Read →</button></div></div>
+            <div class="rev-excerpt">"Incredible lateral support at the kitchen. Zero ankle roll on hard outdoor surfaces."</div>
+            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sky),var(--sage));">TL</div><div><div class="rev-name">TinaL</div><div class="rev-date">5 days ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 76</button></div></div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT PANEL -->
+      <!-- RIGHT PANEL (desktop only) -->
       <div class="right-panel">
         <div class="score-widget">
           <div class="widget-title">Community Score</div>
@@ -451,7 +517,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
   </main>
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER (desktop) -->
 <div class="app-footer">
   <div class="footer-brand">DINK<span style="color:var(--amber)">REVIEWS</span></div>
   <div class="footer-links">
@@ -463,6 +529,17 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
   </div>
   <div>© 2025 DINKREVIEWS — The Pickleball Community</div>
 </div>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav">
+  <div class="bn-inner">
+    <a class="bn-item active" href="/dinkreviews/"><span class="bn-icon">🏠</span><span>Home</span></a>
+    <a class="bn-item" href="/dinkreviews/courts/"><span class="bn-icon">🏟️</span><span>Courts</span></a>
+    <button class="bn-item bn-write" onclick="openModal()"><span class="bn-icon">✏️</span><span>Review</span></button>
+    <a class="bn-item" href="/dinkreviews/paddles/"><span class="bn-icon">🏓</span><span>Paddles</span></a>
+    <a class="bn-item" href="/dinkreviews/events/"><span class="bn-icon">📅</span><span>Events</span></a>
+  </div>
+</nav>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeOut(event)">
@@ -488,49 +565,49 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
 <script>
   const API = 'https://script.google.com/macros/s/AKfycbzi1Yak6BkCtu7l-ZwoeuX0VRnle_sICOYx7DoyQUJzzOK-KV8D_xZ2tqqW01vMlRvnwQ/exec';
 
-  async function loadReviews(category='All', sort='newest') {
-    const container = document.querySelector('.review-list-col');
-    if (!container) return;
-    const existing = container.querySelectorAll('.rev-card');
-    existing.forEach(c => c.style.opacity='.4');
-    try {
-      const res  = await fetch(`${API}?action=getReviews&category=${category}&limit=10&sort=${sort}`);
-      const data = await res.json();
-      if (!data.success || !data.reviews.length) { existing.forEach(c=>c.style.opacity='1'); return; }
+  async function loadReviews(category='All',sort='newest'){
+    const container=document.querySelector('.review-list-col');
+    if(!container)return;
+    const existing=container.querySelectorAll('.rev-card');
+    existing.forEach(c=>c.style.opacity='.4');
+    try{
+      const res=await fetch(`${API}?action=getReviews&category=${category}&limit=10&sort=${sort}`);
+      const data=await res.json();
+      if(!data.success||!data.reviews.length){existing.forEach(c=>c.style.opacity='1');return;}
       existing.forEach(c=>c.remove());
-      const sortBar = container.querySelector('.sort-bar');
-      data.reviews.forEach(r => sortBar.after(buildCard(r)));
-    } catch(e) { existing.forEach(c=>c.style.opacity='1'); }
+      const sortBar=container.querySelector('.sort-bar');
+      data.reviews.forEach(r=>sortBar.after(buildCard(r)));
+    }catch(e){existing.forEach(c=>c.style.opacity='1');}
   }
 
-  async function loadStats() {
-    try {
-      const res  = await fetch(`${API}?action=getStats&category=All`);
-      const data = await res.json();
-      if (!data.success||!data.stats.total) return;
-      const {total,avg,distribution} = data.stats;
-      const n = document.querySelector('.big-score-num');
-      if (n) n.textContent = avg.toFixed(1);
-      const c = document.querySelector('.big-score-count');
-      if (c) c.textContent = total.toLocaleString()+' reviews total';
-      const fills = document.querySelectorAll('.sbar-fill');
-      const pcts  = document.querySelectorAll('.sbar-pct');
-      [5,4,3,2,1].forEach((s,i) => {
-        const p = distribution[s]||0;
-        if (fills[i]) fills[i].style.width=p+'%';
-        if (pcts[i])  pcts[i].textContent=p+'%';
+  async function loadStats(){
+    try{
+      const res=await fetch(`${API}?action=getStats&category=All`);
+      const data=await res.json();
+      if(!data.success||!data.stats.total)return;
+      const{total,avg,distribution}=data.stats;
+      const n=document.querySelector('.big-score-num');
+      if(n)n.textContent=avg.toFixed(1);
+      const c=document.querySelector('.big-score-count');
+      if(c)c.textContent=total.toLocaleString()+' reviews total';
+      const fills=document.querySelectorAll('.sbar-fill');
+      const pcts=document.querySelectorAll('.sbar-pct');
+      [5,4,3,2,1].forEach((s,i)=>{
+        const p=distribution[s]||0;
+        if(fills[i])fills[i].style.width=p+'%';
+        if(pcts[i])pcts[i].textContent=p+'%';
       });
-      const w = document.querySelectorAll('.wstat-n');
-      if (w[0]) w[0].textContent = total>999?(total/1000).toFixed(1)+'k':total;
-    } catch(e){}
+      const w=document.querySelectorAll('.wstat-n');
+      if(w[0])w[0].textContent=total>999?(total/1000).toFixed(1)+'k':total;
+    }catch(e){}
   }
 
-  function buildCard(r) {
-    const cc = {Court:'cat-c',Paddle:'cat-p',Gear:'cat-g',Event:'cat-e',Training:'cat-t'};
-    const ce = {Court:'🏟️',Paddle:'🏓',Gear:'👟',Event:'📅',Training:'🎯'};
-    const pct = Math.round((r.rating/5)*100);
-    const ini = (r.reviewer||'A').substring(0,2).toUpperCase();
-    const d = document.createElement('div');
+  function buildCard(r){
+    const cc={Court:'cat-c',Paddle:'cat-p',Gear:'cat-g',Event:'cat-e',Training:'cat-t'};
+    const ce={Court:'🏟️',Paddle:'🏓',Gear:'👟',Event:'📅',Training:'🎯'};
+    const pct=Math.round((r.rating/5)*100);
+    const ini=(r.reviewer||'A').substring(0,2).toUpperCase();
+    const d=document.createElement('div');
     d.className='rev-card';
     d.innerHTML=`
       <div class="rev-card-thumb" style="background:linear-gradient(150deg,#0D3B2E,#1E5C44);">${ce[r.category]||'🏓'}</div>
@@ -552,34 +629,34 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-fo
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
   function ago(ts){
     const d=Math.floor((new Date()-new Date(ts))/1000);
-    if(isNaN(d)||d<0) return 'Recently';
-    if(d<60) return 'Just now';
-    if(d<3600) return Math.floor(d/60)+' min ago';
-    if(d<86400) return Math.floor(d/3600)+' hours ago';
-    if(d<604800) return Math.floor(d/86400)+' days ago';
+    if(isNaN(d)||d<0)return'Recently';
+    if(d<60)return'Just now';
+    if(d<3600)return Math.floor(d/60)+' min ago';
+    if(d<86400)return Math.floor(d/3600)+' hours ago';
+    if(d<604800)return Math.floor(d/86400)+' days ago';
     return new Date(ts).toLocaleDateString();
   }
 
-  async function doSubmit() {
-    if (!mstar) { alert('Please select a rating.'); return; }
-    const category = document.querySelector('#modal select').value.replace(/^.\s/,'');
-    const name     = document.getElementById('review-name').value.trim();
-    const review   = document.getElementById('review-text').value.trim();
-    const location = document.getElementById('review-location').value.trim();
-    if (!name)   { alert('Please enter a name.'); return; }
-    if (!review) { alert('Please write a review.'); return; }
-    const btn = document.querySelector('.ms-btn');
-    btn.textContent='Submitting…'; btn.disabled=true;
-    try {
-      const res  = await fetch(API,{method:'POST',body:JSON.stringify({category,name,location,rating:mstar,review,reviewer:'Community Member'})});
-      const data = await res.json();
-      if (data.success) {
+  async function doSubmit(){
+    if(!mstar){alert('Please select a rating.');return;}
+    const category=document.querySelector('#modal select').value.replace(/^.\s/,'');
+    const name=document.getElementById('review-name').value.trim();
+    const review=document.getElementById('review-text').value.trim();
+    const location=document.getElementById('review-location').value.trim();
+    if(!name){alert('Please enter a name.');return;}
+    if(!review){alert('Please write a review.');return;}
+    const btn=document.querySelector('.ms-btn');
+    btn.textContent='Submitting…';btn.disabled=true;
+    try{
+      const res=await fetch(API,{method:'POST',body:JSON.stringify({category,name,location,rating:mstar,review,reviewer:'Community Member'})});
+      const data=await res.json();
+      if(data.success){
         closeModal();
         setTimeout(()=>{alert('✓ Review submitted! Thanks for contributing to DINKREVIEWS. 🏓');loadReviews();loadStats();},200);
-      } else { alert('Error: '+(data.error||'Submission failed')); }
-    } catch(e) { alert('Connection error. Please try again.'); }
-    btn.textContent='Submit Review'; btn.disabled=false;
-    mstar=0; document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'));
+      }else{alert('Error: '+(data.error||'Submission failed'));}
+    }catch(e){alert('Connection error. Please try again.');}
+    btn.textContent='Submit Review';btn.disabled=false;
+    mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'));
   }
 
   function setSort(el){document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('on'));el.classList.add('on');loadReviews('All',el.textContent.includes('Rated')?'top':'newest')}
