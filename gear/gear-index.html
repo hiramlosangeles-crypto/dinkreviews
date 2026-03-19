@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gear — DINKREVIEWS</title>
+<meta name="description" content="Pickleball gear reviews — shoes, bags, balls, apparel and accessories rated by the community.">
+<meta name="theme-color" content="#1A3A2A">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#1A3A2A;--forest-mid:#224835;--forest-light:#2D5C42;--amber:#F5A623;--amber-soft:#FEF3DC;--sage:#7BAE8C;--sage-soft:#EBF4EE;--cream:#FAF8F4;--warm-white:#FFFFFF;--ink:#111A14;--slate:#5C7A66;--mist:#A8C0B0;--rule:#E4EDE7;--rule-dark:#C8D9CE;--coral:#F25C38;--coral-soft:#FEF0EC;--sky:#2AA8C4;--sky-soft:#EAF7FB;--lime:#8EC63F;--lime-soft:#F2FAE6;--yellow:#F9C22E;--shadow-xs:0 1px 3px rgba(26,58,42,.08);--shadow-sm:0 2px 8px rgba(26,58,42,.1),0 1px 3px rgba(26,58,42,.06);--shadow-md:0 6px 24px rgba(26,58,42,.12),0 2px 8px rgba(26,58,42,.06);--shadow-lg:0 16px 48px rgba(26,58,42,.15),0 4px 12px rgba(26,58,42,.08);--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;--font:'Plus Jakarta Sans',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.app-shell{display:grid;grid-template-columns:260px 1fr;grid-template-rows:56px 1fr;min-height:100vh}
+.topbar{grid-column:1/-1;background:var(--forest);display:flex;align-items:center;padding:0 1.5rem 0 0;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:200}
+.topbar-brand{width:260px;flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0 1.5rem;border-right:1px solid rgba(255,255,255,.08);height:56px}
+.brand-mark{width:32px;height:32px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 2px 10px rgba(245,166,35,.5)}
+.brand-name{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.brand-name .dr-dink{color:var(--warm-white)}.brand-name .dr-reviews{color:var(--amber)}
+.brand-tagline{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem}
+.topbar-search{flex:1;max-width:480px;margin-left:1.5rem;position:relative}
+.topbar-search input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:99px;color:var(--warm-white);font-family:var(--font);font-size:.85rem;padding:.5rem 1rem .5rem 2.5rem;outline:none;transition:background .2s,border-color .2s}
+.topbar-search input::placeholder{color:rgba(255,255,255,.35)}
+.topbar-search input:focus{background:rgba(255,255,255,.14);border-color:var(--amber)}
+.topbar-search .si{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:rgba(255,255,255,.4)}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.tb-pill{font-size:.75rem;font-weight:700;padding:.42rem 1rem;border-radius:99px;cursor:pointer;font-family:var(--font);border:none;transition:all .15s}
+.tb-pill.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}.tb-pill.ghost:hover{background:rgba(255,255,255,.15);color:var(--warm-white)}
+.tb-pill.solid{background:var(--amber);color:var(--forest);box-shadow:0 2px 10px rgba(245,166,35,.4)}.tb-pill.solid:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(245,166,35,.5)}
+.tb-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--amber));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:var(--forest);cursor:pointer;border:2px solid rgba(255,255,255,.15)}
+.sidebar{background:var(--warm-white);border-right:1px solid var(--rule);padding:1.5rem 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{display:none}
+.sidebar-brand-strip{padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--rule);margin-bottom:.5rem}
+.sbs-label{font-size:.58rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+.sbs-name{font-size:.92rem;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.2;margin-top:.1rem}
+.sbs-name span{color:var(--amber)}
+.sidebar-section{margin-bottom:1.8rem}
+.sidebar-label{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0 1.2rem;margin-bottom:.5rem}
+.nav-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 1.2rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--slate);transition:background .15s,color .15s;border-left:2px solid transparent;text-decoration:none}
+.nav-item:hover{background:var(--sage-soft);color:var(--ink)}.nav-item.active{background:var(--sage-soft);color:var(--forest);border-left-color:var(--forest);font-weight:700}
+.nav-item .ni{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+.nav-item .badge{margin-left:auto;font-size:.65rem;font-weight:800;background:var(--amber);color:var(--forest);padding:.12rem .45rem;border-radius:99px}
+.nav-item .badge.new{background:var(--coral);color:white}
+.filter-group{padding:0 1.2rem}
+.filter-group-title{font-size:.7rem;font-weight:700;color:var(--slate);margin-bottom:.6rem}
+.filter-check{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--slate);padding:.3rem 0;cursor:pointer}
+.check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--rule-dark);background:var(--warm-white);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .15s}
+.filter-check.checked .check-box{background:var(--forest);border-color:var(--forest);color:white}
+.filter-count{margin-left:auto;font-size:.7rem;color:var(--mist)}
+.sidebar-bottom{margin-top:auto;padding:1.2rem;border-top:1px solid var(--rule)}
+.write-btn-sidebar{width:100%;background:var(--forest);color:var(--warm-white);border:none;border-radius:var(--r-md);padding:.85rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:background .2s}
+.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1.8rem}
+.page-hero{background:var(--forest);border-radius:var(--r-lg);padding:2rem 2.5rem;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:22px 22px}
+.page-hero::after{content:'';position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.2) 0%,transparent 70%);pointer-events:none}
+.ph-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.ph-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--amber);display:block}
+.ph-title{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:var(--warm-white);line-height:1.15;margin-bottom:.5rem}
+.ph-title em{font-style:normal;color:var(--amber)}
+.ph-sub{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.6;max-width:420px}
+.ph-stats{display:flex;gap:1.2rem;position:relative;z-index:1}
+.ph-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);padding:.9rem 1.2rem;text-align:center;min-width:80px}
+.ph-stat-n{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
+.ph-stat-l{font-size:.62rem;font-weight:600;color:rgba(255,255,255,.4);margin-top:.2rem;text-transform:uppercase;letter-spacing:.08em}
+.filter-bar{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow-xs)}
+.fb-search{flex:1;min-width:200px;position:relative}
+.fb-search input{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:99px;font-family:var(--font);font-size:.88rem;color:var(--ink);padding:.6rem 1rem .6rem 2.4rem;outline:none;transition:border-color .2s}
+.fb-search input:focus{border-color:var(--forest)}
+.fb-search input::placeholder{color:var(--mist)}
+.fb-search .fsi{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:var(--mist)}
+.fb-divider{width:1px;height:28px;background:var(--rule);flex-shrink:0}
+.fb-group{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.fb-label{font-size:.72rem;font-weight:700;color:var(--slate);white-space:nowrap}
+.fb-pill{font-size:.75rem;font-weight:600;padding:.38rem .85rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
+.fb-pill:hover{border-color:var(--forest);color:var(--forest)}.fb-pill.on{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
+.content-grid{display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.results-count{font-size:.85rem;font-weight:600;color:var(--slate)}.results-count strong{color:var(--ink);font-weight:800}
+/* CAT TABS */
+.cat-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.cat-tab{font-size:.78rem;font-weight:700;padding:.45rem 1.1rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s;display:flex;align-items:center;gap:.35rem}
+.cat-tab:hover{border-color:var(--forest);color:var(--forest)}.cat-tab.on{background:var(--coral-soft);border-color:var(--coral);color:var(--coral);font-weight:800}
+/* GEAR CARDS */
+.gear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.gear-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow-xs)}
+.gear-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--rule-dark)}
+.gc-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative}
+.gc-cat-tag{position:absolute;top:10px;left:10px;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.22rem .6rem;border-radius:99px;background:var(--coral-soft);color:var(--coral)}
+.gc-body{padding:1rem 1.1rem}
+.gc-brand{font-size:.7rem;font-weight:700;color:var(--coral);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.06em}
+.gc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.4rem;margin-bottom:.4rem}
+.gc-name{font-size:.95rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.3}
+.gc-score{font-size:1.1rem;font-weight:800;color:var(--forest);flex-shrink:0}
+.gc-price{font-size:.85rem;font-weight:800;color:var(--forest);margin-bottom:.5rem}
+.gc-excerpt{font-size:.8rem;color:var(--slate);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.8rem}
+.gc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.75rem;border-top:1px solid var(--rule)}
+.gc-reviewer{font-size:.72rem;font-weight:700;color:var(--mist)}
+.gc-btn{font-size:.68rem;font-weight:700;padding:.25rem .65rem;border-radius:99px;border:1px solid var(--rule);background:none;color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
+.gc-btn:hover{border-color:var(--sage);color:var(--forest);background:var(--sage-soft)}
+.gc-btn.primary{background:var(--forest);color:white;border-color:var(--forest)}
+/* RIGHT PANEL */
+.right-panel{display:flex;flex-direction:column;gap:1.2rem}
+.panel-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow-xs)}
+.panel-title{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:1.1rem}
+.top-row{display:flex;align-items:center;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s;border-radius:8px;margin:0 -.3rem;padding-left:.3rem;padding-right:.3rem}
+.top-row:last-child{border-bottom:none}.top-row:hover{background:var(--sage-soft)}
+.tr-rank{font-size:1.1rem;font-weight:800;color:var(--rule-dark);width:24px;flex-shrink:0}
+.tr-info{flex:1}.tr-name{font-size:.85rem;font-weight:700;color:var(--ink)}.tr-sub{font-size:.7rem;color:var(--mist);margin-top:.1rem}
+.tr-score{font-size:1rem;font-weight:800;color:var(--forest)}
+.load-more-wrap{display:flex;justify-content:center;padding:1rem 0}
+.load-more{background:none;border:1.5px solid var(--rule);color:var(--slate);font-family:var(--font);font-size:.85rem;font-weight:700;padding:.8rem 2.5rem;border-radius:99px;cursor:pointer;transition:all .2s}
+.load-more:hover{border-color:var(--forest);color:var(--forest);background:var(--sage-soft)}
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(17,26,20,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--warm-white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.96) translateY(12px);transition:transform .25s}
+.modal-overlay.open .modal{transform:scale(1) translateY(0)}
+.modal-header{background:var(--forest);padding:1.8rem 2rem;border-radius:var(--r-xl) var(--r-xl) 0 0;display:flex;align-items:flex-start;justify-content:space-between}
+.modal-header h2{font-size:1.4rem;font-weight:800;color:var(--warm-white);letter-spacing:-.03em}
+.modal-header h2 span{color:var(--amber)}.modal-header p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.3rem}
+.modal-x{background:rgba(255,255,255,.1);border:none;width:30px;height:30px;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.modal-body{padding:1.8rem 2rem}
+.mf-row{margin-bottom:1.3rem}
+.mf-row label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:.5rem}
+.mf-row input,.mf-row select,.mf-row textarea{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.9rem;padding:.75rem 1rem;outline:none;transition:border-color .2s}
+.mf-row input:focus,.mf-row select:focus,.mf-row textarea:focus{border-color:var(--forest);background:white}
+.mf-row textarea{min-height:100px;resize:vertical}
+.mf-stars{display:flex;gap:.5rem;margin-top:.4rem}
+.ms{font-size:2rem;cursor:pointer;color:var(--rule-dark);transition:color .12s}.ms.lit{color:var(--amber)}
+.modal-footer{padding:.5rem 2rem 2rem;display:flex;gap:.8rem}
+.mc{flex:1;background:none;border:1.5px solid var(--rule);border-radius:99px;color:var(--slate);padding:.8rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer}
+.ms-btn{flex:2;background:var(--forest);color:white;border:none;border-radius:99px;padding:.8rem;font-family:var(--font);font-size:.88rem;font-weight:800;cursor:pointer}
+.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;font-family:var(--font)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.page-hero{animation:fadeUp .5s ease both}.filter-bar{animation:fadeUp .5s .06s ease both}.content-grid{animation:fadeUp .5s .12s ease both}
+@media(max-width:1024px){.app-shell{grid-template-columns:1fr}.sidebar{display:none}.topbar-brand{width:auto}.gear-grid{grid-template-columns:1fr 1fr}.content-grid{grid-template-columns:1fr}.right-panel{display:none}.ph-stats{display:none}}
+@media(max-width:640px){.main{padding:1rem}.gear-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <div class="topbar">
+    <div class="topbar-brand"><div class="brand-mark">🏓</div><div><div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div><div class="brand-tagline">Pickleball Community</div></div></div>
+    <div class="topbar-search"><span class="si">🔍</span><input type="text" placeholder="Search gear by name or brand…"></div>
+    <div class="topbar-right"><button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button><button class="tb-pill solid" onclick="openModal()">+ Write Review</button><div class="tb-av">JK</div></div>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-brand-strip"><div class="sbs-label">The Pickleball Community</div><div class="sbs-name">DINK<span>REVIEWS</span></div></div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Discover</div>
+      <a class="nav-item" href="/dinkreviews/"><span class="ni">🏠</span> Dashboard</a>
+      <a class="nav-item" href="/dinkreviews/courts/"><span class="ni">🏟️</span> Courts <span class="badge">618</span></a>
+      <a class="nav-item" href="/dinkreviews/paddles/"><span class="ni">🏓</span> Paddles</a>
+      <a class="nav-item active" href="/dinkreviews/gear/"><span class="ni">👟</span> Gear</a>
+      <a class="nav-item" href="/dinkreviews/events/"><span class="ni">📅</span> Events <span class="badge new">3</span></a>
+      <a class="nav-item" href="/dinkreviews/training/"><span class="ni">🎯</span> Training</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Category</div>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Shoes <span class="filter-count">84</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Bags <span class="filter-count">52</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Balls <span class="filter-count">38</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Apparel <span class="filter-count">48</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Accessories <span class="filter-count">30</span></label>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Price Range</div>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Under $50</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> $50 – $100</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> $100+</label>
+      </div>
+    </div>
+    <div class="sidebar-bottom"><button class="write-btn-sidebar" onclick="openModal()">✏️ Review Gear</button></div>
+  </aside>
+  <main class="main">
+    <div class="page-hero">
+      <div>
+        <div class="ph-eyebrow">252 gear items rated by the community</div>
+        <div class="ph-title">Gear that keeps<br><em>you on the court.</em></div>
+        <div class="ph-sub">Shoes, bags, balls, and apparel — all tested and rated by real pickleball players.</div>
+      </div>
+      <div class="ph-stats">
+        <div class="ph-stat"><div class="ph-stat-n">252</div><div class="ph-stat-l">Items</div></div>
+        <div class="ph-stat"><div class="ph-stat-n">890</div><div class="ph-stat-l">Reviews</div></div>
+        <div class="ph-stat"><div class="ph-stat-n">4.4</div><div class="ph-stat-l">Avg Score</div></div>
+      </div>
+    </div>
+    <div class="filter-bar">
+      <div class="fb-search"><span class="fsi">🔍</span><input type="text" placeholder="Search gear…"></div>
+      <div class="fb-divider"></div>
+      <div class="fb-group">
+        <span class="fb-label">Sort:</span>
+        <button class="fb-pill on" onclick="setSort(this)">Top Rated</button>
+        <button class="fb-pill" onclick="setSort(this)">Most Reviewed</button>
+        <button class="fb-pill" onclick="setSort(this)">Newest</button>
+      </div>
+    </div>
+    <div class="content-grid">
+      <div>
+        <div class="cat-tabs">
+          <button class="cat-tab on" onclick="setCat(this)">👟 All Gear</button>
+          <button class="cat-tab" onclick="setCat(this)">👟 Shoes</button>
+          <button class="cat-tab" onclick="setCat(this)">🎒 Bags</button>
+          <button class="cat-tab" onclick="setCat(this)">🟡 Balls</button>
+          <button class="cat-tab" onclick="setCat(this)">👕 Apparel</button>
+          <button class="cat-tab" onclick="setCat(this)">⚙️ Accessories</button>
+        </div>
+        <div class="gear-grid">
+          <div class="gear-card"><div class="gc-img" style="background:linear-gradient(150deg,#0A2040,#1A3A5C);">👟<span class="gc-cat-tag">Shoes</span></div><div class="gc-body"><div class="gc-brand">ASICS</div><div class="gc-top"><div class="gc-name">Gel-Rocket 11 Court Shoes</div><div class="gc-score">5.0</div></div><div class="gc-price">$75</div><div class="gc-excerpt">"Incredible lateral support at the kitchen. Zero ankle roll on hard surfaces. The definitive court shoe recommendation for serious players."</div><div class="gc-footer"><div class="gc-reviewer">TinaL · 5 days ago</div><div class="gc-actions"><button class="gc-btn">👍 76</button><button class="gc-btn primary" onclick="openModal()">Review</button></div></div></div></div>
+          <div class="gear-card"><div class="gc-img" style="background:linear-gradient(150deg,#1A2A1A,#2E4A2E);">👟<span class="gc-cat-tag">Shoes</span></div><div class="gc-body"><div class="gc-brand">K-Swiss</div><div class="gc-top"><div class="gc-name">Express Light Pickleball</div><div class="gc-score">4.7</div></div><div class="gc-price">$95</div><div class="gc-excerpt">"Featherlight and responsive. The grip is excellent on both indoor and outdoor courts. Toe box runs a bit narrow — size up half a size."</div><div class="gc-footer"><div class="gc-reviewer">MikeK · 1 week ago</div><div class="gc-actions"><button class="gc-btn">👍 38</button><button class="gc-btn primary" onclick="openModal()">Review</button></div></div></div></div>
+          <div class="gear-card"><div class="gc-img" style="background:linear-gradient(150deg,#2A1A0A,#4A3010);">🎒<span class="gc-cat-tag">Bags</span></div><div class="gc-body"><div class="gc-brand">Selkirk</div><div class="gc-top"><div class="gc-name">Core Line Sling Bag</div><div class="gc-score">4.6</div></div><div class="gc-price">$65</div><div class="gc-excerpt">"Perfect size for 2–3 paddles plus gear essentials. The padded strap is comfortable even loaded up and the build quality feels premium."</div><div class="gc-footer"><div class="gc-reviewer">SandraB · 2 weeks ago</div><div class="gc-actions"><button class="gc-btn">👍 22</button><button class="gc-btn primary" onclick="openModal()">Review</button></div></div></div></div>
+          <div class="gear-card"><div class="gc-img" style="background:linear-gradient(150deg,#0D2A3A,#1A4050);">🟡<span class="gc-cat-tag">Balls</span></div><div class="gc-body"><div class="gc-brand">Franklin</div><div class="gc-top"><div class="gc-name">X-40 Outdoor Pickleball</div><div class="gc-score">4.8</div></div><div class="gc-price">$25 / 3-pack</div><div class="gc-excerpt">"The official USAPA tournament ball. Consistent flight, great visibility, and the durability is solid. The gold standard for outdoor play."</div><div class="gc-footer"><div class="gc-reviewer">JamieK · 3 days ago</div><div class="gc-actions"><button class="gc-btn">👍 44</button><button class="gc-btn primary" onclick="openModal()">Review</button></div></div></div></div>
+          <div class="gear-card"><div class="gc-img" style="background:linear-gradient(150deg,#1A1028,#2D1A4A);">👕<span class="gc-cat-tag">Apparel</span></div><div class="gc-body"><div class="gc-brand">Nike</div><div class="gc-top"><div class="gc-name">Court Dri-FIT Polo</div><div class="gc-score">4.4</div></div><div class="gc-price">$55</div><div class="gc-excerpt">"Stays cool during long sessions, moves well, and doesn't cling when you sweat. The collar holds its shape nicely. A reliable court polo."</div><div class="gc-footer"><div class="gc-reviewer">PauloG · 1 month ago</div><div class="gc-actions"><button class="gc-btn">👍 17</button><button class="gc-btn primary" onclick="openModal()">Review</button></div></div></div></div>
+          <div class="gear-card"><div class="gc-img" style="background:linear-gradient(150deg,#1A2E0A,#2A4A14);">⚙️<span class="gc-cat-tag">Accessories</span></div><div class="gc-body"><div class="gc-brand">Gamma</div><div class="gc-top"><div class="gc-name">Supreme Overgrip 3-Pack</div><div class="gc-score">4.5</div></div><div class="gc-price">$12</div><div class="gc-excerpt">"Tacky, thin, and moisture-wicking. Lasts about 6–8 sessions before needing a swap. The best value overgrip on the market."</div><div class="gc-footer"><div class="gc-reviewer">AlexK · 3 weeks ago</div><div class="gc-actions"><button class="gc-btn">👍 31</button><button class="gc-btn primary" onclick="openModal()">Review</button></div></div></div></div>
+        </div>
+        <div class="load-more-wrap"><button class="load-more">Load more gear →</button></div>
+      </div>
+      <div class="right-panel">
+        <div class="panel-card">
+          <div class="panel-title">Top Rated Gear</div>
+          <div class="top-row"><div class="tr-rank">01</div><div class="tr-info"><div class="tr-name">ASICS Gel-Rocket 11</div><div class="tr-sub">Shoes · $75</div></div><div class="tr-score">5.0</div></div>
+          <div class="top-row"><div class="tr-rank">02</div><div class="tr-info"><div class="tr-name">Franklin X-40 Balls</div><div class="tr-sub">Balls · $25</div></div><div class="tr-score">4.8</div></div>
+          <div class="top-row"><div class="tr-rank">03</div><div class="tr-info"><div class="tr-name">K-Swiss Express Light</div><div class="tr-sub">Shoes · $95</div></div><div class="tr-score">4.7</div></div>
+          <div class="top-row"><div class="tr-rank">04</div><div class="tr-info"><div class="tr-name">Selkirk Core Sling Bag</div><div class="tr-sub">Bag · $65</div></div><div class="tr-score">4.6</div></div>
+          <div class="top-row"><div class="tr-rank">05</div><div class="tr-info"><div class="tr-name">Gamma Supreme Overgrip</div><div class="tr-sub">Accessories · $12</div></div><div class="tr-score">4.5</div></div>
+        </div>
+        <div class="panel-card">
+          <div class="panel-title">Essential Gear Kit</div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">👟 Court Shoes</div><div class="tr-sub">Non-marking sole, lateral support</div></div></div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">🟡 Quality Balls</div><div class="tr-sub">Franklin X-40 for outdoor</div></div></div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">🎒 Paddle Bag</div><div class="tr-sub">Protects your investment</div></div></div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">⚙️ Overgrip</div><div class="tr-sub">Change every 6–8 sessions</div></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="app-footer">
+  <div style="font-weight:800;color:var(--amber);font-size:.9rem;">DINK<span style="color:rgba(255,255,255,.7)">REVIEWS</span></div>
+  <div style="display:flex;gap:1.5rem;"><a href="/dinkreviews/courts/" style="color:rgba(255,255,255,.4);text-decoration:none;">Courts</a><a href="/dinkreviews/paddles/" style="color:rgba(255,255,255,.4);text-decoration:none;">Paddles</a><a href="/dinkreviews/gear/" style="color:rgba(255,255,255,.4);text-decoration:none;">Gear</a><a href="/dinkreviews/events/" style="color:rgba(255,255,255,.4);text-decoration:none;">Events</a><a href="/dinkreviews/" style="color:rgba(255,255,255,.4);text-decoration:none;">Dashboard</a></div>
+  <div>© 2025 DINKREVIEWS</div>
+</div>
+<div class="modal-overlay" id="modal" onclick="closeOut(event)">
+  <div class="modal">
+    <div class="modal-header"><div><h2>Review <span>Gear</span></h2><p>Help the community find the best gear</p></div><button class="modal-x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div class="mf-row"><label>Category</label><select><option>👟 Shoes</option><option>🎒 Bag</option><option>🟡 Balls</option><option>👕 Apparel</option><option>⚙️ Accessories</option></select></div>
+      <div class="mf-row"><label>Product Name</label><input type="text" placeholder="e.g. ASICS Gel-Rocket 11"></div>
+      <div class="mf-row"><label>Your Rating</label><div class="mf-stars" id="mstars"><span class="ms" data-v="1" onclick="setMS(1)">★</span><span class="ms" data-v="2" onclick="setMS(2)">★</span><span class="ms" data-v="3" onclick="setMS(3)">★</span><span class="ms" data-v="4" onclick="setMS(4)">★</span><span class="ms" data-v="5" onclick="setMS(5)">★</span></div></div>
+      <div class="mf-row"><label>Your Review</label><textarea placeholder="Durability, fit, performance, value for money…"></textarea></div>
+    </div>
+    <div class="modal-footer"><button class="mc" onclick="closeModal()">Cancel</button><button class="ms-btn" onclick="doSubmit()">Submit Review</button></div>
+  </div>
+</div>
+<script>
+function setSort(el){document.querySelectorAll('.fb-pill').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
+function setCat(el){document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function closeOut(e){if(e.target.id==='modal')closeModal()}
+let mstar=0;
+function setMS(n){mstar=n;document.querySelectorAll('.ms').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n))}
+document.querySelectorAll('.ms').forEach(s=>{s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});s.addEventListener('mouseleave',()=>{document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=mstar))})});
+function doSubmit(){if(!mstar){alert('Please select a rating.');return}closeModal();setTimeout(()=>alert('✓ Gear review submitted! Thanks for contributing to DINKREVIEWS. 🏓'),200);mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'))}
+</script>
+</body>
+</html>
