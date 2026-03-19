@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write a Review — DINKREVIEWS</title>
+<meta name="description" content="Write a review on DINKREVIEWS. Rate pickleball courts, paddles, gear, and events.">
+<meta name="theme-color" content="#1A3A2A">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#1A3A2A;--forest-mid:#224835;--forest-light:#2D5C42;--amber:#F5A623;--amber-soft:#FEF3DC;--sage:#7BAE8C;--sage-soft:#EBF4EE;--cream:#FAF8F4;--warm-white:#FFFFFF;--ink:#111A14;--slate:#5C7A66;--mist:#A8C0B0;--rule:#E4EDE7;--rule-dark:#C8D9CE;--coral:#F25C38;--coral-soft:#FEF0EC;--sky:#2AA8C4;--sky-soft:#EAF7FB;--lime:#8EC63F;--lime-soft:#F2FAE6;--yellow:#F9C22E;--purple:#8B5CF6;--purple-soft:#F3EFFF;--shadow-xs:0 1px 3px rgba(26,58,42,.08);--shadow-sm:0 2px 8px rgba(26,58,42,.1);--shadow-md:0 6px 24px rgba(26,58,42,.12);--shadow-lg:0 16px 48px rgba(26,58,42,.15);--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;--font:'Plus Jakarta Sans',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.app-shell{display:grid;grid-template-columns:260px 1fr;grid-template-rows:56px 1fr;min-height:100vh}
+.topbar{grid-column:1/-1;background:var(--forest);display:flex;align-items:center;padding:0 1.5rem 0 0;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:200}
+.topbar-brand{width:260px;flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0 1.5rem;border-right:1px solid rgba(255,255,255,.08);height:56px}
+.brand-mark{width:32px;height:32px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 2px 10px rgba(245,166,35,.5)}
+.brand-name{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.brand-name .dr-dink{color:var(--warm-white)}.brand-name .dr-reviews{color:var(--amber)}
+.brand-tagline{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.tb-pill{font-size:.75rem;font-weight:700;padding:.42rem 1rem;border-radius:99px;cursor:pointer;font-family:var(--font);border:none;transition:all .15s}
+.tb-pill.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}.tb-pill.ghost:hover{background:rgba(255,255,255,.15);color:var(--warm-white)}
+.tb-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--amber));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:var(--forest);cursor:pointer;border:2px solid rgba(255,255,255,.15)}
+/* SIDEBAR */
+.sidebar{background:var(--warm-white);border-right:1px solid var(--rule);padding:1.5rem 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{display:none}
+.sidebar-brand-strip{padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--rule);margin-bottom:.5rem}
+.sbs-label{font-size:.58rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+.sbs-name{font-size:.92rem;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.2;margin-top:.1rem}.sbs-name span{color:var(--amber)}
+.sidebar-section{margin-bottom:1.8rem}
+.sidebar-label{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0 1.2rem;margin-bottom:.5rem}
+.nav-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 1.2rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--slate);transition:background .15s,color .15s;border-left:2px solid transparent;text-decoration:none}
+.nav-item:hover{background:var(--sage-soft);color:var(--ink)}.nav-item.active{background:var(--sage-soft);color:var(--forest);border-left-color:var(--forest);font-weight:700}
+.nav-item .ni{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+.nav-item .badge{margin-left:auto;font-size:.65rem;font-weight:800;background:var(--amber);color:var(--forest);padding:.12rem .45rem;border-radius:99px}
+.nav-item .badge.new{background:var(--coral);color:white}
+/* MAIN */
+.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:2rem;align-items:center}
+/* REVIEW FORM */
+.review-wrap{width:100%;max-width:780px;display:grid;grid-template-columns:1fr 280px;gap:1.5rem;align-items:start}
+.review-form-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-xl);box-shadow:var(--shadow-md);overflow:hidden}
+.rfc-header{background:var(--forest);padding:2rem 2.5rem;position:relative;overflow:hidden}
+.rfc-header::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:20px 20px}
+.rfc-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
+.rfc-title{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;color:var(--warm-white);line-height:1.15}
+.rfc-title em{font-style:normal;color:var(--amber)}
+.rfc-sub{font-size:.85rem;color:rgba(255,255,255,.45);margin-top:.4rem}
+.rfc-body{padding:2rem 2.5rem;display:flex;flex-direction:column;gap:1.5rem}
+/* Step indicator */
+.steps{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.step{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;transition:all .2s}
+.step.done{background:var(--forest);color:white}
+.step.active{background:var(--amber);color:var(--forest)}
+.step.todo{background:var(--rule);color:var(--mist)}
+.step-line{flex:1;height:2px;background:var(--rule);border-radius:1px}
+.step-line.done{background:var(--forest)}
+.step-labels{display:flex;justify-content:space-between;margin-bottom:1.5rem}
+.step-label{font-size:.65rem;font-weight:700;color:var(--mist);text-align:center;flex:1}
+.step-label.active{color:var(--forest)}
+/* Category selector */
+.cat-selector{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem}
+.cat-option{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:.8rem .4rem;border-radius:var(--r-md);border:2px solid var(--rule);background:var(--warm-white);cursor:pointer;transition:all .2s;font-family:var(--font)}
+.cat-option:hover{border-color:var(--forest);background:var(--sage-soft)}
+.cat-option.selected{border-color:var(--forest);background:var(--sage-soft)}
+.cat-option.selected .co-icon{transform:scale(1.15)}
+.co-icon{font-size:1.6rem;transition:transform .2s}
+.co-label{font-size:.68rem;font-weight:700;color:var(--slate);text-align:center;line-height:1.2}
+.cat-option.selected .co-label{color:var(--forest)}
+/* Form fields */
+.form-section{border-top:1px solid var(--rule);padding-top:1.5rem}
+.fs-title{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);margin-bottom:1rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-grid.full{grid-template-columns:1fr}
+.mf-row{display:flex;flex-direction:column;gap:.45rem}
+.mf-row label{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+.mf-row input,.mf-row select,.mf-row textarea{background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.92rem;padding:.8rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.mf-row input:focus,.mf-row select:focus,.mf-row textarea:focus{border-color:var(--forest);box-shadow:0 0 0 3px rgba(26,58,42,.08);background:white}
+.mf-row textarea{min-height:140px;resize:vertical;line-height:1.6}
+/* Star rating large */
+.star-rating-lg{display:flex;gap:.5rem;align-items:center}
+.srl-star{font-size:2.4rem;cursor:pointer;color:var(--rule-dark);transition:color .1s,transform .1s;line-height:1}
+.srl-star:hover{transform:scale(1.15)}
+.srl-star.lit{color:var(--amber)}
+.srl-label{font-size:.88rem;font-weight:700;color:var(--mist);margin-left:.5rem}
+/* Char counter */
+.char-counter{font-size:.7rem;color:var(--mist);text-align:right;margin-top:.25rem}
+/* Tips */
+.review-tips{background:var(--sage-soft);border:1px solid var(--rule);border-radius:var(--r-sm);padding:.9rem 1rem;font-size:.78rem;color:var(--slate);line-height:1.6}
+.review-tips strong{color:var(--forest);font-weight:700}
+/* Submit */
+.submit-row{display:flex;gap:.8rem;padding-top:.5rem}
+.btn-cancel-full{flex:1;background:none;border:1.5px solid var(--rule);border-radius:99px;color:var(--slate);padding:.9rem;font-family:var(--font);font-size:.88rem;font-weight:700;cursor:pointer;transition:all .15s}
+.btn-cancel-full:hover{border-color:var(--ink);color:var(--ink)}
+.btn-submit-full{flex:3;background:var(--forest);color:white;border:none;border-radius:99px;padding:.9rem;font-family:var(--font);font-size:.95rem;font-weight:800;cursor:pointer;transition:background .2s,box-shadow .2s;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-submit-full:hover{background:var(--forest-light);box-shadow:var(--shadow-md)}
+/* Right sidebar */
+.review-sidebar{display:flex;flex-direction:column;gap:1.2rem}
+.rs-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow-xs)}
+.rs-title{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:1rem}
+.tip-item{display:flex;gap:.7rem;margin-bottom:.8rem;font-size:.8rem;color:var(--slate);line-height:1.5}
+.tip-item:last-child{margin-bottom:0}
+.tip-icon{font-size:1rem;flex-shrink:0;margin-top:.05rem}
+.tip-item strong{color:var(--ink);font-weight:700;display:block;margin-bottom:.15rem}
+.recent-review{padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.recent-review:last-child{border-bottom:none}
+.rr-name{font-size:.82rem;font-weight:700;color:var(--ink)}
+.rr-cat{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--amber);margin-bottom:.2rem}
+.rr-stars{font-size:.75rem;color:var(--amber)}
+.rr-excerpt{font-size:.75rem;color:var(--mist);margin-top:.15rem}
+/* SUCCESS STATE */
+.success-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:3rem 2.5rem;text-align:center;display:none;max-width:520px;margin:0 auto}
+.success-card.show{display:block}
+.success-icon{font-size:4rem;margin-bottom:1rem}
+.success-title{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;color:var(--forest);margin-bottom:.5rem}
+.success-sub{font-size:.95rem;color:var(--slate);line-height:1.65;margin-bottom:2rem}
+.success-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.sa-btn{background:var(--forest);color:white;border:none;border-radius:99px;padding:.8rem 1.8rem;font-family:var(--font);font-size:.88rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.sa-btn.ghost{background:none;border:1.5px solid var(--rule);color:var(--slate)}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.review-wrap{animation:fadeUp .5s ease both}
+.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;font-family:var(--font)}
+@media(max-width:1024px){.app-shell{grid-template-columns:1fr}.sidebar{display:none}.topbar-brand{width:auto}.review-wrap{grid-template-columns:1fr}.review-sidebar{display:none}}
+@media(max-width:640px){.main{padding:1rem}.cat-selector{grid-template-columns:repeat(3,1fr)}.form-grid{grid-template-columns:1fr}.rfc-body{padding:1.5rem}}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <div class="topbar">
+    <div class="topbar-brand"><div class="brand-mark">🏓</div><div><div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div><div class="brand-tagline">Pickleball Community</div></div></div>
+    <div style="flex:1"></div>
+    <div class="topbar-right">
+      <button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button>
+      <div class="tb-av">JK</div>
+    </div>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-brand-strip"><div class="sbs-label">The Pickleball Community</div><div class="sbs-name">DINK<span>REVIEWS</span></div></div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Discover</div>
+      <a class="nav-item" href="/dinkreviews/"><span class="ni">🏠</span> Dashboard</a>
+      <a class="nav-item" href="/dinkreviews/courts/"><span class="ni">🏟️</span> Courts <span class="badge">618</span></a>
+      <a class="nav-item" href="/dinkreviews/paddles/"><span class="ni">🏓</span> Paddles</a>
+      <a class="nav-item" href="/dinkreviews/gear/"><span class="ni">👟</span> Gear</a>
+      <a class="nav-item" href="/dinkreviews/events/"><span class="ni">📅</span> Events <span class="badge new">3</span></a>
+      <a class="nav-item" href="/dinkreviews/training/"><span class="ni">🎯</span> Training</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">My Activity</div>
+      <a class="nav-item active" href="/dinkreviews/review/"><span class="ni">✏️</span> Write a Review</a>
+      <a class="nav-item" href="#"><span class="ni">❤️</span> Saved</a>
+    </div>
+  </aside>
+  <main class="main">
+    <!-- FORM -->
+    <div class="review-wrap" id="formWrap">
+      <div class="review-form-card">
+        <div class="rfc-header">
+          <div class="rfc-eyebrow">DINKREVIEWS Community</div>
+          <div class="rfc-title">Write a <em>Review</em></div>
+          <div class="rfc-sub">Your experience helps thousands of players make better decisions.</div>
+        </div>
+        <div class="rfc-body">
+          <!-- Step indicator -->
+          <div>
+            <div class="steps">
+              <div class="step active" id="s1">1</div>
+              <div class="step-line" id="sl1"></div>
+              <div class="step todo" id="s2">2</div>
+              <div class="step-line" id="sl2"></div>
+              <div class="step todo" id="s3">3</div>
+            </div>
+            <div class="step-labels">
+              <span class="step-label active">Category</span>
+              <span class="step-label" id="sl-details">Details</span>
+              <span class="step-label" id="sl-review">Review</span>
+            </div>
+          </div>
+          <!-- Category select -->
+          <div id="step1">
+            <div class="fs-title">What are you reviewing?</div>
+            <div class="cat-selector">
+              <button class="cat-option selected" onclick="selectCat(this,'court')" id="cat-court"><span class="co-icon">🏟️</span><span class="co-label">Court</span></button>
+              <button class="cat-option" onclick="selectCat(this,'paddle')" id="cat-paddle"><span class="co-icon">🏓</span><span class="co-label">Paddle</span></button>
+              <button class="cat-option" onclick="selectCat(this,'gear')" id="cat-gear"><span class="co-icon">👟</span><span class="co-label">Gear</span></button>
+              <button class="cat-option" onclick="selectCat(this,'event')" id="cat-event"><span class="co-icon">📅</span><span class="co-label">Event</span></button>
+              <button class="cat-option" onclick="selectCat(this,'training')" id="cat-training"><span class="co-icon">🎯</span><span class="co-label">Training</span></button>
+            </div>
+          </div>
+          <!-- Details -->
+          <div class="form-section">
+            <div class="fs-title">Basic details</div>
+            <div class="form-grid">
+              <div class="mf-row"><label id="name-label">Court Name</label><input type="text" id="item-name" placeholder="e.g. Plummer Park Courts"></div>
+              <div class="mf-row"><label id="loc-label">Location / Brand</label><input type="text" id="item-loc" placeholder="City, State or Brand name"></div>
+            </div>
+            <div class="form-grid full" style="margin-top:1rem" id="extra-field-wrap">
+              <div class="mf-row"><label id="extra-label">Court Type</label>
+                <select id="extra-select">
+                  <option>Outdoor — Public / Free</option>
+                  <option>Outdoor — Paid / Reservation</option>
+                  <option>Indoor — Public</option>
+                  <option>Indoor — Membership / Club</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Rating + Review -->
+          <div class="form-section">
+            <div class="fs-title">Your Rating</div>
+            <div class="star-rating-lg" id="starRow">
+              <span class="srl-star" data-v="1" onclick="setRating(1)">★</span>
+              <span class="srl-star" data-v="2" onclick="setRating(2)">★</span>
+              <span class="srl-star" data-v="3" onclick="setRating(3)">★</span>
+              <span class="srl-star" data-v="4" onclick="setRating(4)">★</span>
+              <span class="srl-star" data-v="5" onclick="setRating(5)">★</span>
+              <span class="srl-label" id="rating-label">Tap to rate</span>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="fs-title">Your Review</div>
+            <div class="mf-row form-grid full">
+              <label>Write your review</label>
+              <textarea id="review-text" placeholder="Share what stood out — what you loved, what could be improved, and any tips for fellow players. The more detail, the more helpful!" oninput="updateChar()"></textarea>
+              <div class="char-counter"><span id="charCount">0</span> / 1000 characters</div>
+            </div>
+            <div class="review-tips" style="margin-top:.5rem">
+              <strong>💡 Great reviews mention:</strong> Surface condition, net quality, community vibe, open play schedule, parking/facilities. The more specific, the more helpful to other players!
+            </div>
+          </div>
+          <div class="submit-row">
+            <button class="btn-cancel-full" onclick="window.location='/dinkreviews/'">Cancel</button>
+            <button class="btn-submit-full" onclick="submitReview()">Submit Review to DINKREVIEWS 🏓</button>
+          </div>
+        </div>
+      </div>
+      <!-- Right sidebar -->
+      <div class="review-sidebar">
+        <div class="rs-card">
+          <div class="rs-title">Writing Tips</div>
+          <div class="tip-item"><span class="tip-icon">🏟️</span><div><strong>For Courts</strong>Mention surface condition, net quality, lighting, parking, and community vibe.</div></div>
+          <div class="tip-item"><span class="tip-icon">🏓</span><div><strong>For Paddles</strong>Include your skill level, playing style, core thickness, and break-in experience.</div></div>
+          <div class="tip-item"><span class="tip-icon">👟</span><div><strong>For Gear</strong>Share fit notes, durability after extended use, and value for money.</div></div>
+          <div class="tip-item"><span class="tip-icon">📅</span><div><strong>For Events</strong>Cover organization, competition level, atmosphere, and what to expect.</div></div>
+        </div>
+        <div class="rs-card">
+          <div class="rs-title">Recent Reviews</div>
+          <div class="recent-review"><div class="rr-cat">Court</div><div class="rr-name">Plummer Park</div><div class="rr-stars">★★★★★</div><div class="rr-excerpt">"Best free courts in LA…"</div></div>
+          <div class="recent-review"><div class="rr-cat">Paddle</div><div class="rr-name">Joola Ben Johns Hyperion</div><div class="rr-stars">★★★★★</div><div class="rr-excerpt">"Spin control is next-level…"</div></div>
+          <div class="recent-review"><div class="rr-cat">Gear</div><div class="rr-name">ASICS Gel-Rocket 11</div><div class="rr-stars">★★★★★</div><div class="rr-excerpt">"Zero ankle roll…"</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- SUCCESS -->
+    <div class="success-card" id="successCard">
+      <div class="success-icon">🏓</div>
+      <div class="success-title">Review Submitted!</div>
+      <div class="success-sub">Thank you for contributing to DINKREVIEWS. Your review helps players across the community find the best courts, gear, and events.</div>
+      <div class="success-actions">
+        <a class="sa-btn" href="/dinkreviews/">← Back to Dashboard</a>
+        <a class="sa-btn ghost" href="/dinkreviews/review/">Write Another</a>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="app-footer">
+  <div style="font-weight:800;color:var(--amber);font-size:.9rem;">DINK<span style="color:rgba(255,255,255,.7)">REVIEWS</span></div>
+  <div style="display:flex;gap:1.5rem;"><a href="/dinkreviews/courts/" style="color:rgba(255,255,255,.4);text-decoration:none;">Courts</a><a href="/dinkreviews/paddles/" style="color:rgba(255,255,255,.4);text-decoration:none;">Paddles</a><a href="/dinkreviews/gear/" style="color:rgba(255,255,255,.4);text-decoration:none;">Gear</a><a href="/dinkreviews/events/" style="color:rgba(255,255,255,.4);text-decoration:none;">Events</a><a href="/dinkreviews/" style="color:rgba(255,255,255,.4);text-decoration:none;">Dashboard</a></div>
+  <div>© 2025 DINKREVIEWS</div>
+</div>
+<script>
+let selectedCat = 'court';
+let rating = 0;
+const catConfig = {
+  court:    {name:'Court Name',      loc:'Location (City, State)', extra:'Court Type',    extraType:'select', extraOpts:['Outdoor — Public / Free','Outdoor — Paid','Indoor — Public','Indoor — Membership']},
+  paddle:   {name:'Paddle Name',     loc:'Brand',                  extra:'Your Skill Level', extraType:'select', extraOpts:['2.5 – Beginner','3.0','3.5','4.0','4.5','5.0 – Pro']},
+  gear:     {name:'Product Name',    loc:'Brand',                  extra:'Category',       extraType:'select', extraOpts:['Shoes','Bag','Balls','Apparel','Accessories']},
+  event:    {name:'Event Name',      loc:'Location (City, State)', extra:'Event Type',     extraType:'select', extraOpts:['Tournament','Open Play','Clinic','Social Event']},
+  training: {name:'Clinic / Coach',  loc:'Location (City, State)', extra:'Skill Level',   extraType:'select', extraOpts:['Beginner','Intermediate','Advanced']}
+};
+const tipText = {
+  court:'Mention surface condition, net quality, lighting, parking, and community vibe.',
+  paddle:'Include your skill level, playing style, core thickness, and break-in experience.',
+  gear:'Share fit, durability after extended use, and value for money.',
+  event:'Cover organization, competition level, atmosphere, and what to expect.',
+  training:'Cover coach quality, group size, skill improvement, and value.'
+};
+const placeholders = {
+  court:"What did you think? Surface condition, community vibe, open play schedule, facilities…",
+  paddle:"Spin, power, control, feel, durability, break-in period, best for what playing style…",
+  gear:"Fit, durability, performance on court, value for money, sizing notes…",
+  event:"Organization, competition level, energy, food/vendors, what to bring next time…",
+  training:"Coach quality, group size, drills, how much you improved, worth the price…"
+};
+function selectCat(el, cat) {
+  document.querySelectorAll('.cat-option').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedCat = cat;
+  const cfg = catConfig[cat];
+  document.getElementById('name-label').textContent = cfg.name;
+  document.getElementById('loc-label').textContent = cfg.loc;
+  document.getElementById('extra-label').textContent = cfg.extra;
+  document.getElementById('item-name').placeholder = 'e.g. ' + (cat==='court'?'Plummer Park Courts':cat==='paddle'?'Joola Ben Johns Hyperion':cat==='gear'?'ASICS Gel-Rocket 11':cat==='event'?'SoCal Classic Open':'Third Shot Drop Clinic');
+  const sel = document.getElementById('extra-select');
+  sel.innerHTML = cfg.extraOpts.map(o=>`<option>${o}</option>`).join('');
+  document.getElementById('review-text').placeholder = placeholders[cat];
+  document.querySelector('.review-tips').innerHTML = `<strong>💡 Great reviews mention:</strong> ${tipText[cat]}`;
+}
+function setRating(n) {
+  rating = n;
+  const labels = ['','Poor — 1 star','Fair — 2 stars','Good — 3 stars','Great — 4 stars','Outstanding — 5 stars'];
+  document.getElementById('rating-label').textContent = labels[n];
+  document.querySelectorAll('.srl-star').forEach(s => s.classList.toggle('lit', parseInt(s.dataset.v) <= n));
+}
+document.querySelectorAll('.srl-star').forEach(s => {
+  s.addEventListener('mouseenter', () => {
+    const v = parseInt(s.dataset.v);
+    document.querySelectorAll('.srl-star').forEach(x => x.classList.toggle('lit', parseInt(x.dataset.v) <= v));
+  });
+  s.addEventListener('mouseleave', () => {
+    document.querySelectorAll('.srl-star').forEach(x => x.classList.toggle('lit', parseInt(x.dataset.v) <= rating));
+  });
+});
+function updateChar() {
+  const len = document.getElementById('review-text').value.length;
+  document.getElementById('charCount').textContent = len;
+}
+function submitReview() {
+  const name = document.getElementById('item-name').value.trim();
+  if (!name) { alert('Please enter a name for what you\'re reviewing.'); return; }
+  if (!rating) { alert('Please select a star rating.'); return; }
+  const text = document.getElementById('review-text').value.trim();
+  if (text.length < 20) { alert('Please write at least 20 characters in your review.'); return; }
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('successCard').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
