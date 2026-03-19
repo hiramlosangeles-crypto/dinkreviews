@@ -61,9 +61,6 @@ body {
   display: flex; flex-direction: column;
 }
 
-/* ══════════════════════════════════
-   LAYOUT SHELL — sidebar + main
-══════════════════════════════════ */
 .app-shell {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -80,7 +77,6 @@ body {
   border-bottom: 1px solid rgba(255,255,255,.06);
   position: sticky; top: 0; z-index: 200;
 }
-
 .topbar-brand {
   width: 260px; flex-shrink: 0;
   display: flex; align-items: center; gap: 10px;
@@ -94,363 +90,140 @@ body {
   font-size: 1rem; flex-shrink: 0;
   box-shadow: 0 2px 10px rgba(245,166,35,.5);
 }
-.brand-name {
-  font-size: 1.05rem; font-weight: 800; color: var(--warm-white);
-  letter-spacing: -.03em; line-height: 1;
-}
+.brand-name { font-size: 1.05rem; font-weight: 800; color: var(--warm-white); letter-spacing: -.03em; line-height: 1; }
 .brand-name .dr-dink { color: var(--warm-white); }
 .brand-name .dr-reviews { color: var(--amber); }
-.brand-tagline {
-  font-size: .55rem; font-weight: 600; letter-spacing: .12em;
-  text-transform: uppercase; color: rgba(255,255,255,.3);
-  margin-top: .2rem; line-height: 1;
-}
-
-/* Search */
-.topbar-search {
-  flex: 1; max-width: 480px; margin-left: 1.5rem; position: relative;
-}
-.topbar-search input {
-  width: 100%; background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12); border-radius: 99px;
-  color: var(--warm-white); font-family: var(--font); font-size: .85rem;
-  padding: .5rem 1rem .5rem 2.5rem; outline: none;
-  transition: background .2s, border-color .2s;
-}
+.brand-tagline { font-size: .55rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: .2rem; line-height: 1; }
+.topbar-search { flex: 1; max-width: 480px; margin-left: 1.5rem; position: relative; }
+.topbar-search input { width: 100%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 99px; color: var(--warm-white); font-family: var(--font); font-size: .85rem; padding: .5rem 1rem .5rem 2.5rem; outline: none; transition: background .2s, border-color .2s; }
 .topbar-search input::placeholder { color: rgba(255,255,255,.35); }
 .topbar-search input:focus { background: rgba(255,255,255,.14); border-color: var(--amber); }
-.topbar-search .si {
-  position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
-  font-size: .8rem; color: rgba(255,255,255,.4);
-}
-
-/* Topbar right */
+.topbar-search .si { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); font-size: .8rem; color: rgba(255,255,255,.4); }
 .topbar-right { margin-left: auto; display: flex; align-items: center; gap: .75rem; }
-.tb-pill {
-  font-size: .75rem; font-weight: 700; padding: .42rem 1rem;
-  border-radius: 99px; cursor: pointer; font-family: var(--font);
-  border: none; transition: all .15s;
-}
+.tb-pill { font-size: .75rem; font-weight: 700; padding: .42rem 1rem; border-radius: 99px; cursor: pointer; font-family: var(--font); border: none; transition: all .15s; }
 .tb-pill.ghost { background: rgba(255,255,255,.08); color: rgba(255,255,255,.7); }
 .tb-pill.ghost:hover { background: rgba(255,255,255,.15); color: var(--warm-white); }
 .tb-pill.solid { background: var(--amber); color: var(--forest); box-shadow: 0 2px 10px rgba(245,166,35,.4); }
 .tb-pill.solid:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(245,166,35,.5); }
-.tb-av {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--sage), var(--amber));
-  display: flex; align-items: center; justify-content: center;
-  font-size: .65rem; font-weight: 800; color: var(--forest); cursor: pointer;
-  border: 2px solid rgba(255,255,255,.15);
-}
+.tb-av { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--sage), var(--amber)); display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 800; color: var(--forest); cursor: pointer; border: 2px solid rgba(255,255,255,.15); }
 
 /* ── LEFT SIDEBAR ── */
-.sidebar {
-  background: var(--warm-white);
-  border-right: 1px solid var(--rule);
-  padding: 1.5rem 0;
-  position: sticky; top: 56px;
-  height: calc(100vh - 56px);
-  overflow-y: auto;
-  scrollbar-width: none;
-  display: flex; flex-direction: column;
-}
-/* DINKREVIEWS sidebar identity strip */
-.sidebar-brand-strip {
-  padding: .6rem 1.2rem 1.2rem;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: .5rem;
-}
-.sbs-label {
-  font-size: .58rem; font-weight: 800; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--mist);
-}
-.sbs-name {
-  font-size: .92rem; font-weight: 800; letter-spacing: -.03em;
-  color: var(--forest); line-height: 1.2; margin-top: .1rem;
-}
+.sidebar { background: var(--warm-white); border-right: 1px solid var(--rule); padding: 1.5rem 0; position: sticky; top: 56px; height: calc(100vh - 56px); overflow-y: auto; scrollbar-width: none; display: flex; flex-direction: column; }
+.sidebar-brand-strip { padding: .6rem 1.2rem 1.2rem; border-bottom: 1px solid var(--rule); margin-bottom: .5rem; }
+.sbs-label { font-size: .58rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mist); }
+.sbs-name { font-size: .92rem; font-weight: 800; letter-spacing: -.03em; color: var(--forest); line-height: 1.2; margin-top: .1rem; }
 .sbs-name span { color: var(--amber); }
 .sidebar::-webkit-scrollbar { display: none; }
-
 .sidebar-section { margin-bottom: 1.8rem; }
-.sidebar-label {
-  font-size: .62rem; font-weight: 800; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--mist);
-  padding: 0 1.2rem; margin-bottom: .5rem;
-}
-
-.nav-item {
-  display: flex; align-items: center; gap: .75rem;
-  padding: .6rem 1.2rem; cursor: pointer;
-  font-size: .85rem; font-weight: 600; color: var(--slate);
-  transition: background .15s, color .15s;
-  border-left: 2px solid transparent;
-  text-decoration: none;
-}
+.sidebar-label { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--mist); padding: 0 1.2rem; margin-bottom: .5rem; }
+.nav-item { display: flex; align-items: center; gap: .75rem; padding: .6rem 1.2rem; cursor: pointer; font-size: .85rem; font-weight: 600; color: var(--slate); transition: background .15s, color .15s; border-left: 2px solid transparent; text-decoration: none; }
 .nav-item:hover { background: var(--sage-soft); color: var(--ink); }
-.nav-item.active {
-  background: var(--sage-soft); color: var(--forest);
-  border-left-color: var(--forest); font-weight: 700;
-}
+.nav-item.active { background: var(--sage-soft); color: var(--forest); border-left-color: var(--forest); font-weight: 700; }
 .nav-item .ni { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
-.nav-item .badge {
-  margin-left: auto; font-size: .65rem; font-weight: 800;
-  background: var(--amber); color: var(--forest);
-  padding: .12rem .45rem; border-radius: 99px;
-}
+.nav-item .badge { margin-left: auto; font-size: .65rem; font-weight: 800; background: var(--amber); color: var(--forest); padding: .12rem .45rem; border-radius: 99px; }
 .nav-item .badge.new { background: var(--coral); color: white; }
-
-/* Sidebar filter group */
 .filter-group { padding: 0 1.2rem; }
-.filter-group-title {
-  font-size: .7rem; font-weight: 700; color: var(--slate);
-  margin-bottom: .6rem; display: flex; align-items: center; justify-content: space-between;
-}
-.filter-group-title button {
-  font-size: .65rem; color: var(--sage); background: none; border: none;
-  cursor: pointer; font-family: var(--font); font-weight: 700;
-}
-.filter-check {
-  display: flex; align-items: center; gap: .6rem;
-  font-size: .8rem; color: var(--slate); padding: .3rem 0; cursor: pointer;
-  transition: color .15s;
-}
+.filter-group-title { font-size: .7rem; font-weight: 700; color: var(--slate); margin-bottom: .6rem; display: flex; align-items: center; justify-content: space-between; }
+.filter-group-title button { font-size: .65rem; color: var(--sage); background: none; border: none; cursor: pointer; font-family: var(--font); font-weight: 700; }
+.filter-check { display: flex; align-items: center; gap: .6rem; font-size: .8rem; color: var(--slate); padding: .3rem 0; cursor: pointer; transition: color .15s; }
 .filter-check:hover { color: var(--ink); }
-.check-box {
-  width: 16px; height: 16px; border-radius: 4px;
-  border: 1.5px solid var(--rule-dark); background: var(--warm-white);
-  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-  font-size: .6rem; transition: all .15s;
-}
-.filter-check.checked .check-box {
-  background: var(--forest); border-color: var(--forest); color: white;
-}
+.check-box { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--rule-dark); background: var(--warm-white); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .6rem; transition: all .15s; }
+.filter-check.checked .check-box { background: var(--forest); border-color: var(--forest); color: white; }
 .filter-count { margin-left: auto; font-size: .7rem; color: var(--mist); }
-
-/* Rating range */
 .rating-range { margin-top: .4rem; }
 .range-row { display: flex; justify-content: space-between; font-size: .72rem; color: var(--slate); margin-bottom: .4rem; }
-.range-track {
-  height: 4px; background: var(--rule); border-radius: 99px; position: relative; margin-bottom: .3rem;
-}
-.range-fill {
-  position: absolute; left: 60%; right: 0; top: 0; bottom: 0;
-  background: var(--amber); border-radius: 99px;
-}
-
-/* Sidebar bottom */
-.sidebar-bottom {
-  margin-top: auto; padding: 1.2rem;
-  border-top: 1px solid var(--rule);
-}
-.write-btn-sidebar {
-  width: 100%; background: var(--forest); color: var(--warm-white);
-  border: none; border-radius: var(--r-md); padding: .85rem;
-  font-family: var(--font); font-size: .85rem; font-weight: 700;
-  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem;
-  transition: background .2s, box-shadow .2s;
-  box-shadow: var(--shadow-sm);
-}
+.range-track { height: 4px; background: var(--rule); border-radius: 99px; position: relative; margin-bottom: .3rem; }
+.range-fill { position: absolute; left: 60%; right: 0; top: 0; bottom: 0; background: var(--amber); border-radius: 99px; }
+.sidebar-bottom { margin-top: auto; padding: 1.2rem; border-top: 1px solid var(--rule); }
+.write-btn-sidebar { width: 100%; background: var(--forest); color: var(--warm-white); border: none; border-radius: var(--r-md); padding: .85rem; font-family: var(--font); font-size: .85rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem; transition: background .2s, box-shadow .2s; box-shadow: var(--shadow-sm); }
 .write-btn-sidebar:hover { background: var(--forest-light); box-shadow: var(--shadow-md); }
 
 /* ── MAIN CONTENT ── */
-.main {
-  padding: 2rem;
-  overflow-y: auto;
-  display: flex; flex-direction: column; gap: 2rem;
-}
+.main { padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 2rem; }
 
 /* ── WELCOME BAR ── */
-.welcome-bar {
-  background: var(--forest);
-  border-radius: var(--r-lg);
-  padding: 2rem 2.5rem;
-  display: grid; grid-template-columns: 1fr auto;
-  align-items: center; gap: 2rem;
-  overflow: hidden; position: relative;
-}
-.welcome-bar::before {
-  content: '';
-  position: absolute; right: -40px; top: -40px;
-  width: 280px; height: 280px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(245,166,35,.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.welcome-bar::after {
-  content: '';
-  position: absolute; left: -30px; bottom: -60px;
-  width: 200px; height: 200px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(123,174,140,.1) 0%, transparent 70%);
-  pointer-events: none;
-}
-/* Pickleball hole-pattern overlay */
-.welcome-bar .pb-pattern {
-  position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: var(--r-lg);
-  opacity: .045;
-  background-image: radial-gradient(circle, #fff 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
-}
+.welcome-bar { background: var(--forest); border-radius: var(--r-lg); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; overflow: hidden; position: relative; }
+.welcome-bar::before { content: ''; position: absolute; right: -40px; top: -40px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,.18) 0%, transparent 70%); pointer-events: none; }
+.welcome-bar::after { content: ''; position: absolute; left: -30px; bottom: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(123,174,140,.1) 0%, transparent 70%); pointer-events: none; }
+.welcome-bar .pb-pattern { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: var(--r-lg); opacity: .045; background-image: radial-gradient(circle, #fff 1.5px, transparent 1.5px); background-size: 22px 22px; }
 .welcome-text {}
-.welcome-eyebrow {
-  font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--amber); margin-bottom: .6rem;
-  display: flex; align-items: center; gap: .6rem;
-}
+.welcome-eyebrow { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: .6rem; display: flex; align-items: center; gap: .6rem; }
 .welcome-eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--amber); display: block; }
-.welcome-h {
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 800; line-height: 1.15;
-  letter-spacing: -.03em; color: var(--warm-white); margin-bottom: .5rem;
-}
+.welcome-h { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 800; line-height: 1.15; letter-spacing: -.03em; color: var(--warm-white); margin-bottom: .5rem; }
 .welcome-h em { font-style: normal; color: var(--amber); }
 .welcome-sub { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.6; max-width: 460px; }
-
-.welcome-stats {
-  display: flex; gap: 1.5rem; position: relative; z-index: 1;
-}
-.wstat {
-  text-align: center; background: rgba(255,255,255,.07); border-radius: var(--r-md);
-  padding: 1rem 1.4rem; border: 1px solid rgba(255,255,255,.08);
-  min-width: 90px;
-}
+.welcome-stats { display: flex; gap: 1.5rem; position: relative; z-index: 1; }
+.wstat { text-align: center; background: rgba(255,255,255,.07); border-radius: var(--r-md); padding: 1rem 1.4rem; border: 1px solid rgba(255,255,255,.08); min-width: 90px; }
 .wstat-n { font-size: 1.8rem; font-weight: 800; letter-spacing: -.04em; color: var(--amber); line-height: 1; }
 .wstat-l { font-size: .65rem; font-weight: 600; color: rgba(255,255,255,.45); margin-top: .3rem; text-transform: uppercase; letter-spacing: .08em; }
 
 /* ── QUICK ACTIONS ── */
-.quick-actions {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
-}
-.qa-card {
-  background: var(--warm-white); border-radius: var(--r-md);
-  box-shadow: var(--shadow-xs); border: 1px solid var(--rule);
-  padding: 1.3rem; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s;
-  display: flex; flex-direction: column; gap: .7rem;
-}
+.quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.qa-card { background: var(--warm-white); border-radius: var(--r-md); box-shadow: var(--shadow-xs); border: 1px solid var(--rule); padding: 1.3rem; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s; display: flex; flex-direction: column; gap: .7rem; }
 .qa-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--rule-dark); }
-.qa-icon {
-  width: 42px; height: 42px; border-radius: var(--r-sm);
-  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-}
+.qa-icon { width: 42px; height: 42px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
 .qa-label { font-size: .82rem; font-weight: 700; letter-spacing: -.01em; }
 .qa-count { font-size: .72rem; color: var(--slate); font-weight: 500; }
-.qa-card.qa-write {
-  background: var(--amber); border-color: transparent;
-  box-shadow: 0 4px 16px rgba(245,166,35,.35);
-}
+.qa-card.qa-write { background: var(--amber); border-color: transparent; box-shadow: 0 4px 16px rgba(245,166,35,.35); }
 .qa-card.qa-write .qa-label { color: var(--forest); font-size: .9rem; }
 .qa-card.qa-write .qa-count { color: rgba(26,58,42,.65); }
 .qa-card.qa-write .qa-icon { background: rgba(26,58,42,.12); }
 .qa-card.qa-write:hover { box-shadow: 0 6px 24px rgba(245,166,35,.5); }
 
-/* ── TWO-COL: REVIEWS + PANEL ── */
-.content-grid {
-  display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem;
-}
+/* ── CONTENT GRID ── */
+.content-grid { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; }
 
 /* ── REVIEW LIST ── */
-.review-list-col {}
-.section-head {
-  display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
-}
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
 .section-title { font-size: 1rem; font-weight: 800; letter-spacing: -.02em; }
 .section-title .dot { color: var(--amber); }
 .view-all { font-size: .75rem; font-weight: 700; color: var(--sage); text-decoration: none; transition: color .2s; }
 .view-all:hover { color: var(--forest); }
-
-/* Sort / filter bar */
-.sort-bar {
-  display: flex; align-items: center; gap: .5rem; margin-bottom: 1.2rem; flex-wrap: wrap;
-}
+.sort-bar { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
 .sort-label { font-size: .75rem; color: var(--slate); font-weight: 600; }
-.sort-btn {
-  font-size: .73rem; font-weight: 600; padding: .35rem .8rem; border-radius: 99px;
-  border: 1.5px solid var(--rule); background: var(--warm-white); color: var(--slate);
-  cursor: pointer; font-family: var(--font); transition: all .15s;
-}
+.sort-btn { font-size: .73rem; font-weight: 600; padding: .35rem .8rem; border-radius: 99px; border: 1.5px solid var(--rule); background: var(--warm-white); color: var(--slate); cursor: pointer; font-family: var(--font); transition: all .15s; }
 .sort-btn:hover { border-color: var(--forest); color: var(--forest); }
 .sort-btn.on { background: var(--forest); color: var(--warm-white); border-color: var(--forest); }
 
-/* Review row cards */
-.rev-card {
-  background: var(--warm-white); border: 1px solid var(--rule);
-  border-radius: var(--r-md); margin-bottom: .9rem;
-  overflow: hidden; cursor: pointer;
-  transition: box-shadow .2s, border-color .2s;
-  display: grid; grid-template-columns: 120px 1fr;
-}
+/* ── REVIEW CARDS ── */
+.rev-card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-md); margin-bottom: .9rem; overflow: hidden; cursor: pointer; transition: box-shadow .2s, border-color .2s; display: grid; grid-template-columns: 120px 1fr; }
 .rev-card:hover { box-shadow: var(--shadow-md); border-color: var(--rule-dark); }
-.rev-card-thumb {
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.2rem; background: var(--sage-soft);
-  border-right: 1px solid var(--rule); min-height: 130px;
-}
+.rev-card-thumb { display: flex; align-items: center; justify-content: center; font-size: 2.2rem; background: var(--sage-soft); border-right: 1px solid var(--rule); min-height: 130px; }
 .rev-card-body { padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .4rem; }
-
-.rev-top {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem;
-}
-.rev-cat {
-  font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
-  padding: .2rem .6rem; border-radius: 99px;
-}
+.rev-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+.rev-cat { font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 99px; }
 .cat-c { background: var(--sage-soft); color: var(--forest); }
 .cat-p { background: var(--lime-soft); color: #4A7000; }
 .cat-g { background: var(--coral-soft); color: var(--coral); }
 .cat-e { background: var(--amber-soft); color: #8A5A00; }
 .cat-t { background: var(--sky-soft); color: var(--sky); }
-
-.rev-score {
-  display: flex; align-items: center; gap: .35rem; flex-shrink: 0;
-}
+.rev-score { display: flex; align-items: center; gap: .35rem; flex-shrink: 0; }
 .score-num { font-size: 1.3rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
 .score-bar-wrap { display: flex; flex-direction: column; gap: 2px; }
 .score-bar-track { width: 52px; height: 4px; background: var(--rule); border-radius: 2px; }
 .score-bar-fill { height: 100%; background: var(--amber); border-radius: 2px; transition: width .4s ease; }
 .score-count { font-size: .65rem; color: var(--mist); font-weight: 600; }
-
 .rev-title { font-size: .98rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.3; }
 .rev-loc { font-size: .75rem; color: var(--slate); display: flex; align-items: center; gap: .3rem; }
 .rev-excerpt { font-size: .82rem; color: var(--slate); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-
-.rev-footer {
-  display: flex; align-items: center; justify-content: space-between; margin-top: .3rem;
-}
+.rev-footer { display: flex; align-items: center; justify-content: space-between; margin-top: .3rem; }
 .rev-author { display: flex; align-items: center; gap: .5rem; }
-.rev-av {
-  width: 22px; height: 22px; border-radius: 50%;
-  font-size: .6rem; font-weight: 800; color: white; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
+.rev-av { width: 22px; height: 22px; border-radius: 50%; font-size: .6rem; font-weight: 800; color: white; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .rev-name { font-size: .75rem; font-weight: 700; }
 .rev-date { font-size: .68rem; color: var(--mist); }
 .rev-actions { display: flex; gap: .4rem; }
-.rev-btn {
-  font-size: .68rem; font-weight: 700; padding: .25rem .6rem;
-  border-radius: 99px; border: 1px solid var(--rule); background: none;
-  color: var(--slate); cursor: pointer; font-family: var(--font); transition: all .15s;
-}
+.rev-btn { font-size: .68rem; font-weight: 700; padding: .25rem .6rem; border-radius: 99px; border: 1px solid var(--rule); background: none; color: var(--slate); cursor: pointer; font-family: var(--font); transition: all .15s; }
 .rev-btn:hover { border-color: var(--sage); color: var(--forest); background: var(--sage-soft); }
 
 /* ── RIGHT PANEL ── */
 .right-panel { display: flex; flex-direction: column; gap: 1.2rem; }
-
-/* Score breakdown widget */
-.score-widget {
-  background: var(--warm-white); border: 1px solid var(--rule);
-  border-radius: var(--r-lg); padding: 1.5rem;
-  box-shadow: var(--shadow-xs);
-}
-.widget-title { font-size: .78rem; font-weight: 800; letter-spacing: -.01em; margin-bottom: 1.2rem; color: var(--ink); text-transform: uppercase; letter-spacing: .08em; font-size: .65rem; color: var(--mist); }
-
-.big-score {
-  display: flex; align-items: flex-end; gap: .8rem; margin-bottom: 1.2rem;
-}
-.big-score-num {
-  font-size: 4rem; font-weight: 800; letter-spacing: -.06em; line-height: 1;
-  color: var(--forest);
-}
+.score-widget { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.5rem; box-shadow: var(--shadow-xs); }
+.widget-title { font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--mist); margin-bottom: 1.2rem; }
+.big-score { display: flex; align-items: flex-end; gap: .8rem; margin-bottom: 1.2rem; }
+.big-score-num { font-size: 4rem; font-weight: 800; letter-spacing: -.06em; line-height: 1; color: var(--forest); }
 .big-score-meta { padding-bottom: .5rem; }
 .big-score-stars { font-size: 1rem; color: var(--amber); letter-spacing: 1px; }
 .big-score-count { font-size: .72rem; color: var(--mist); font-weight: 600; margin-top: .2rem; }
-
 .score-bars { display: flex; flex-direction: column; gap: .55rem; }
 .sbar-row { display: flex; align-items: center; gap: .7rem; }
 .sbar-label { font-size: .72rem; font-weight: 700; color: var(--slate); width: 14px; text-align: right; flex-shrink: 0; }
@@ -458,101 +231,38 @@ body {
 .sbar-track { flex: 1; height: 6px; background: var(--rule); border-radius: 99px; overflow: hidden; }
 .sbar-fill { height: 100%; background: var(--amber); border-radius: 99px; }
 .sbar-pct { font-size: .68rem; color: var(--mist); font-weight: 600; width: 28px; text-align: right; flex-shrink: 0; }
-
-/* Nearby courts map widget */
-.map-widget {
-  background: var(--warm-white); border: 1px solid var(--rule);
-  border-radius: var(--r-lg); overflow: hidden;
-  box-shadow: var(--shadow-xs);
-}
-.map-placeholder {
-  height: 160px;
-  background: linear-gradient(135deg, #1A3A2A 0%, #2D5C42 40%, #1E4A34 70%, #163320 100%);
-  display: flex; align-items: center; justify-content: center;
-  position: relative; overflow: hidden;
-}
-/* Court grid overlay */
-.map-placeholder::before {
-  content: '';
-  position: absolute; inset: 0; opacity: .12;
-  background-image:
-    linear-gradient(rgba(123,174,140,1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(123,174,140,1) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-.map-pin {
-  position: absolute; width: 28px; height: 28px; border-radius: 50%;
-  background: var(--amber); border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(0,0,0,.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: .7rem; cursor: pointer;
-  transition: transform .2s;
-}
+.map-widget { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-xs); }
+.map-placeholder { height: 160px; background: linear-gradient(135deg, #1A3A2A 0%, #2D5C42 40%, #1E4A34 70%, #163320 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.map-placeholder::before { content: ''; position: absolute; inset: 0; opacity: .1; background-image: linear-gradient(rgba(123,174,140,1) 1px, transparent 1px), linear-gradient(90deg, rgba(123,174,140,1) 1px, transparent 1px); background-size: 28px 28px; }
+.map-pin { position: absolute; width: 28px; height: 28px; border-radius: 50%; background: var(--amber); border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,.3); display: flex; align-items: center; justify-content: center; font-size: .7rem; cursor: pointer; transition: transform .2s; }
 .map-pin:hover { transform: scale(1.2); }
-.map-pin.active { background: var(--coral); }
-.map-pin-label {
-  position: absolute; top: -22px; left: 50%; transform: translateX(-50%);
-  background: var(--forest); color: white; font-size: .6rem; font-weight: 700;
-  padding: .15rem .45rem; border-radius: 4px; white-space: nowrap;
-  opacity: 0; transition: opacity .2s;
-}
+.map-pin-label { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); background: var(--forest); color: white; font-size: .6rem; font-weight: 700; padding: .15rem .45rem; border-radius: 4px; white-space: nowrap; opacity: 0; transition: opacity .2s; }
 .map-pin:hover .map-pin-label { opacity: 1; }
 .map-widget-body { padding: 1rem 1.2rem; }
 .map-widget-title { font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--mist); margin-bottom: .8rem; }
-.nearby-row {
-  display: flex; align-items: center; gap: .8rem;
-  padding: .55rem 0; border-bottom: 1px solid var(--rule);
-  cursor: pointer; transition: background .15s; margin: 0 -.3rem;
-  padding-left: .3rem; padding-right: .3rem; border-radius: 8px;
-}
+.nearby-row { display: flex; align-items: center; gap: .8rem; padding: .55rem 0; border-bottom: 1px solid var(--rule); cursor: pointer; transition: background .15s; margin: 0 -.3rem; padding-left: .3rem; padding-right: .3rem; border-radius: 8px; }
 .nearby-row:last-child { border-bottom: none; }
 .nearby-row:hover { background: var(--sage-soft); }
 .nr-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .nr-name { font-size: .82rem; font-weight: 700; flex: 1; }
 .nr-dist { font-size: .7rem; color: var(--mist); font-weight: 600; }
 .nr-score { font-size: .78rem; font-weight: 800; color: var(--forest); }
-
-/* Quick write widget */
-.quick-write {
-  background: var(--forest); border-radius: var(--r-lg); padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-}
+.quick-write { background: var(--forest); border-radius: var(--r-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); }
 .qw-title { font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .8rem; }
 .qw-q { font-size: 1.05rem; font-weight: 700; color: var(--warm-white); line-height: 1.35; margin-bottom: 1rem; letter-spacing: -.02em; }
 .qw-stars { display: flex; gap: .4rem; margin-bottom: 1rem; }
 .qw-star { font-size: 1.6rem; cursor: pointer; color: rgba(255,255,255,.2); transition: color .1s; }
 .qw-star.lit { color: var(--amber); }
-.qw-input {
-  width: 100%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
-  border-radius: var(--r-sm); color: var(--warm-white); font-family: var(--font);
-  font-size: .85rem; padding: .7rem .9rem; outline: none; resize: none;
-  transition: border-color .2s; min-height: 72px;
-}
+.qw-input { width: 100%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-sm); color: var(--warm-white); font-family: var(--font); font-size: .85rem; padding: .7rem .9rem; outline: none; resize: none; transition: border-color .2s; min-height: 72px; }
 .qw-input::placeholder { color: rgba(255,255,255,.3); }
 .qw-input:focus { border-color: var(--amber); }
-.qw-submit {
-  width: 100%; background: var(--amber); color: var(--forest);
-  border: none; border-radius: var(--r-sm); padding: .8rem;
-  font-family: var(--font); font-weight: 800; font-size: .88rem; cursor: pointer;
-  margin-top: .8rem; transition: box-shadow .2s, transform .15s;
-}
+.qw-submit { width: 100%; background: var(--amber); color: var(--forest); border: none; border-radius: var(--r-sm); padding: .8rem; font-family: var(--font); font-weight: 800; font-size: .88rem; cursor: pointer; margin-top: .8rem; transition: box-shadow .2s, transform .15s; }
 .qw-submit:hover { box-shadow: 0 4px 16px rgba(245,166,35,.5); transform: translateY(-1px); }
 
 /* ── TRENDING STRIP ── */
-.trending-strip {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
-}
-.trend-card {
-  background: var(--warm-white); border: 1px solid var(--rule);
-  border-radius: var(--r-md); padding: 1.2rem;
-  cursor: pointer; transition: transform .2s, box-shadow .2s;
-  position: relative; overflow: hidden;
-}
-.trend-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--amber);
-}
+.trending-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.trend-card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-md); padding: 1.2rem; cursor: pointer; transition: transform .2s, box-shadow .2s; position: relative; overflow: hidden; }
+.trend-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--amber); }
 .trend-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .trend-rank { font-size: 2.5rem; font-weight: 800; letter-spacing: -.06em; color: var(--rule-dark); line-height: 1; margin-bottom: .5rem; }
 .trend-cat { font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); margin-bottom: .35rem; }
@@ -563,726 +273,18 @@ body {
 .trend-c { font-size: .68rem; color: var(--mist); font-weight: 600; }
 
 /* ── FOOTER ── */
-.app-footer {
-  background: var(--forest); color: rgba(255,255,255,.5);
-  padding: 1.5rem 2rem;
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-  font-size: .75rem;
-}
+.app-footer { background: var(--forest); color: rgba(255,255,255,.5); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .75rem; }
 .footer-brand { font-weight: 800; color: var(--amber); font-size: .9rem; }
 .footer-links { display: flex; gap: 1.5rem; }
 .footer-links a { color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; font-weight: 500; }
 .footer-links a:hover { color: rgba(255,255,255,.8); }
 
 /* ── MODAL ── */
-.modal-overlay {
-  position: fixed; inset: 0; z-index: 500;
-  background: rgba(17,26,20,.7); backdrop-filter: blur(8px);
-  display: flex; align-items: center; justify-content: center;
-  padding: 2rem; opacity: 0; pointer-events: none; transition: opacity .25s;
-}
+.modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(17,26,20,.7); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity .25s; }
 .modal-overlay.open { opacity: 1; pointer-events: all; }
-.modal {
-  background: var(--warm-white); border-radius: var(--r-xl);
-  box-shadow: var(--shadow-lg); max-width: 540px; width: 100%;
-  max-height: 90vh; overflow-y: auto;
-  transform: translateY(16px) scale(.97); transition: transform .25s;
-}
-.modal-overlay.open .modal { transform: translateY(0) scale(1); }
-
-.modal-header {
-  background: var(--forest); padding: 1.8rem 2rem;
-  border-radius: var(--r-xl) var(--r-xl) 0 0;
-  display: flex; align-items: flex-start; justify-content: space-between;
-}
+.modal { background: var(--warm-white); border-radius: var(--r-xl); box-shadow: var(--shadow-lg); max-width: 540px; width: 100%; max-height: 90vh; overflow-y: auto; transform: scale(.96) translateY(12px); transition: transform .25s; }
+.modal-overlay.open .modal { transform: scale(1) translateY(0); }
+.modal-header { background: var(--forest); padding: 1.8rem 2rem; border-radius: var(--r-xl) var(--r-xl) 0 0; display: flex; align-items: flex-start; justify-content: space-between; }
 .modal-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--warm-white); letter-spacing: -.03em; }
 .modal-header h2 span { color: var(--amber); }
-.modal-header p { font-size: .8rem; color: rgba(255,255,255,.45); margin-top: .3rem; }
-.modal-x {
-  background: rgba(255,255,255,.1); border: none; width: 30px; height: 30px;
-  border-radius: 50%; color: rgba(255,255,255,.6); cursor: pointer;
-  font-size: .85rem; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; transition: background .15s;
-}
-.modal-x:hover { background: rgba(255,255,255,.2); }
-
-.modal-body { padding: 1.8rem 2rem; }
-.mf-row { margin-bottom: 1.3rem; }
-.mf-row label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); margin-bottom: .5rem; }
-.mf-row input, .mf-row select, .mf-row textarea {
-  width: 100%; background: var(--cream); border: 1.5px solid var(--rule);
-  border-radius: var(--r-sm); color: var(--ink); font-family: var(--font);
-  font-size: .9rem; padding: .75rem 1rem; outline: none;
-  transition: border-color .2s, box-shadow .2s;
-}
-.mf-row input:focus, .mf-row select:focus, .mf-row textarea:focus {
-  border-color: var(--forest); box-shadow: 0 0 0 3px rgba(26,58,42,.08);
-  background: white;
-}
-.mf-row textarea { min-height: 100px; resize: vertical; }
-.mf-stars { display: flex; gap: .5rem; margin-top: .4rem; }
-.ms { font-size: 2rem; cursor: pointer; color: var(--rule-dark); transition: color .12s; }
-.ms.lit { color: var(--amber); }
-
-.modal-footer { padding: .5rem 2rem 2rem; display: flex; gap: .8rem; }
-.mc { flex: 1; background: none; border: 1.5px solid var(--rule); border-radius: 99px; color: var(--slate); padding: .8rem; font-family: var(--font); font-size: .85rem; font-weight: 700; cursor: pointer; transition: all .15s; }
-.mc:hover { border-color: var(--ink); color: var(--ink); }
-.ms-btn { flex: 2; background: var(--forest); color: white; border: none; border-radius: 99px; padding: .8rem; font-family: var(--font); font-size: .88rem; font-weight: 800; cursor: pointer; transition: background .2s, box-shadow .2s; }
-.ms-btn:hover { background: var(--forest-light); box-shadow: 0 4px 16px rgba(26,58,42,.3); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.welcome-bar   { animation: fadeIn .5s ease both; }
-.quick-actions { animation: fadeIn .5s .08s ease both; }
-.content-grid  { animation: fadeIn .5s .14s ease both; }
-.trending-strip{ animation: fadeIn .5s .2s ease both; }
-
-@keyframes barGrow {
-  from { width: 0; }
-}
-.sbar-fill { animation: barGrow .8s .3s ease both; }
-.score-bar-fill { animation: barGrow .6s .2s ease both; }
-
-/* Mobile */
-@media (max-width: 1024px) {
-  .app-shell { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
-  .topbar-brand { width: auto; }
-  .quick-actions { grid-template-columns: repeat(2, 1fr); }
-  .content-grid { grid-template-columns: 1fr; }
-  .right-panel { display: none; }
-  .trending-strip { grid-template-columns: repeat(2, 1fr); }
-}
-</style>
-</head>
-<body>
-
-<div class="app-shell">
-
-  <!-- ── TOP BAR ── -->
-  <div class="topbar">
-    <div class="topbar-brand">
-      <div class="brand-mark">🏓</div>
-      <div>
-        <div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div>
-        <div class="brand-tagline">Pickleball Community</div>
-      </div>
-    </div>
-    <div class="topbar-search">
-      <span class="si">🔍</span>
-      <input type="text" placeholder="Search courts, paddles, gear, events…">
-    </div>
-    <div class="topbar-right">
-      <button class="tb-pill ghost">Community</button>
-      <button class="tb-pill ghost">My Reviews</button>
-      <button class="tb-pill solid" onclick="openModal()">+ Write Review</button>
-      <div class="tb-av">JK</div>
-    </div>
-  </div>
-
-  <!-- ── LEFT SIDEBAR ── -->
-  <aside class="sidebar">
-    <div class="sidebar-brand-strip">
-      <div class="sbs-label">The Pickleball Community</div>
-      <div class="sbs-name">DINK<span>REVIEWS</span></div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Discover</div>
-      <a class="nav-item active" href="/dinkreviews/">
-        <span class="ni">🏠</span> Dashboard
-      </a>
-      <a class="nav-item" href="/dinkreviews/courts/">
-        <span class="ni">🏟️</span> Courts
-        <span class="badge">618</span>
-      </a>
-      <a class="nav-item" href="/dinkreviews/paddles/">
-        <span class="ni">🏓</span> Paddles
-      </a>
-      <a class="nav-item" href="/dinkreviews/gear/">
-        <span class="ni">👟</span> Gear
-      </a>
-      <a class="nav-item" href="/dinkreviews/events/">
-        <span class="ni">📅</span> Events
-        <span class="badge new">3</span>
-      </a>
-      <a class="nav-item" href="/dinkreviews/training/">
-        <span class="ni">🎯</span> Training
-      </a>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">My Activity</div>
-      <a class="nav-item" href="/dinkreviews/my-reviews/">
-        <span class="ni">✏️</span> My Reviews
-      </a>
-      <a class="nav-item" href="/dinkreviews/saved/">
-        <span class="ni">❤️</span> Saved
-      </a>
-      <a class="nav-item" href="/dinkreviews/courts/?filter=near-me">
-        <span class="ni">📍</span> Near Me
-      </a>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="filter-group">
-        <div class="filter-group-title">
-          Category
-          <button onclick="">Clear</button>
-        </div>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')">
-          <span class="check-box">✓</span> Courts
-          <span class="filter-count">618</span>
-        </label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')">
-          <span class="check-box">✓</span> Paddles
-          <span class="filter-count">342</span>
-        </label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')">
-          <span class="check-box"></span> Gear
-          <span class="filter-count">204</span>
-        </label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')">
-          <span class="check-box"></span> Events
-          <span class="filter-count">89</span>
-        </label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')">
-          <span class="check-box"></span> Training
-          <span class="filter-count">41</span>
-        </label>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="filter-group">
-        <div class="filter-group-title">Min Rating</div>
-        <div class="rating-range">
-          <div class="range-row">
-            <span>3.0+</span>
-            <span style="color:var(--amber);font-weight:700;">4.0+</span>
-          </div>
-          <div class="range-track">
-            <div class="range-fill"></div>
-          </div>
-          <div class="range-row" style="justify-content:flex-end;">
-            <span>5.0</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="filter-group">
-        <div class="filter-group-title">Location</div>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')">
-          <span class="check-box">✓</span> Near Me (&lt; 5mi)
-        </label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')">
-          <span class="check-box"></span> Los Angeles
-        </label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')">
-          <span class="check-box"></span> Anywhere
-        </label>
-      </div>
-    </div>
-
-    <div class="sidebar-bottom">
-      <button class="write-btn-sidebar" onclick="openModal()">
-        ✏️ Write a DINKREVIEWS Review
-      </button>
-    </div>
-
-  </aside>
-
-  <!-- ── MAIN CONTENT ── -->
-  <main class="main">
-
-    <!-- WELCOME BAR -->
-    <div class="welcome-bar">
-      <div class="pb-pattern"></div>
-      <div class="welcome-text">
-        <div class="welcome-eyebrow">Welcome back, Jamie — West Hollywood</div>
-        <div class="welcome-h">Your court.<br>Your community.<br><em>DINKREVIEWS.</em></div>
-        <div class="welcome-sub">14 new reviews near you this week. 3 courts just opened open play. Your community is talking.</div>
-      </div>
-      <div class="welcome-stats">
-        <div class="wstat">
-          <div class="wstat-n">4.2k</div>
-          <div class="wstat-l">Reviews</div>
-        </div>
-        <div class="wstat">
-          <div class="wstat-n">618</div>
-          <div class="wstat-l">Courts</div>
-        </div>
-        <div class="wstat">
-          <div class="wstat-n">12k</div>
-          <div class="wstat-l">Players</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- QUICK ACTIONS -->
-    <div class="quick-actions">
-      <div class="qa-card qa-write" onclick="openModal()">
-        <div class="qa-icon">✏️</div>
-        <div class="qa-label">Write a Review</div>
-        <div class="qa-count">Add your voice to DINKREVIEWS</div>
-      </div>
-      <div class="qa-card">
-        <div class="qa-icon" style="background:var(--sage-soft);">🏟️</div>
-        <div class="qa-label">Find Courts</div>
-        <div class="qa-count">618 courts rated</div>
-      </div>
-      <div class="qa-card">
-        <div class="qa-icon" style="background:var(--lime-soft);">🏓</div>
-        <div class="qa-label">Browse Paddles</div>
-        <div class="qa-count">342 paddle reviews</div>
-      </div>
-      <div class="qa-card">
-        <div class="qa-icon" style="background:var(--amber-soft);">📅</div>
-        <div class="qa-label">Upcoming Events</div>
-        <div class="qa-count">3 near you this week</div>
-      </div>
-    </div>
-
-    <!-- MAIN CONTENT: REVIEWS + SIDE PANEL -->
-    <div class="content-grid">
-
-      <div class="review-list-col">
-        <div class="section-head">
-          <div class="section-title">Recent Reviews <span class="dot">·</span></div>
-          <a class="view-all" href="#">View all →</a>
-        </div>
-
-        <div class="sort-bar">
-          <span class="sort-label">Sort:</span>
-          <button class="sort-btn on" onclick="setSort(this)">Most Recent</button>
-          <button class="sort-btn" onclick="setSort(this)">Top Rated</button>
-          <button class="sort-btn" onclick="setSort(this)">Near Me</button>
-          <button class="sort-btn" onclick="setSort(this)">Trending</button>
-        </div>
-
-        <!-- Review 1 -->
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="background:linear-gradient(150deg,#0D3B2E,#1E5C44);">🏟️</div>
-          <div class="rev-card-body">
-            <div class="rev-top">
-              <span class="rev-cat cat-c">Court</span>
-              <div class="rev-score">
-                <span class="score-num">4.9</span>
-                <div class="score-bar-wrap">
-                  <div class="score-bar-track"><div class="score-bar-fill" style="width:98%"></div></div>
-                  <div class="score-count">147 reviews</div>
-                </div>
-              </div>
-            </div>
-            <div class="rev-title">Plummer Park Pickleball Courts</div>
-            <div class="rev-loc">📍 West Hollywood, CA · 0.4 mi away</div>
-            <div class="rev-excerpt">"Best free courts in the LA area. Well-maintained, regulation nets, and the Sunday open play group is the most welcoming community I've found."</div>
-            <div class="rev-footer">
-              <div class="rev-author">
-                <div class="rev-av" style="background:linear-gradient(135deg,var(--sage),var(--amber));">JK</div>
-                <div>
-                  <div class="rev-name">JamieK</div>
-                  <div class="rev-date">2 days ago</div>
-                </div>
-              </div>
-              <div class="rev-actions">
-                <button class="rev-btn">👍 32</button>
-                <button class="rev-btn">Read →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="background:linear-gradient(150deg,#1A2A1A,#2E4A1E);">🏓</div>
-          <div class="rev-card-body">
-            <div class="rev-top">
-              <span class="rev-cat cat-p">Paddle</span>
-              <div class="rev-score">
-                <span class="score-num">4.5</span>
-                <div class="score-bar-wrap">
-                  <div class="score-bar-track"><div class="score-bar-fill" style="width:90%"></div></div>
-                  <div class="score-count">89 reviews</div>
-                </div>
-              </div>
-            </div>
-            <div class="rev-title">Joola Ben Johns Hyperion CFS 16mm</div>
-            <div class="rev-loc">🏓 Carbon Fiber · 16mm Core</div>
-            <div class="rev-excerpt">"The spin control is next-level. Once you dial it in, the pop on third-shot drops is genuinely something special. Needs a few sessions to break in."</div>
-            <div class="rev-footer">
-              <div class="rev-author">
-                <div class="rev-av" style="background:linear-gradient(135deg,var(--coral),#FF9A3A);">MR</div>
-                <div>
-                  <div class="rev-name">Marco_R</div>
-                  <div class="rev-date">1 week ago</div>
-                </div>
-              </div>
-              <div class="rev-actions">
-                <button class="rev-btn">👍 55</button>
-                <button class="rev-btn">Read →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="background:linear-gradient(150deg,#0A2040,#1A3A5C);">👟</div>
-          <div class="rev-card-body">
-            <div class="rev-top">
-              <span class="rev-cat cat-g">Gear</span>
-              <div class="rev-score">
-                <span class="score-num">5.0</span>
-                <div class="score-bar-wrap">
-                  <div class="score-bar-track"><div class="score-bar-fill" style="width:100%"></div></div>
-                  <div class="score-count">203 reviews</div>
-                </div>
-              </div>
-            </div>
-            <div class="rev-title">ASICS Gel-Rocket 11 Court Shoes</div>
-            <div class="rev-loc">👟 Non-Marking · All Surfaces</div>
-            <div class="rev-excerpt">"Incredible lateral support at the kitchen. Zero ankle roll on hard outdoor surfaces. The definitive court shoe recommendation."</div>
-            <div class="rev-footer">
-              <div class="rev-author">
-                <div class="rev-av" style="background:linear-gradient(135deg,var(--sky),var(--sage));">TL</div>
-                <div>
-                  <div class="rev-name">TinaL</div>
-                  <div class="rev-date">5 days ago</div>
-                </div>
-              </div>
-              <div class="rev-actions">
-                <button class="rev-btn">👍 76</button>
-                <button class="rev-btn">Read →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 4 -->
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="background:linear-gradient(150deg,#1A1028,#2D1A4A);">📅</div>
-          <div class="rev-card-body">
-            <div class="rev-top">
-              <span class="rev-cat cat-e">Event</span>
-              <div class="rev-score">
-                <span class="score-num">4.0</span>
-                <div class="score-bar-wrap">
-                  <div class="score-bar-track"><div class="score-bar-fill" style="width:80%"></div></div>
-                  <div class="score-count">41 reviews</div>
-                </div>
-              </div>
-            </div>
-            <div class="rev-title">LA Pickleball Open — Spring Series</div>
-            <div class="rev-loc">📍 Griffith Park, Los Angeles · 3.2 mi</div>
-            <div class="rev-excerpt">"Well-organized with clear bracket comms. Pool play ran long but finals energy was absolutely electric. Great vendor area too."</div>
-            <div class="rev-footer">
-              <div class="rev-author">
-                <div class="rev-av" style="background:linear-gradient(135deg,#FFC850,var(--coral));">SB</div>
-                <div>
-                  <div class="rev-name">SandraB</div>
-                  <div class="rev-date">3 weeks ago</div>
-                </div>
-              </div>
-              <div class="rev-actions">
-                <button class="rev-btn">👍 18</button>
-                <button class="rev-btn">Read →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- RIGHT PANEL -->
-      <div class="right-panel">
-
-        <!-- Score breakdown widget -->
-        <div class="score-widget">
-          <div class="widget-title">Community Score</div>
-          <div class="big-score">
-            <div class="big-score-num">4.7</div>
-            <div class="big-score-meta">
-              <div class="big-score-stars">★★★★★</div>
-              <div class="big-score-count">1,284 reviews this month</div>
-            </div>
-          </div>
-          <div class="score-bars">
-            <div class="sbar-row">
-              <span class="sbar-label">5</span>
-              <span class="sbar-star">★</span>
-              <div class="sbar-track"><div class="sbar-fill" style="width:72%"></div></div>
-              <span class="sbar-pct">72%</span>
-            </div>
-            <div class="sbar-row">
-              <span class="sbar-label">4</span>
-              <span class="sbar-star">★</span>
-              <div class="sbar-track"><div class="sbar-fill" style="width:18%"></div></div>
-              <span class="sbar-pct">18%</span>
-            </div>
-            <div class="sbar-row">
-              <span class="sbar-label">3</span>
-              <span class="sbar-star">★</span>
-              <div class="sbar-track"><div class="sbar-fill" style="width:6%"></div></div>
-              <span class="sbar-pct">6%</span>
-            </div>
-            <div class="sbar-row">
-              <span class="sbar-label">2</span>
-              <span class="sbar-star">★</span>
-              <div class="sbar-track"><div class="sbar-fill" style="width:3%"></div></div>
-              <span class="sbar-pct">3%</span>
-            </div>
-            <div class="sbar-row">
-              <span class="sbar-label">1</span>
-              <span class="sbar-star">★</span>
-              <div class="sbar-track"><div class="sbar-fill" style="width:1%"></div></div>
-              <span class="sbar-pct">1%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Map widget -->
-        <div class="map-widget">
-          <div class="map-placeholder">
-            <div class="map-pin active" style="top:35%;left:42%">
-              🏟️<div class="map-pin-label">Plummer Park</div>
-            </div>
-            <div class="map-pin" style="top:55%;left:62%">
-              🏟️<div class="map-pin-label">MacArthur Park</div>
-            </div>
-            <div class="map-pin" style="top:25%;left:68%">
-              🏟️<div class="map-pin-label">Pan Pacific</div>
-            </div>
-          </div>
-          <div class="map-widget-body">
-            <div class="map-widget-title">Courts Near You</div>
-            <div class="nearby-row">
-              <div class="nr-dot" style="background:var(--coral)"></div>
-              <div class="nr-name">Plummer Park</div>
-              <div class="nr-dist">0.4 mi</div>
-              <div class="nr-score">4.9</div>
-            </div>
-            <div class="nearby-row">
-              <div class="nr-dot" style="background:var(--amber)"></div>
-              <div class="nr-name">MacArthur Park</div>
-              <div class="nr-dist">1.2 mi</div>
-              <div class="nr-score">4.8</div>
-            </div>
-            <div class="nearby-row">
-              <div class="nr-dot" style="background:var(--sage)"></div>
-              <div class="nr-name">Pan Pacific Park</div>
-              <div class="nr-dist">1.9 mi</div>
-              <div class="nr-score">4.5</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick write inline widget -->
-        <div class="quick-write">
-          <div class="qw-title">Quick Review</div>
-          <div class="qw-q">Just played somewhere? Rate it now.</div>
-          <div class="qw-stars" id="qwstars">
-            <span class="qw-star" data-v="1" onclick="setQW(1)">★</span>
-            <span class="qw-star" data-v="2" onclick="setQW(2)">★</span>
-            <span class="qw-star" data-v="3" onclick="setQW(3)">★</span>
-            <span class="qw-star" data-v="4" onclick="setQW(4)">★</span>
-            <span class="qw-star" data-v="5" onclick="setQW(5)">★</span>
-          </div>
-          <textarea class="qw-input" placeholder="What did you think?"></textarea>
-          <button class="qw-submit" onclick="openModal()">Post Review →</button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TRENDING -->
-    <div>
-      <div class="section-head">
-        <div class="section-title">Trending This Week <span class="dot">·</span></div>
-        <a class="view-all" href="#">Full rankings →</a>
-      </div>
-      <div class="trending-strip">
-        <div class="trend-card">
-          <div class="trend-rank">01</div>
-          <div class="trend-cat">Courts</div>
-          <div class="trend-name">Plummer Park Courts</div>
-          <div class="trend-score">
-            <span class="trend-n">4.9</span>
-            <span class="trend-stars">★★★★★</span>
-            <span class="trend-c">147 reviews</span>
-          </div>
-        </div>
-        <div class="trend-card">
-          <div class="trend-rank">02</div>
-          <div class="trend-cat">Paddles</div>
-          <div class="trend-name">Selkirk Vanguard Power Air</div>
-          <div class="trend-score">
-            <span class="trend-n">4.7</span>
-            <span class="trend-stars">★★★★</span>
-            <span class="trend-c">112 reviews</span>
-          </div>
-        </div>
-        <div class="trend-card">
-          <div class="trend-rank">03</div>
-          <div class="trend-cat">Gear</div>
-          <div class="trend-name">ASICS Gel-Rocket 11</div>
-          <div class="trend-score">
-            <span class="trend-n">5.0</span>
-            <span class="trend-stars">★★★★★</span>
-            <span class="trend-c">203 reviews</span>
-          </div>
-        </div>
-        <div class="trend-card">
-          <div class="trend-rank">04</div>
-          <div class="trend-cat">Events</div>
-          <div class="trend-name">SoCal Classic Open</div>
-          <div class="trend-score">
-            <span class="trend-n">4.8</span>
-            <span class="trend-stars">★★★★★</span>
-            <span class="trend-c">38 reviews</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-</div>
-
-<!-- FOOTER -->
-<div class="app-footer">
-  <div class="footer-brand">DINK<span style="color:var(--amber)">REVIEWS</span></div>
-  <div class="footer-links">
-    <a href="/dinkreviews/courts/">Courts</a>
-    <a href="/dinkreviews/paddles/">Paddles</a>
-    <a href="/dinkreviews/gear/">Gear</a>
-    <a href="/dinkreviews/events/">Events</a>
-    <a href="/dinkreviews/community/">Community</a>
-  </div>
-  <div>© 2025 DINKREVIEWS — The Pickleball Community</div>
-</div>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeOut(event)">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <h2>Write a <span>Review</span></h2>
-        <p>Help the DINKREVIEWS community find the best courts & gear</p>
-      </div>
-      <button class="modal-x" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="mf-row">
-        <label>Category</label>
-        <select>
-          <option>🏟️ Court</option>
-          <option>🏓 Paddle</option>
-          <option>👟 Gear & Apparel</option>
-          <option>📅 Event or Tournament</option>
-          <option>🎯 Training & Clinics</option>
-        </select>
-      </div>
-      <div class="mf-row">
-        <label>Name or Title</label>
-        <input type="text" placeholder="e.g. Plummer Park Courts…">
-      </div>
-      <div class="mf-row">
-        <label>Your Rating</label>
-        <div class="mf-stars" id="mstars">
-          <span class="ms" data-v="1" onclick="setMS(1)">★</span>
-          <span class="ms" data-v="2" onclick="setMS(2)">★</span>
-          <span class="ms" data-v="3" onclick="setMS(3)">★</span>
-          <span class="ms" data-v="4" onclick="setMS(4)">★</span>
-          <span class="ms" data-v="5" onclick="setMS(5)">★</span>
-        </div>
-      </div>
-      <div class="mf-row">
-        <label>Your Review</label>
-        <textarea placeholder="What stood out? Tips for fellow players…"></textarea>
-      </div>
-      <div class="mf-row">
-        <label>Location (optional)</label>
-        <input type="text" placeholder="City, State">
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="mc" onclick="closeModal()">Cancel</button>
-      <button class="ms-btn" onclick="doSubmit()">Submit Review</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Sort
-  function setSort(el) {
-    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
-    el.classList.add('on');
-  }
-
-  // Modal
-  function openModal()  { document.getElementById('modal').classList.add('open'); }
-  function closeModal() { document.getElementById('modal').classList.remove('open'); }
-  function closeOut(e)  { if (e.target.id === 'modal') closeModal(); }
-
-  // Modal stars
-  let mstar = 0;
-  function setMS(n) {
-    mstar = n;
-    document.querySelectorAll('.ms').forEach(s =>
-      s.classList.toggle('lit', parseInt(s.dataset.v) <= n));
-  }
-  document.querySelectorAll('.ms').forEach(s => {
-    s.addEventListener('mouseenter', () => {
-      const v = parseInt(s.dataset.v);
-      document.querySelectorAll('.ms').forEach(x =>
-        x.classList.toggle('lit', parseInt(x.dataset.v) <= v));
-    });
-    s.addEventListener('mouseleave', () => {
-      document.querySelectorAll('.ms').forEach(x =>
-        x.classList.toggle('lit', parseInt(x.dataset.v) <= mstar));
-    });
-  });
-
-  function doSubmit() {
-    if (!mstar) { alert('Please select a rating.'); return; }
-    closeModal();
-    setTimeout(() => alert('✓ Review submitted! Thanks for contributing to DINKREVIEWS. 🏓'), 200);
-    mstar = 0;
-    document.querySelectorAll('.ms').forEach(s => s.classList.remove('lit'));
-  }
-
-  // Quick write widget stars
-  let qwStar = 0;
-  function setQW(n) {
-    qwStar = n;
-    document.querySelectorAll('.qw-star').forEach(s =>
-      s.classList.toggle('lit', parseInt(s.dataset.v) <= n));
-  }
-  document.querySelectorAll('.qw-star').forEach(s => {
-    s.addEventListener('mouseenter', () => {
-      const v = parseInt(s.dataset.v);
-      document.querySelectorAll('.qw-star').forEach(x =>
-        x.classList.toggle('lit', parseInt(x.dataset.v) <= v));
-    });
-    s.addEventListener('mouseleave', () => {
-      document.querySelectorAll('.qw-star').forEach(x =>
-        x.classList.toggle('lit', parseInt(x.dataset.v) <= qwStar));
-    });
-  });
-
-  // Sidebar nav
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-</script>
-</body>
-</html>
+.modal-header p { font-size: .8rem; color: rgba(255,255,255,.4
