@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courts — DINKREVIEWS</title>
+<meta name="description" content="Find and review pickleball courts near you. Community ratings for outdoor and indoor courts across the US.">
+<meta property="og:title" content="Pickleball Courts — DINKREVIEWS">
+<meta property="og:description" content="Find the best pickleball courts near you, rated by the community.">
+<meta property="og:url" content="https://hiramlosangeles-crypto.github.io/dinkreviews/courts/">
+<meta name="theme-color" content="#1A3A2A">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+
+/* ── TOKENS ── */
+:root {
+  --forest:      #1A3A2A;
+  --forest-mid:  #224835;
+  --forest-light:#2D5C42;
+  --amber:       #F5A623;
+  --amber-soft:  #FEF3DC;
+  --sage:        #7BAE8C;
+  --sage-soft:   #EBF4EE;
+  --cream:       #FAF8F4;
+  --warm-white:  #FFFFFF;
+  --ink:         #111A14;
+  --slate:       #5C7A66;
+  --mist:        #A8C0B0;
+  --rule:        #E4EDE7;
+  --rule-dark:   #C8D9CE;
+  --coral:       #F25C38;
+  --coral-soft:  #FEF0EC;
+  --sky:         #2AA8C4;
+  --sky-soft:    #EAF7FB;
+  --lime:        #8EC63F;
+  --lime-soft:   #F2FAE6;
+  --shadow-xs:   0 1px 3px rgba(26,58,42,.08);
+  --shadow-sm:   0 2px 8px rgba(26,58,42,.1), 0 1px 3px rgba(26,58,42,.06);
+  --shadow-md:   0 6px 24px rgba(26,58,42,.12), 0 2px 8px rgba(26,58,42,.06);
+  --shadow-lg:   0 16px 48px rgba(26,58,42,.15), 0 4px 12px rgba(26,58,42,.08);
+  --r-sm: 10px; --r-md: 16px; --r-lg: 22px; --r-xl: 32px;
+  --font: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body { background: var(--cream); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── APP SHELL ── */
+.app-shell { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: 56px 1fr; min-height: 100vh; }
+
+/* ── TOPBAR ── */
+.topbar { grid-column: 1/-1; background: var(--forest); display: flex; align-items: center; padding: 0 1.5rem 0 0; border-bottom: 1px solid rgba(255,255,255,.06); position: sticky; top: 0; z-index: 200; }
+.topbar-brand { width: 260px; flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 0 1.5rem; border-right: 1px solid rgba(255,255,255,.08); height: 56px; }
+.brand-mark { width: 32px; height: 32px; background: var(--amber); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; box-shadow: 0 2px 10px rgba(245,166,35,.5); }
+.brand-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+.brand-name .dr-dink { color: var(--warm-white); }
+.brand-name .dr-reviews { color: var(--amber); }
+.brand-tagline { font-size: .55rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: .2rem; }
+.topbar-search { flex: 1; max-width: 480px; margin-left: 1.5rem; position: relative; }
+.topbar-search input { width: 100%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 99px; color: var(--warm-white); font-family: var(--font); font-size: .85rem; padding: .5rem 1rem .5rem 2.5rem; outline: none; transition: background .2s, border-color .2s; }
+.topbar-search input::placeholder { color: rgba(255,255,255,.35); }
+.topbar-search input:focus { background: rgba(255,255,255,.14); border-color: var(--amber); }
+.topbar-search .si { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); font-size: .8rem; color: rgba(255,255,255,.4); }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: .75rem; }
+.tb-pill { font-size: .75rem; font-weight: 700; padding: .42rem 1rem; border-radius: 99px; cursor: pointer; font-family: var(--font); border: none; transition: all .15s; }
+.tb-pill.ghost { background: rgba(255,255,255,.08); color: rgba(255,255,255,.7); }
+.tb-pill.ghost:hover { background: rgba(255,255,255,.15); color: var(--warm-white); }
+.tb-pill.solid { background: var(--amber); color: var(--forest); box-shadow: 0 2px 10px rgba(245,166,35,.4); }
+.tb-pill.solid:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(245,166,35,.5); }
+.tb-av { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--sage), var(--amber)); display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 800; color: var(--forest); cursor: pointer; border: 2px solid rgba(255,255,255,.15); }
+
+/* ── SIDEBAR ── */
+.sidebar { background: var(--warm-white); border-right: 1px solid var(--rule); padding: 1.5rem 0; position: sticky; top: 56px; height: calc(100vh - 56px); overflow-y: auto; scrollbar-width: none; display: flex; flex-direction: column; }
+.sidebar::-webkit-scrollbar { display: none; }
+.sidebar-brand-strip { padding: .6rem 1.2rem 1.2rem; border-bottom: 1px solid var(--rule); margin-bottom: .5rem; }
+.sbs-label { font-size: .58rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mist); }
+.sbs-name { font-size: .92rem; font-weight: 800; letter-spacing: -.03em; color: var(--forest); line-height: 1.2; margin-top: .1rem; }
+.sbs-name span { color: var(--amber); }
+.sidebar-section { margin-bottom: 1.8rem; }
+.sidebar-label { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--mist); padding: 0 1.2rem; margin-bottom: .5rem; }
+.nav-item { display: flex; align-items: center; gap: .75rem; padding: .6rem 1.2rem; cursor: pointer; font-size: .85rem; font-weight: 600; color: var(--slate); transition: background .15s, color .15s; border-left: 2px solid transparent; text-decoration: none; }
+.nav-item:hover { background: var(--sage-soft); color: var(--ink); }
+.nav-item.active { background: var(--sage-soft); color: var(--forest); border-left-color: var(--forest); font-weight: 700; }
+.nav-item .ni { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-item .badge { margin-left: auto; font-size: .65rem; font-weight: 800; background: var(--amber); color: var(--forest); padding: .12rem .45rem; border-radius: 99px; }
+.nav-item .badge.new { background: var(--coral); color: white; }
+.filter-group { padding: 0 1.2rem; }
+.filter-group-title { font-size: .7rem; font-weight: 700; color: var(--slate); margin-bottom: .6rem; display: flex; align-items: center; justify-content: space-between; }
+.filter-group-title button { font-size: .65rem; color: var(--sage); background: none; border: none; cursor: pointer; font-family: var(--font); font-weight: 700; }
+.filter-check { display: flex; align-items: center; gap: .6rem; font-size: .8rem; color: var(--slate); padding: .3rem 0; cursor: pointer; transition: color .15s; }
+.filter-check:hover { color: var(--ink); }
+.check-box { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--rule-dark); background: var(--warm-white); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .6rem; transition: all .15s; }
+.filter-check.checked .check-box { background: var(--forest); border-color: var(--forest); color: white; }
+.filter-count { margin-left: auto; font-size: .7rem; color: var(--mist); }
+.sidebar-bottom { margin-top: auto; padding: 1.2rem; border-top: 1px solid var(--rule); }
+.write-btn-sidebar { width: 100%; background: var(--forest); color: var(--warm-white); border: none; border-radius: var(--r-md); padding: .85rem; font-family: var(--font); font-size: .85rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem; transition: background .2s, box-shadow .2s; box-shadow: var(--shadow-sm); }
+.write-btn-sidebar:hover { background: var(--forest-light); box-shadow: var(--shadow-md); }
+
+/* ── MAIN ── */
+.main { padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.8rem; }
+
+/* ── COURTS HERO BANNER ── */
+.courts-hero {
+  background: var(--forest);
+  border-radius: var(--r-lg);
+  padding: 2rem 2.5rem;
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 2rem;
+}
+.courts-hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  opacity: .04;
+  background-image: radial-gradient(circle, #fff 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.courts-hero::after {
+  content: '';
+  position: absolute; right: -40px; top: -40px;
+  width: 260px; height: 260px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,166,35,.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ch-eyebrow { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+.ch-eyebrow::before { content: ''; width: 18px; height: 1.5px; background: var(--amber); display: block; }
+.ch-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; color: var(--warm-white); line-height: 1.15; margin-bottom: .5rem; }
+.ch-title em { font-style: normal; color: var(--amber); }
+.ch-sub { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.6; max-width: 420px; }
+.ch-stats { display: flex; gap: 1.2rem; position: relative; z-index: 1; }
+.ch-stat { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); border-radius: var(--r-md); padding: .9rem 1.2rem; text-align: center; min-width: 80px; }
+.ch-stat-n { font-size: 1.6rem; font-weight: 800; letter-spacing: -.04em; color: var(--amber); line-height: 1; }
+.ch-stat-l { font-size: .62rem; font-weight: 600; color: rgba(255,255,255,.4); margin-top: .2rem; text-transform: uppercase; letter-spacing: .08em; }
+
+/* ── SEARCH + FILTER BAR ── */
+.filter-bar {
+  background: var(--warm-white);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  box-shadow: var(--shadow-xs);
+}
+.fb-search { flex: 1; min-width: 200px; position: relative; }
+.fb-search input { width: 100%; background: var(--cream); border: 1.5px solid var(--rule); border-radius: 99px; font-family: var(--font); font-size: .88rem; color: var(--ink); padding: .6rem 1rem .6rem 2.4rem; outline: none; transition: border-color .2s; }
+.fb-search input:focus { border-color: var(--forest); }
+.fb-search input::placeholder { color: var(--mist); }
+.fb-search .fsi { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); font-size: .8rem; color: var(--mist); }
+.fb-divider { width: 1px; height: 28px; background: var(--rule); flex-shrink: 0; }
+.fb-group { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.fb-label { font-size: .72rem; font-weight: 700; color: var(--slate); white-space: nowrap; }
+.fb-pill { font-size: .75rem; font-weight: 600; padding: .38rem .85rem; border-radius: 99px; border: 1.5px solid var(--rule); background: var(--warm-white); color: var(--slate); cursor: pointer; font-family: var(--font); transition: all .15s; white-space: nowrap; }
+.fb-pill:hover { border-color: var(--forest); color: var(--forest); }
+.fb-pill.on { background: var(--forest); color: var(--warm-white); border-color: var(--forest); }
+.fb-select { font-size: .78rem; font-weight: 600; color: var(--slate); background: var(--cream); border: 1.5px solid var(--rule); border-radius: var(--r-sm); padding: .4rem .8rem; font-family: var(--font); outline: none; cursor: pointer; transition: border-color .2s; }
+.fb-select:focus { border-color: var(--forest); }
+
+/* ── RESULTS HEADER ── */
+.results-header { display: flex; align-items: center; justify-content: space-between; }
+.results-count { font-size: .85rem; font-weight: 600; color: var(--slate); }
+.results-count strong { color: var(--ink); font-weight: 800; }
+.view-toggle { display: flex; gap: .3rem; }
+.vt-btn { width: 32px; height: 32px; border-radius: var(--r-sm); border: 1.5px solid var(--rule); background: var(--warm-white); color: var(--mist); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: .85rem; transition: all .15s; }
+.vt-btn.on { background: var(--forest); color: var(--warm-white); border-color: var(--forest); }
+
+/* ── COURT CARDS GRID ── */
+.courts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.court-card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-md); overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s; box-shadow: var(--shadow-xs); }
+.court-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--rule-dark); }
+
+.cc-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; overflow: hidden; }
+.cc-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: .4rem; flex-wrap: wrap; }
+.cc-badge { font-size: .6rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: .22rem .6rem; border-radius: 99px; }
+.badge-outdoor { background: var(--sage-soft); color: var(--forest); }
+.badge-indoor  { background: var(--sky-soft); color: var(--sky); }
+.badge-free    { background: var(--lime-soft); color: #4A7000; }
+.badge-lighted { background: var(--amber-soft); color: #8A5A00; }
+.badge-open    { background: rgba(255,255,255,.92); color: var(--forest); }
+.cc-verified { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,.92); border-radius: 99px; font-size: .62rem; font-weight: 700; color: var(--teal, #2AA8C4); padding: .22rem .6rem; box-shadow: var(--shadow-xs); }
+
+.cc-body { padding: 1.1rem 1.2rem; }
+.cc-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; margin-bottom: .4rem; }
+.cc-name { font-size: 1rem; font-weight: 700; letter-spacing: -.02em; color: var(--ink); line-height: 1.3; }
+.cc-score-wrap { display: flex; align-items: center; gap: .35rem; flex-shrink: 0; }
+.cc-score-num { font-size: 1.2rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--ink); }
+.cc-score-bar { width: 48px; }
+.cc-bar-track { width: 100%; height: 4px; background: var(--rule); border-radius: 2px; }
+.cc-bar-fill { height: 100%; background: var(--amber); border-radius: 2px; }
+.cc-reviews { font-size: .65rem; color: var(--mist); font-weight: 600; }
+.cc-location { font-size: .78rem; color: var(--slate); display: flex; align-items: center; gap: .3rem; margin-bottom: .6rem; }
+.cc-distance { font-size: .7rem; font-weight: 700; color: var(--amber); background: var(--amber-soft); padding: .12rem .5rem; border-radius: 99px; }
+.cc-details { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+.cc-detail { font-size: .7rem; font-weight: 600; color: var(--slate); background: var(--sage-soft); padding: .2rem .6rem; border-radius: 99px; display: flex; align-items: center; gap: .25rem; }
+.cc-excerpt { font-size: .82rem; color: var(--slate); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: .9rem; }
+.cc-footer { display: flex; align-items: center; justify-content: space-between; padding-top: .8rem; border-top: 1px solid var(--rule); }
+.cc-author { display: flex; align-items: center; gap: .45rem; }
+.cc-av { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .58rem; font-weight: 800; color: white; flex-shrink: 0; }
+.cc-name-sm { font-size: .72rem; font-weight: 700; }
+.cc-date { font-size: .67rem; color: var(--mist); }
+.cc-actions { display: flex; gap: .35rem; }
+.cc-btn { font-size: .68rem; font-weight: 700; padding: .25rem .6rem; border-radius: 99px; border: 1px solid var(--rule); background: none; color: var(--slate); cursor: pointer; font-family: var(--font); transition: all .15s; }
+.cc-btn:hover { border-color: var(--sage); color: var(--forest); background: var(--sage-soft); }
+.cc-btn.primary { background: var(--forest); color: var(--warm-white); border-color: var(--forest); }
+.cc-btn.primary:hover { background: var(--forest-light); }
+
+/* ── FEATURED COURT (wide) ── */
+.court-card.featured { grid-column: span 2; display: grid; grid-template-columns: 280px 1fr; }
+.court-card.featured .cc-img { height: 100%; border-radius: 0; font-size: 4rem; }
+.court-card.featured .cc-body { padding: 1.5rem; }
+.court-card.featured .cc-name { font-size: 1.2rem; }
+.court-card.featured .cc-excerpt { -webkit-line-clamp: 3; }
+
+/* ── LOAD MORE ── */
+.load-more-wrap { display: flex; justify-content: center; padding: 1rem 0; }
+.load-more { background: none; border: 1.5px solid var(--rule); color: var(--slate); font-family: var(--font); font-size: .85rem; font-weight: 700; padding: .8rem 2.5rem; border-radius: 99px; cursor: pointer; transition: all .2s; }
+.load-more:hover { border-color: var(--forest); color: var(--forest); background: var(--sage-soft); }
+
+/* ── RIGHT PANEL ── */
+.content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; }
+.right-panel { display: flex; flex-direction: column; gap: 1.2rem; }
+
+/* Top courts widget */
+.panel-card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.4rem; box-shadow: var(--shadow-xs); }
+.panel-title { font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--mist); margin-bottom: 1.1rem; }
+.top-court-row { display: flex; align-items: center; gap: .75rem; padding: .65rem 0; border-bottom: 1px solid var(--rule); cursor: pointer; transition: background .15s; border-radius: 8px; margin: 0 -.3rem; padding-left: .3rem; padding-right: .3rem; }
+.top-court-row:last-child { border-bottom: none; }
+.top-court-row:hover { background: var(--sage-soft); }
+.tcr-rank { font-size: 1.1rem; font-weight: 800; color: var(--rule-dark); letter-spacing: -.03em; width: 24px; flex-shrink: 0; }
+.tcr-info { flex: 1; }
+.tcr-name { font-size: .85rem; font-weight: 700; color: var(--ink); }
+.tcr-loc { font-size: .7rem; color: var(--mist); margin-top: .1rem; }
+.tcr-score { font-size: 1rem; font-weight: 800; color: var(--forest); }
+
+/* Amenity legend */
+.amenity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.amenity-item { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--slate); font-weight: 500; }
+.amenity-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* Map widget */
+.map-widget { background: var(--warm-white); border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-xs); }
+.map-ph { height: 150px; background: linear-gradient(135deg, #1A3A2A 0%, #2D5C42 40%, #1E4A34 70%, #163320 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.map-ph::before { content: ''; position: absolute; inset: 0; opacity: .1; background-image: linear-gradient(rgba(123,174,140,1) 1px, transparent 1px), linear-gradient(90deg, rgba(123,174,140,1) 1px, transparent 1px); background-size: 24px 24px; }
+.map-pin { position: absolute; width: 24px; height: 24px; border-radius: 50%; border: 2.5px solid white; display: flex; align-items: center; justify-content: center; font-size: .65rem; cursor: pointer; transition: transform .2s; box-shadow: 0 2px 6px rgba(0,0,0,.3); }
+.map-pin:hover { transform: scale(1.3); }
+.map-pin-label { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--forest); color: white; font-size: .55rem; font-weight: 700; padding: .12rem .4rem; border-radius: 3px; white-space: nowrap; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.map-pin:hover .map-pin-label { opacity: 1; }
+.map-body { padding: .9rem 1.1rem; }
+.nearby-row { display: flex; align-items: center; gap: .7rem; padding: .5rem 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.nearby-row:last-child { border-bottom: none; }
+.nearby-row:hover .nr-name { color: var(--forest); }
+.nr-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.nr-name { font-size: .8rem; font-weight: 700; flex: 1; transition: color .15s; }
+.nr-dist { font-size: .68rem; color: var(--mist); font-weight: 600; }
+.nr-score { font-size: .78rem; font-weight: 800; color: var(--forest); }
+
+/* ── MODAL ── */
+.modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(17,26,20,.7); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal { background: var(--warm-white); border-radius: var(--r-xl); box-shadow: var(--shadow-lg); max-width: 540px; width: 100%; max-height: 90vh; overflow-y: auto; transform: scale(.96) translateY(12px); transition: transform .25s; }
+.modal-overlay.open .modal { transform: scale(1) translateY(0); }
+.modal-header { background: var(--forest); padding: 1.8rem 2rem; border-radius: var(--r-xl) var(--r-xl) 0 0; display: flex; align-items: flex-start; justify-content: space-between; }
+.modal-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--warm-white); letter-spacing: -.03em; }
+.modal-header h2 span { color: var(--amber); }
+.modal-header p { font-size: .8rem; color: rgba(255,255,255,.45); margin-top: .3rem; }
+.modal-x { background: rgba(255,255,255,.1); border: none; width: 30px; height: 30px; border-radius: 50%; color: rgba(255,255,255,.6); cursor: pointer; font-size: .85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .15s; }
+.modal-x:hover { background: rgba(255,255,255,.2); }
+.modal-body { padding: 1.8rem 2rem; }
+.mf-row { margin-bottom: 1.3rem; }
+.mf-row label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); margin-bottom: .5rem; }
+.mf-row input, .mf-row select, .mf-row textarea { width: 100%; background: var(--cream); border: 1.5px solid var(--rule); border-radius: var(--r-sm); color: var(--ink); font-family: var(--font); font-size: .9rem; padding: .75rem 1rem; outline: none; transition: border-color .2s, box-shadow .2s; }
+.mf-row input:focus, .mf-row select:focus, .mf-row textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(26,58,42,.08); background: white; }
+.mf-row textarea { min-height: 100px; resize: vertical; }
+.mf-stars { display: flex; gap: .5rem; margin-top: .4rem; }
+.ms { font-size: 2rem; cursor: pointer; color: var(--rule-dark); transition: color .12s; }
+.ms.lit { color: var(--amber); }
+.modal-footer { padding: .5rem 2rem 2rem; display: flex; gap: .8rem; }
+.mc { flex: 1; background: none; border: 1.5px solid var(--rule); border-radius: 99px; color: var(--slate); padding: .8rem; font-family: var(--font); font-size: .85rem; font-weight: 700; cursor: pointer; transition: all .15s; }
+.mc:hover { border-color: var(--ink); color: var(--ink); }
+.ms-btn { flex: 2; background: var(--forest); color: white; border: none; border-radius: 99px; padding: .8rem; font-family: var(--font); font-size: .88rem; font-weight: 800; cursor: pointer; transition: background .2s, box-shadow .2s; }
+.ms-btn:hover { background: var(--forest-light); box-shadow: 0 4px 16px rgba(26,58,42,.3); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.courts-hero  { animation: fadeUp .5s ease both; }
+.filter-bar   { animation: fadeUp .5s .06s ease both; }
+.content-grid { animation: fadeUp .5s .12s ease both; }
+@keyframes barIn { from { width: 0; } }
+.cc-bar-fill { animation: barIn .7s .3s ease both; }
+
+/* ── MOBILE ── */
+@media (max-width: 1024px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .topbar-brand { width: auto; }
+  .courts-grid { grid-template-columns: 1fr; }
+  .court-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .court-card.featured .cc-img { height: 180px; }
+  .content-grid { grid-template-columns: 1fr; }
+  .right-panel { display: none; }
+  .ch-stats { display: none; }
+}
+@media (max-width: 640px) {
+  .main { padding: 1rem; }
+  .filter-bar { flex-direction: column; align-items: stretch; }
+}
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-mark">🏓</div>
+      <div>
+        <div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div>
+        <div class="brand-tagline">Pickleball Community</div>
+      </div>
+    </div>
+    <div class="topbar-search">
+      <span class="si">🔍</span>
+      <input type="text" placeholder="Search courts by name or city…" id="searchInput" oninput="filterCourts()">
+    </div>
+    <div class="topbar-right">
+      <button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button>
+      <button class="tb-pill solid" onclick="openModal()">+ Write Review</button>
+      <div class="tb-av">JK</div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand-strip">
+      <div class="sbs-label">The Pickleball Community</div>
+      <div class="sbs-name">DINK<span>REVIEWS</span></div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Discover</div>
+      <a class="nav-item" href="/dinkreviews/">
+        <span class="ni">🏠</span> Dashboard
+      </a>
+      <a class="nav-item active" href="/dinkreviews/courts/">
+        <span class="ni">🏟️</span> Courts
+        <span class="badge">618</span>
+      </a>
+      <a class="nav-item" href="/dinkreviews/paddles/">
+        <span class="ni">🏓</span> Paddles
+      </a>
+      <a class="nav-item" href="/dinkreviews/gear/">
+        <span class="ni">👟</span> Gear
+      </a>
+      <a class="nav-item" href="/dinkreviews/events/">
+        <span class="ni">📅</span> Events
+        <span class="badge new">3</span>
+      </a>
+      <a class="nav-item" href="/dinkreviews/training/">
+        <span class="ni">🎯</span> Training
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">My Activity</div>
+      <a class="nav-item" href="/dinkreviews/my-reviews/">
+        <span class="ni">✏️</span> My Reviews
+      </a>
+      <a class="nav-item" href="/dinkreviews/saved/">
+        <span class="ni">❤️</span> Saved
+      </a>
+      <a class="nav-item" href="/dinkreviews/courts/?filter=near-me">
+        <span class="ni">📍</span> Near Me
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Court Type <button onclick="">Clear</button></div>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked'); filterCourts()">
+          <span class="check-box">✓</span> Outdoor <span class="filter-count">412</span>
+        </label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked'); filterCourts()">
+          <span class="check-box">✓</span> Indoor <span class="filter-count">206</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Amenities</div>
+        <label class="filter-check" onclick="this.classList.toggle('checked')">
+          <span class="check-box"></span> Lights / Night Play <span class="filter-count">189</span>
+        </label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')">
+          <span class="check-box"></span> Free to Play <span class="filter-count">298</span>
+        </label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')">
+          <span class="check-box"></span> Open Play <span class="filter-count">341</span>
+        </label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')">
+          <span class="check-box"></span> Restrooms <span class="filter-count">204</span>
+        </label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')">
+          <span class="check-box"></span> Parking <span class="filter-count">387</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Min Rating</div>
+        <label class="filter-check" onclick="this.classList.toggle('checked')">
+          <span class="check-box"></span> 4.5+ ★ only
+        </label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')">
+          <span class="check-box">✓</span> 4.0+ ★ or better
+        </label>
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <button class="write-btn-sidebar" onclick="openModal()">
+        ✏️ Review a Court
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- COURTS HERO -->
+    <div class="courts-hero">
+      <div>
+        <div class="ch-eyebrow">618 courts rated by the community</div>
+        <div class="ch-title">Find your next<br><em>favorite court.</em></div>
+        <div class="ch-sub">Community-rated pickleball courts across Los Angeles and beyond. Read real reviews from real players.</div>
+      </div>
+      <div class="ch-stats">
+        <div class="ch-stat">
+          <div class="ch-stat-n">618</div>
+          <div class="ch-stat-l">Courts</div>
+        </div>
+        <div class="ch-stat">
+          <div class="ch-stat-n">2.1k</div>
+          <div class="ch-stat-l">Reviews</div>
+        </div>
+        <div class="ch-stat">
+          <div class="ch-stat-n">4.6</div>
+          <div class="ch-stat-l">Avg Score</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <div class="fb-search">
+        <span class="fsi">🔍</span>
+        <input type="text" placeholder="Search courts by name, city, or zip…" oninput="filterCourts()">
+      </div>
+      <div class="fb-divider"></div>
+      <div class="fb-group">
+        <span class="fb-label">Sort:</span>
+        <button class="fb-pill on" onclick="setSort(this)">Top Rated</button>
+        <button class="fb-pill" onclick="setSort(this)">Near Me</button>
+        <button class="fb-pill" onclick="setSort(this)">Most Reviewed</button>
+        <button class="fb-pill" onclick="setSort(this)">Newest</button>
+      </div>
+      <div class="fb-divider"></div>
+      <select class="fb-select">
+        <option>All Distances</option>
+        <option>Within 2 miles</option>
+        <option>Within 5 miles</option>
+        <option>Within 10 miles</option>
+        <option>Within 25 miles</option>
+      </select>
+    </div>
+
+    <!-- RESULTS + SIDE PANEL -->
+    <div class="content-grid">
+      <div>
+        <!-- Results header -->
+        <div class="results-header" style="margin-bottom:1rem;">
+          <div class="results-count">Showing <strong>6</strong> of <strong>618</strong> courts</div>
+          <div class="view-toggle">
+            <button class="vt-btn on" title="Grid view">⊞</button>
+            <button class="vt-btn" title="List view">☰</button>
+          </div>
+        </div>
+
+        <!-- Courts Grid -->
+        <div class="courts-grid" id="courtsGrid">
+
+          <!-- Featured court -->
+          <div class="court-card featured">
+            <div class="cc-img" style="background:linear-gradient(150deg,#0D3B2E,#1E5C44,#0D3020);">
+              🏟️
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-free">Free</span>
+                <span class="cc-badge badge-open">Open Play</span>
+              </div>
+              <span class="cc-verified">✓ Verified</span>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">Plummer Park Pickleball Courts</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.9</div>
+                  <div class="cc-score-bar">
+                    <div class="cc-bar-track"><div class="cc-bar-fill" style="width:98%"></div></div>
+                    <div class="cc-reviews">147 reviews</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cc-location">📍 West Hollywood, CA <span class="cc-distance">0.4 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 8 courts</span>
+                <span class="cc-detail">💡 Lighted</span>
+                <span class="cc-detail">🅿️ Parking</span>
+                <span class="cc-detail">🚻 Restrooms</span>
+              </div>
+              <div class="cc-excerpt">"The best free courts in the entire LA area. Surface is impeccably maintained, nets are regulation height, and the Sunday open play community is the most welcoming I've found anywhere in the city. The shade trees along the east side are a genuine bonus on hot days."</div>
+              <div class="cc-footer">
+                <div class="cc-author">
+                  <div class="cc-av" style="background:linear-gradient(135deg,#7BAE8C,#F5A623);">JK</div>
+                  <div>
+                    <div class="cc-name-sm">JamieK</div>
+                    <div class="cc-date">2 days ago</div>
+                  </div>
+                </div>
+                <div class="cc-actions">
+                  <button class="cc-btn">👍 32</button>
+                  <button class="cc-btn">💾 Save</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Court 2 -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#0A2A3A,#1A4A5C);">
+              🏟️
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-free">Free</span>
+              </div>
+              <span class="cc-verified">✓ Verified</span>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">MacArthur Park Courts</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.8</div>
+                  <div class="cc-score-bar">
+                    <div class="cc-bar-track"><div class="cc-bar-fill" style="width:96%"></div></div>
+                    <div class="cc-reviews">64 reviews</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cc-location">📍 Los Angeles, CA <span class="cc-distance">1.2 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 6 courts</span>
+                <span class="cc-detail">🌅 Open Play</span>
+              </div>
+              <div class="cc-excerpt">"A hidden gem in the middle of the city. Six well-maintained courts with an early morning crowd that's both friendly and surprisingly skilled."</div>
+              <div class="cc-footer">
+                <div class="cc-author">
+                  <div class="cc-av" style="background:linear-gradient(135deg,#2AA8C4,#7BAE8C);">RM</div>
+                  <div><div class="cc-name-sm">RachelM</div><div class="cc-date">4 days ago</div></div>
+                </div>
+                <div class="cc-actions">
+                  <button class="cc-btn">👍 21</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Court 3 -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#1A2A1A,#2E4A2E);">
+              🏟️
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-lighted">Lighted</span>
+              </div>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">Pan Pacific Park Courts</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.5</div>
+                  <div class="cc-score-bar">
+                    <div class="cc-bar-track"><div class="cc-bar-fill" style="width:90%"></div></div>
+                    <div class="cc-reviews">88 reviews</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cc-location">📍 West Hollywood, CA <span class="cc-distance">1.9 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 4 courts</span>
+                <span class="cc-detail">💡 Night lights</span>
+                <span class="cc-detail">🅿️ Street parking</span>
+              </div>
+              <div class="cc-excerpt">"Night games under the lights here are unbeatable. Surface could use a refresh in spots but the community is great and the lights stay on late."</div>
+              <div class="cc-footer">
+                <div class="cc-author">
+                  <div class="cc-av" style="background:linear-gradient(135deg,#F25C38,#F5A623);">TW</div>
+                  <div><div class="cc-name-sm">TomW</div><div class="cc-date">1 week ago</div></div>
+                </div>
+                <div class="cc-actions">
+                  <button class="cc-btn">👍 14</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Court 4 -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#1A1A2E,#2E2E50);">
+              🏟️
+              <div class="cc-badges">
+                <span class="cc-badge badge-indoor">Indoor</span>
+              </div>
+              <span class="cc-verified">✓ Verified</span>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">LA Fitness Pickleball — Culver City</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.2</div>
+                  <div class="cc-score-bar">
+                    <div class="cc-bar-track"><div class="cc-bar-fill" style="width:84%"></div></div>
+                    <div class="cc-reviews">53 reviews</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cc-location">📍 Culver City, CA <span class="cc-distance">3.1 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 3 courts</span>
+                <span class="cc-detail">❄️ Air conditioned</span>
+                <span class="cc-detail">🎽 Membership req.</span>
+              </div>
+              <div class="cc-excerpt">"Clean indoor courts, great for hot days or rainy weather. Membership required but worth it if you're already a member. Courts are well-maintained."</div>
+              <div class="cc-footer">
+                <div class="cc-author">
+                  <div class="cc-av" style="background:linear-gradient(135deg,#8B5CF6,#2AA8C4);">PG</div>
+                  <div><div class="cc-name-sm">PauloG</div><div class="cc-date">2 weeks ago</div></div>
+                </div>
+                <div class="cc-actions">
+                  <button class="cc-btn">👍 9</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Court 5 -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#2A1A0A,#4A3010);">
+              🏟️
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-free">Free</span>
+                <span class="cc-badge badge-lighted">Lighted</span>
+              </div>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">Griffith Park Tennis & Pickleball</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.4</div>
+                  <div class="cc-score-bar">
+                    <div class="cc-bar-track"><div class="cc-bar-fill" style="width:88%"></div></div>
+                    <div class="cc-reviews">71 reviews</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cc-location">📍 Los Feliz, CA <span class="cc-distance">4.8 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 5 courts</span>
+                <span class="cc-detail">🌳 Shaded</span>
+                <span class="cc-detail">🚻 Restrooms</span>
+              </div>
+              <div class="cc-excerpt">"Beautiful setting inside Griffith Park. Can get crowded on weekends but the courts are in good shape and the atmosphere is always fun and competitive."</div>
+              <div class="cc-footer">
+                <div class="cc-author">
+                  <div class="cc-av" style="background:linear-gradient(135deg,#F5A623,#8EC63F);">SB</div>
+                  <div><div class="cc-name-sm">SandraB</div><div class="cc-date">3 weeks ago</div></div>
+                </div>
+                <div class="cc-actions">
+                  <button class="cc-btn">👍 17</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Court 6 -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#0D2A3A,#1A4050);">
+              🏟️
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-open">Open Play</span>
+              </div>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">Santa Monica Beach Courts</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.6</div>
+                  <div class="cc-score-bar">
+                    <div class="cc-bar-track"><div class="cc-bar-fill" style="width:92%"></div></div>
+                    <div class="cc-reviews">112 reviews</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cc-location">📍 Santa Monica, CA <span class="cc-distance">6.2 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 4 courts</span>
+                <span class="cc-detail">🌊 Ocean views</span>
+                <span class="cc-detail">🌅 Sunrise play</span>
+              </div>
+              <div class="cc-excerpt">"Playing pickleball with an ocean view is an experience you can't find anywhere else. Gets windy in the afternoon but mornings are perfect. Weekend open play gets competitive fast."</div>
+              <div class="cc-footer">
+                <div class="cc-author">
+                  <div class="cc-av" style="background:linear-gradient(135deg,#2AA8C4,#7BAE8C);">MK</div>
+                  <div><div class="cc-name-sm">MikeK</div><div class="cc-date">5 days ago</div></div>
+                </div>
+                <div class="cc-actions">
+                  <button class="cc-btn">👍 44</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /courts-grid -->
+
+        <div class="load-more-wrap">
+          <button class="load-more">Load more courts →</button>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+
+        <!-- Top rated this week -->
+        <div class="panel-card">
+          <div class="panel-title">Top Rated Courts</div>
+          <div class="top-court-row">
+            <div class="tcr-rank">01</div>
+            <div class="tcr-info">
+              <div class="tcr-name">Plummer Park</div>
+              <div class="tcr-loc">West Hollywood · 0.4 mi</div>
+            </div>
+            <div class="tcr-score">4.9</div>
+          </div>
+          <div class="top-court-row">
+            <div class="tcr-rank">02</div>
+            <div class="tcr-info">
+              <div class="tcr-name">MacArthur Park</div>
+              <div class="tcr-loc">Los Angeles · 1.2 mi</div>
+            </div>
+            <div class="tcr-score">4.8</div>
+          </div>
+          <div class="top-court-row">
+            <div class="tcr-rank">03</div>
+            <div class="tcr-info">
+              <div class="tcr-name">Santa Monica Beach</div>
+              <div class="tcr-loc">Santa Monica · 6.2 mi</div>
+            </div>
+            <div class="tcr-score">4.6</div>
+          </div>
+          <div class="top-court-row">
+            <div class="tcr-rank">04</div>
+            <div class="tcr-info">
+              <div class="tcr-name">Pan Pacific Park</div>
+              <div class="tcr-loc">West Hollywood · 1.9 mi</div>
+            </div>
+            <div class="tcr-score">4.5</div>
+          </div>
+          <div class="top-court-row">
+            <div class="tcr-rank">05</div>
+            <div class="tcr-info">
+              <div class="tcr-name">Griffith Park</div>
+              <div class="tcr-loc">Los Feliz · 4.8 mi</div>
+            </div>
+            <div class="tcr-score">4.4</div>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-widget">
+          <div class="map-ph">
+            <div class="map-pin" style="top:32%;left:38%;background:var(--coral);">
+              🏟️<div class="map-pin-label">Plummer Park</div>
+            </div>
+            <div class="map-pin" style="top:52%;left:58%;background:var(--amber);">
+              🏟️<div class="map-pin-label">MacArthur Park</div>
+            </div>
+            <div class="map-pin" style="top:22%;left:65%;background:var(--sage);">
+              🏟️<div class="map-pin-label">Pan Pacific</div>
+            </div>
+            <div class="map-pin" style="top:62%;left:22%;background:var(--sky);">
+              🏟️<div class="map-pin-label">Santa Monica</div>
+            </div>
+          </div>
+          <div class="map-body">
+            <div class="panel-title">Courts Near You</div>
+            <div class="nearby-row">
+              <div class="nr-dot" style="background:var(--coral)"></div>
+              <div class="nr-name">Plummer Park</div>
+              <div class="nr-dist">0.4 mi</div>
+              <div class="nr-score">4.9</div>
+            </div>
+            <div class="nearby-row">
+              <div class="nr-dot" style="background:var(--amber)"></div>
+              <div class="nr-name">MacArthur Park</div>
+              <div class="nr-dist">1.2 mi</div>
+              <div class="nr-score">4.8</div>
+            </div>
+            <div class="nearby-row">
+              <div class="nr-dot" style="background:var(--sage)"></div>
+              <div class="nr-name">Pan Pacific Park</div>
+              <div class="nr-dist">1.9 mi</div>
+              <div class="nr-score">4.5</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amenity legend -->
+        <div class="panel-card">
+          <div class="panel-title">Amenity Guide</div>
+          <div class="amenity-grid">
+            <div class="amenity-item"><div class="amenity-dot" style="background:var(--lime)"></div>Free to play</div>
+            <div class="amenity-item"><div class="amenity-dot" style="background:var(--sky)"></div>Indoor</div>
+            <div class="amenity-item"><div class="amenity-dot" style="background:var(--amber)"></div>Lighted</div>
+            <div class="amenity-item"><div class="amenity-dot" style="background:var(--sage)"></div>Open play</div>
+            <div class="amenity-item"><div class="amenity-dot" style="background:var(--coral)"></div>Membership req.</div>
+            <div class="amenity-item"><div class="amenity-dot" style="background:var(--forest)"></div>Verified</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- APP FOOTER -->
+<div style="background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;font-family:var(--font);">
+  <div style="font-weight:800;color:var(--amber);font-size:.9rem;">DINK<span style="color:rgba(255,255,255,.7)">REVIEWS</span></div>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="/dinkreviews/courts/" style="color:rgba(255,255,255,.5);text-decoration:none;">Courts</a>
+    <a href="/dinkreviews/paddles/" style="color:rgba(255,255,255,.5);text-decoration:none;">Paddles</a>
+    <a href="/dinkreviews/gear/" style="color:rgba(255,255,255,.5);text-decoration:none;">Gear</a>
+    <a href="/dinkreviews/events/" style="color:rgba(255,255,255,.5);text-decoration:none;">Events</a>
+    <a href="/dinkreviews/" style="color:rgba(255,255,255,.5);text-decoration:none;">Dashboard</a>
+  </div>
+  <div>© 2025 DINKREVIEWS — The Pickleball Community</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeOut(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2>Review a <span>Court</span></h2>
+        <p>Help the DINKREVIEWS community find the best courts</p>
+      </div>
+      <button class="modal-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mf-row">
+        <label>Court Name</label>
+        <input type="text" placeholder="e.g. Plummer Park Pickleball Courts">
+      </div>
+      <div class="mf-row">
+        <label>Location</label>
+        <input type="text" placeholder="City, State">
+      </div>
+      <div class="mf-row">
+        <label>Your Rating</label>
+        <div class="mf-stars" id="mstars">
+          <span class="ms" data-v="1" onclick="setMS(1)">★</span>
+          <span class="ms" data-v="2" onclick="setMS(2)">★</span>
+          <span class="ms" data-v="3" onclick="setMS(3)">★</span>
+          <span class="ms" data-v="4" onclick="setMS(4)">★</span>
+          <span class="ms" data-v="5" onclick="setMS(5)">★</span>
+        </div>
+      </div>
+      <div class="mf-row">
+        <label>Court Type</label>
+        <select>
+          <option>Outdoor — Public / Free</option>
+          <option>Outdoor — Paid</option>
+          <option>Indoor — Public</option>
+          <option>Indoor — Membership / Club</option>
+        </select>
+      </div>
+      <div class="mf-row">
+        <label>Your Review</label>
+        <textarea placeholder="How are the courts? Surface condition, nets, lighting, community, open play…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="mc" onclick="closeModal()">Cancel</button>
+      <button class="ms-btn" onclick="doSubmit()">Submit Review</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setSort(el) {
+    document.querySelectorAll('.fb-pill').forEach(b => b.classList.remove('on'));
+    el.classList.add('on');
+  }
+  function filterCourts() { /* hook for backend filtering */ }
+  function openModal()  { document.getElementById('modal').classList.add('open'); }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); }
+  function closeOut(e)  { if (e.target.id === 'modal') closeModal(); }
+  let mstar = 0;
+  function setMS(n) {
+    mstar = n;
+    document.querySelectorAll('.ms').forEach(s => s.classList.toggle('lit', parseInt(s.dataset.v) <= n));
+  }
+  document.querySelectorAll('.ms').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+      const v = parseInt(s.dataset.v);
+      document.querySelectorAll('.ms').forEach(x => x.classList.toggle('lit', parseInt(x.dataset.v) <= v));
+    });
+    s.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.ms').forEach(x => x.classList.toggle('lit', parseInt(x.dataset.v) <= mstar));
+    });
+  });
+  function doSubmit() {
+    if (!mstar) { alert('Please select a rating.'); return; }
+    closeModal();
+    setTimeout(() => alert('✓ Court review submitted! Thanks for contributing to DINKREVIEWS. 🏓'), 200);
+    mstar = 0;
+    document.querySelectorAll('.ms').forEach(s => s.classList.remove('lit'));
+  }
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      if (this.getAttribute('href') === '#') { e.preventDefault(); }
+    });
+  });
+</script>
+</body>
+</html>
