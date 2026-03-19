@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paddles — DINKREVIEWS</title>
+<meta name="description" content="Find the best pickleball paddles. Community ratings and reviews for carbon fiber, fiberglass, and composite paddles.">
+<meta name="theme-color" content="#1A3A2A">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#1A3A2A;--forest-mid:#224835;--forest-light:#2D5C42;--amber:#F5A623;--amber-soft:#FEF3DC;--sage:#7BAE8C;--sage-soft:#EBF4EE;--cream:#FAF8F4;--warm-white:#FFFFFF;--ink:#111A14;--slate:#5C7A66;--mist:#A8C0B0;--rule:#E4EDE7;--rule-dark:#C8D9CE;--coral:#F25C38;--coral-soft:#FEF0EC;--sky:#2AA8C4;--sky-soft:#EAF7FB;--lime:#8EC63F;--lime-soft:#F2FAE6;--yellow:#F9C22E;--yellow-soft:#FEF6DC;--purple:#8B5CF6;--purple-soft:#F3EFFF;--shadow-xs:0 1px 3px rgba(26,58,42,.08);--shadow-sm:0 2px 8px rgba(26,58,42,.1),0 1px 3px rgba(26,58,42,.06);--shadow-md:0 6px 24px rgba(26,58,42,.12),0 2px 8px rgba(26,58,42,.06);--shadow-lg:0 16px 48px rgba(26,58,42,.15),0 4px 12px rgba(26,58,42,.08);--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;--font:'Plus Jakarta Sans',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}
+body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.app-shell{display:grid;grid-template-columns:260px 1fr;grid-template-rows:56px 1fr;min-height:100vh}
+/* TOPBAR */
+.topbar{grid-column:1/-1;background:var(--forest);display:flex;align-items:center;padding:0 1.5rem 0 0;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:200}
+.topbar-brand{width:260px;flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0 1.5rem;border-right:1px solid rgba(255,255,255,.08);height:56px}
+.brand-mark{width:32px;height:32px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 2px 10px rgba(245,166,35,.5)}
+.brand-name{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.brand-name .dr-dink{color:var(--warm-white)}
+.brand-name .dr-reviews{color:var(--amber)}
+.brand-tagline{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem}
+.topbar-search{flex:1;max-width:480px;margin-left:1.5rem;position:relative}
+.topbar-search input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:99px;color:var(--warm-white);font-family:var(--font);font-size:.85rem;padding:.5rem 1rem .5rem 2.5rem;outline:none;transition:background .2s,border-color .2s}
+.topbar-search input::placeholder{color:rgba(255,255,255,.35)}
+.topbar-search input:focus{background:rgba(255,255,255,.14);border-color:var(--amber)}
+.topbar-search .si{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:rgba(255,255,255,.4)}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.tb-pill{font-size:.75rem;font-weight:700;padding:.42rem 1rem;border-radius:99px;cursor:pointer;font-family:var(--font);border:none;transition:all .15s}
+.tb-pill.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.tb-pill.ghost:hover{background:rgba(255,255,255,.15);color:var(--warm-white)}
+.tb-pill.solid{background:var(--amber);color:var(--forest);box-shadow:0 2px 10px rgba(245,166,35,.4)}
+.tb-pill.solid:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(245,166,35,.5)}
+.tb-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--amber));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:var(--forest);cursor:pointer;border:2px solid rgba(255,255,255,.15)}
+/* SIDEBAR */
+.sidebar{background:var(--warm-white);border-right:1px solid var(--rule);padding:1.5rem 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{display:none}
+.sidebar-brand-strip{padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--rule);margin-bottom:.5rem}
+.sbs-label{font-size:.58rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
+.sbs-name{font-size:.92rem;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.2;margin-top:.1rem}
+.sbs-name span{color:var(--amber)}
+.sidebar-section{margin-bottom:1.8rem}
+.sidebar-label{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0 1.2rem;margin-bottom:.5rem}
+.nav-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 1.2rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--slate);transition:background .15s,color .15s;border-left:2px solid transparent;text-decoration:none}
+.nav-item:hover{background:var(--sage-soft);color:var(--ink)}
+.nav-item.active{background:var(--sage-soft);color:var(--forest);border-left-color:var(--forest);font-weight:700}
+.nav-item .ni{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+.nav-item .badge{margin-left:auto;font-size:.65rem;font-weight:800;background:var(--amber);color:var(--forest);padding:.12rem .45rem;border-radius:99px}
+.nav-item .badge.new{background:var(--coral);color:white}
+.filter-group{padding:0 1.2rem}
+.filter-group-title{font-size:.7rem;font-weight:700;color:var(--slate);margin-bottom:.6rem;display:flex;align-items:center;justify-content:space-between}
+.filter-check{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--slate);padding:.3rem 0;cursor:pointer;transition:color .15s}
+.filter-check:hover{color:var(--ink)}
+.check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--rule-dark);background:var(--warm-white);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .15s}
+.filter-check.checked .check-box{background:var(--forest);border-color:var(--forest);color:white}
+.filter-count{margin-left:auto;font-size:.7rem;color:var(--mist)}
+.sidebar-bottom{margin-top:auto;padding:1.2rem;border-top:1px solid var(--rule)}
+.write-btn-sidebar{width:100%;background:var(--forest);color:var(--warm-white);border:none;border-radius:var(--r-md);padding:.85rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:background .2s,box-shadow .2s;box-shadow:var(--shadow-sm)}
+.write-btn-sidebar:hover{background:var(--forest-light);box-shadow:var(--shadow-md)}
+/* MAIN */
+.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1.8rem}
+/* HERO */
+.page-hero{background:var(--forest);border-radius:var(--r-lg);padding:2rem 2.5rem;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:22px 22px}
+.page-hero::after{content:'';position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.2) 0%,transparent 70%);pointer-events:none}
+.ph-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.ph-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--amber);display:block}
+.ph-title{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:var(--warm-white);line-height:1.15;margin-bottom:.5rem}
+.ph-title em{font-style:normal;color:var(--amber)}
+.ph-sub{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.6;max-width:420px}
+.ph-stats{display:flex;gap:1.2rem;position:relative;z-index:1}
+.ph-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);padding:.9rem 1.2rem;text-align:center;min-width:80px}
+.ph-stat-n{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
+.ph-stat-l{font-size:.62rem;font-weight:600;color:rgba(255,255,255,.4);margin-top:.2rem;text-transform:uppercase;letter-spacing:.08em}
+/* FILTER BAR */
+.filter-bar{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow-xs)}
+.fb-search{flex:1;min-width:200px;position:relative}
+.fb-search input{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:99px;font-family:var(--font);font-size:.88rem;color:var(--ink);padding:.6rem 1rem .6rem 2.4rem;outline:none;transition:border-color .2s}
+.fb-search input:focus{border-color:var(--forest)}
+.fb-search input::placeholder{color:var(--mist)}
+.fb-search .fsi{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:var(--mist)}
+.fb-divider{width:1px;height:28px;background:var(--rule);flex-shrink:0}
+.fb-group{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.fb-label{font-size:.72rem;font-weight:700;color:var(--slate);white-space:nowrap}
+.fb-pill{font-size:.75rem;font-weight:600;padding:.38rem .85rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s;white-space:nowrap}
+.fb-pill:hover{border-color:var(--forest);color:var(--forest)}
+.fb-pill.on{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
+.fb-select{font-size:.78rem;font-weight:600;color:var(--slate);background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);padding:.4rem .8rem;font-family:var(--font);outline:none;cursor:pointer}
+/* CONTENT GRID */
+.content-grid{display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.results-count{font-size:.85rem;font-weight:600;color:var(--slate)}
+.results-count strong{color:var(--ink);font-weight:800}
+/* PADDLE CARDS */
+.paddles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.paddle-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;box-shadow:var(--shadow-xs)}
+.paddle-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--rule-dark)}
+.pc-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
+.pc-badges{position:absolute;top:10px;left:10px;display:flex;gap:.4rem;flex-wrap:wrap}
+.pc-badge{font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.22rem .6rem;border-radius:99px}
+.badge-carbon{background:var(--ink);color:white}
+.badge-fiber{background:var(--sky-soft);color:var(--sky)}
+.badge-composite{background:var(--purple-soft);color:var(--purple)}
+.badge-pro{background:var(--amber-soft);color:#8A5A00}
+.badge-beginner{background:var(--lime-soft);color:#4A7000}
+.pc-verified{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);border-radius:99px;font-size:.62rem;font-weight:700;color:var(--sage);padding:.22rem .6rem;box-shadow:var(--shadow-xs)}
+.pc-body{padding:1.1rem 1.2rem}
+.pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.35rem}
+.pc-name{font-size:1rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.3}
+.pc-score-wrap{display:flex;align-items:center;gap:.35rem;flex-shrink:0}
+.pc-score-num{font-size:1.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.pc-score-bar{width:48px}
+.pc-bar-track{width:100%;height:4px;background:var(--rule);border-radius:2px}
+.pc-bar-fill{height:100%;background:var(--amber);border-radius:2px}
+.pc-reviews{font-size:.65rem;color:var(--mist);font-weight:600}
+.pc-brand{font-size:.72rem;font-weight:700;color:var(--coral);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+.pc-specs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem}
+.pc-spec{font-size:.68rem;font-weight:600;color:var(--slate);background:var(--sage-soft);padding:.18rem .55rem;border-radius:99px}
+.pc-price{font-size:.88rem;font-weight:800;color:var(--forest);margin-bottom:.5rem}
+.pc-price .price-note{font-size:.7rem;font-weight:500;color:var(--mist)}
+.pc-excerpt{font-size:.82rem;color:var(--slate);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.9rem}
+.pc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;border-top:1px solid var(--rule)}
+.pc-author{display:flex;align-items:center;gap:.45rem}
+.pc-av{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:800;color:white;flex-shrink:0}
+.pc-name-sm{font-size:.72rem;font-weight:700}
+.pc-date{font-size:.67rem;color:var(--mist)}
+.pc-actions{display:flex;gap:.35rem}
+.pc-btn{font-size:.68rem;font-weight:700;padding:.25rem .6rem;border-radius:99px;border:1px solid var(--rule);background:none;color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
+.pc-btn:hover{border-color:var(--sage);color:var(--forest);background:var(--sage-soft)}
+.pc-btn.primary{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
+.pc-btn.primary:hover{background:var(--forest-light)}
+/* featured */
+.paddle-card.featured{grid-column:span 2;display:grid;grid-template-columns:260px 1fr}
+.paddle-card.featured .pc-img{height:100%;border-radius:0;font-size:4rem}
+.paddle-card.featured .pc-body{padding:1.5rem}
+.paddle-card.featured .pc-name{font-size:1.2rem}
+.paddle-card.featured .pc-excerpt{-webkit-line-clamp:3}
+/* RIGHT PANEL */
+.right-panel{display:flex;flex-direction:column;gap:1.2rem}
+.panel-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow-xs)}
+.panel-title{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:1.1rem}
+.top-row{display:flex;align-items:center;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s;border-radius:8px;margin:0 -.3rem;padding-left:.3rem;padding-right:.3rem}
+.top-row:last-child{border-bottom:none}
+.top-row:hover{background:var(--sage-soft)}
+.tr-rank{font-size:1.1rem;font-weight:800;color:var(--rule-dark);letter-spacing:-.03em;width:24px;flex-shrink:0}
+.tr-info{flex:1}
+.tr-name{font-size:.85rem;font-weight:700;color:var(--ink)}
+.tr-sub{font-size:.7rem;color:var(--mist);margin-top:.1rem}
+.tr-score{font-size:1rem;font-weight:800;color:var(--forest)}
+/* Spec comparison */
+.spec-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.spec-table th{text-align:left;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);padding:.4rem 0;border-bottom:1px solid var(--rule)}
+.spec-table td{padding:.55rem 0;border-bottom:1px solid var(--rule);color:var(--slate);vertical-align:top}
+.spec-table td:first-child{font-weight:700;color:var(--ink);width:40%}
+.spec-table tr:last-child td{border-bottom:none}
+/* load more */
+.load-more-wrap{display:flex;justify-content:center;padding:1rem 0}
+.load-more{background:none;border:1.5px solid var(--rule);color:var(--slate);font-family:var(--font);font-size:.85rem;font-weight:700;padding:.8rem 2.5rem;border-radius:99px;cursor:pointer;transition:all .2s}
+.load-more:hover{border-color:var(--forest);color:var(--forest);background:var(--sage-soft)}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(17,26,20,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--warm-white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.96) translateY(12px);transition:transform .25s}
+.modal-overlay.open .modal{transform:scale(1) translateY(0)}
+.modal-header{background:var(--forest);padding:1.8rem 2rem;border-radius:var(--r-xl) var(--r-xl) 0 0;display:flex;align-items:flex-start;justify-content:space-between}
+.modal-header h2{font-size:1.4rem;font-weight:800;color:var(--warm-white);letter-spacing:-.03em}
+.modal-header h2 span{color:var(--amber)}
+.modal-header p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.3rem}
+.modal-x{background:rgba(255,255,255,.1);border:none;width:30px;height:30px;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+.modal-x:hover{background:rgba(255,255,255,.2)}
+.modal-body{padding:1.8rem 2rem}
+.mf-row{margin-bottom:1.3rem}
+.mf-row label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:.5rem}
+.mf-row input,.mf-row select,.mf-row textarea{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.9rem;padding:.75rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.mf-row input:focus,.mf-row select:focus,.mf-row textarea:focus{border-color:var(--forest);box-shadow:0 0 0 3px rgba(26,58,42,.08);background:white}
+.mf-row textarea{min-height:100px;resize:vertical}
+.mf-stars{display:flex;gap:.5rem;margin-top:.4rem}
+.ms{font-size:2rem;cursor:pointer;color:var(--rule-dark);transition:color .12s}
+.ms.lit{color:var(--amber)}
+.modal-footer{padding:.5rem 2rem 2rem;display:flex;gap:.8rem}
+.mc{flex:1;background:none;border:1.5px solid var(--rule);border-radius:99px;color:var(--slate);padding:.8rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .15s}
+.mc:hover{border-color:var(--ink);color:var(--ink)}
+.ms-btn{flex:2;background:var(--forest);color:white;border:none;border-radius:99px;padding:.8rem;font-family:var(--font);font-size:.88rem;font-weight:800;cursor:pointer;transition:background .2s,box-shadow .2s}
+.ms-btn:hover{background:var(--forest-light);box-shadow:0 4px 16px rgba(26,58,42,.3)}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes barIn{from{width:0}}
+.page-hero{animation:fadeUp .5s ease both}
+.filter-bar{animation:fadeUp .5s .06s ease both}
+.content-grid{animation:fadeUp .5s .12s ease both}
+.pc-bar-fill{animation:barIn .7s .3s ease both}
+/* FOOTER */
+.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;font-family:var(--font)}
+.footer-brand{font-weight:800;color:var(--amber);font-size:.9rem}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;font-weight:500}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+/* MOBILE */
+@media(max-width:1024px){.app-shell{grid-template-columns:1fr}.sidebar{display:none}.topbar-brand{width:auto}.paddles-grid{grid-template-columns:1fr}.paddle-card.featured{grid-column:span 1;grid-template-columns:1fr}.paddle-card.featured .pc-img{height:180px}.content-grid{grid-template-columns:1fr}.right-panel{display:none}.ph-stats{display:none}}
+@media(max-width:640px){.main{padding:1rem}.filter-bar{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-mark">🏓</div>
+      <div>
+        <div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div>
+        <div class="brand-tagline">Pickleball Community</div>
+      </div>
+    </div>
+    <div class="topbar-search"><span class="si">🔍</span><input type="text" placeholder="Search paddles by name or brand…"></div>
+    <div class="topbar-right">
+      <button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button>
+      <button class="tb-pill solid" onclick="openModal()">+ Write Review</button>
+      <div class="tb-av">JK</div>
+    </div>
+  </div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand-strip">
+      <div class="sbs-label">The Pickleball Community</div>
+      <div class="sbs-name">DINK<span>REVIEWS</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Discover</div>
+      <a class="nav-item" href="/dinkreviews/"><span class="ni">🏠</span> Dashboard</a>
+      <a class="nav-item" href="/dinkreviews/courts/"><span class="ni">🏟️</span> Courts <span class="badge">618</span></a>
+      <a class="nav-item active" href="/dinkreviews/paddles/"><span class="ni">🏓</span> Paddles</a>
+      <a class="nav-item" href="/dinkreviews/gear/"><span class="ni">👟</span> Gear</a>
+      <a class="nav-item" href="/dinkreviews/events/"><span class="ni">📅</span> Events <span class="badge new">3</span></a>
+      <a class="nav-item" href="/dinkreviews/training/"><span class="ni">🎯</span> Training</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">My Activity</div>
+      <a class="nav-item" href="#"><span class="ni">✏️</span> My Reviews</a>
+      <a class="nav-item" href="#"><span class="ni">❤️</span> Saved</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Material</div>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Carbon Fiber <span class="filter-count">142</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Fiberglass <span class="filter-count">98</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Composite <span class="filter-count">76</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Graphite <span class="filter-count">26</span></label>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Skill Level</div>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Beginner</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Intermediate</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Advanced / Pro</label>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Core Thickness</div>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> 13mm</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> 16mm</label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> 18mm+</label>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="filter-group">
+        <div class="filter-group-title">Price Range</div>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Under $75</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> $75 – $150</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> $150+</label>
+      </div>
+    </div>
+    <div class="sidebar-bottom">
+      <button class="write-btn-sidebar" onclick="openModal()">✏️ Review a Paddle</button>
+    </div>
+  </aside>
+  <!-- MAIN -->
+  <main class="main">
+    <!-- HERO -->
+    <div class="page-hero">
+      <div>
+        <div class="ph-eyebrow">342 paddles rated by the community</div>
+        <div class="ph-title">Find your perfect<br><em>paddle match.</em></div>
+        <div class="ph-sub">Honest reviews from players at every level. Carbon fiber, fiberglass, composite — all rated by the community.</div>
+      </div>
+      <div class="ph-stats">
+        <div class="ph-stat"><div class="ph-stat-n">342</div><div class="ph-stat-l">Paddles</div></div>
+        <div class="ph-stat"><div class="ph-stat-n">1.8k</div><div class="ph-stat-l">Reviews</div></div>
+        <div class="ph-stat"><div class="ph-stat-n">4.5</div><div class="ph-stat-l">Avg Score</div></div>
+      </div>
+    </div>
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <div class="fb-search"><span class="fsi">🔍</span><input type="text" placeholder="Search paddles by name or brand…"></div>
+      <div class="fb-divider"></div>
+      <div class="fb-group">
+        <span class="fb-label">Sort:</span>
+        <button class="fb-pill on" onclick="setSort(this)">Top Rated</button>
+        <button class="fb-pill" onclick="setSort(this)">Most Reviewed</button>
+        <button class="fb-pill" onclick="setSort(this)">Newest</button>
+        <button class="fb-pill" onclick="setSort(this)">Price: Low–High</button>
+      </div>
+      <div class="fb-divider"></div>
+      <select class="fb-select"><option>All Levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+    </div>
+    <!-- CONTENT + PANEL -->
+    <div class="content-grid">
+      <div>
+        <div class="results-header">
+          <div class="results-count">Showing <strong>6</strong> of <strong>342</strong> paddles</div>
+        </div>
+        <div class="paddles-grid">
+          <!-- Featured paddle -->
+          <div class="paddle-card featured">
+            <div class="pc-img" style="background:linear-gradient(150deg,#1A2A1A,#2E4A2E);">
+              🏓
+              <div class="pc-badges"><span class="pc-badge badge-carbon">Carbon Fiber</span><span class="pc-badge badge-pro">Pro</span></div>
+              <span class="pc-verified">✓ Verified</span>
+            </div>
+            <div class="pc-body">
+              <div class="pc-brand">Joola</div>
+              <div class="pc-top">
+                <div class="pc-name">Ben Johns Hyperion CFS 16mm</div>
+                <div class="pc-score-wrap">
+                  <div class="pc-score-num">4.8</div>
+                  <div class="pc-score-bar"><div class="pc-bar-track"><div class="pc-bar-fill" style="width:96%"></div></div><div class="pc-reviews">203 reviews</div></div>
+                </div>
+              </div>
+              <div class="pc-specs"><span class="pc-spec">Carbon Fiber</span><span class="pc-spec">16mm Core</span><span class="pc-spec">Raw Face</span><span class="pc-spec">7.9oz</span></div>
+              <div class="pc-price">$219 <span class="price-note">avg. retail</span></div>
+              <div class="pc-excerpt">"The spin control on this paddle is next-level. Once you dial in the raw carbon face — after about 4–5 sessions — the pop on third-shot drops is genuinely something special. Best paddle I've used at the 4.0+ level."</div>
+              <div class="pc-footer">
+                <div class="pc-author"><div class="pc-av" style="background:linear-gradient(135deg,#F25C38,#F5A623);">MR</div><div><div class="pc-name-sm">Marco_R</div><div class="pc-date">1 week ago</div></div></div>
+                <div class="pc-actions"><button class="pc-btn">👍 55</button><button class="pc-btn">💾 Save</button><button class="pc-btn primary" onclick="openModal()">Review</button></div>
+              </div>
+            </div>
+          </div>
+          <!-- Paddle 2 -->
+          <div class="paddle-card">
+            <div class="pc-img" style="background:linear-gradient(150deg,#0A2040,#1A3A5C);">🏓<div class="pc-badges"><span class="pc-badge badge-carbon">Carbon Fiber</span><span class="pc-badge badge-pro">Pro</span></div><span class="pc-verified">✓ Verified</span></div>
+            <div class="pc-body">
+              <div class="pc-brand">Selkirk</div>
+              <div class="pc-top"><div class="pc-name">Vanguard Power Air Invikta</div><div class="pc-score-wrap"><div class="pc-score-num">4.7</div><div class="pc-score-bar"><div class="pc-bar-track"><div class="pc-bar-fill" style="width:94%"></div></div><div class="pc-reviews">112 reviews</div></div></div></div>
+              <div class="pc-specs"><span class="pc-spec">Carbon Fiber</span><span class="pc-spec">16mm Core</span><span class="pc-spec">8.1oz</span></div>
+              <div class="pc-price">$199 <span class="price-note">avg. retail</span></div>
+              <div class="pc-excerpt">"Incredible feel and control at the kitchen. The elongated shape gives you extra reach and the power response is predictable. One of the best paddles in its class."</div>
+              <div class="pc-footer"><div class="pc-author"><div class="pc-av" style="background:linear-gradient(135deg,#2AA8C4,#7BAE8C);">TL</div><div><div class="pc-name-sm">TinaL</div><div class="pc-date">5 days ago</div></div></div><div class="pc-actions"><button class="pc-btn">👍 38</button><button class="pc-btn primary" onclick="openModal()">Review</button></div></div>
+            </div>
+          </div>
+          <!-- Paddle 3 -->
+          <div class="paddle-card">
+            <div class="pc-img" style="background:linear-gradient(150deg,#1A1028,#2D1A4A);">🏓<div class="pc-badges"><span class="pc-badge badge-fiber">Fiberglass</span><span class="pc-badge badge-beginner">Beginner</span></div></div>
+            <div class="pc-body">
+              <div class="pc-brand">Paddletek</div>
+              <div class="pc-top"><div class="pc-name">Bantam EX-L Pro</div><div class="pc-score-wrap"><div class="pc-score-num">4.5</div><div class="pc-score-bar"><div class="pc-bar-track"><div class="pc-bar-fill" style="width:90%"></div></div><div class="pc-reviews">88 reviews</div></div></div></div>
+              <div class="pc-specs"><span class="pc-spec">Fiberglass</span><span class="pc-spec">13mm Core</span><span class="pc-spec">7.6oz</span></div>
+              <div class="pc-price">$149 <span class="price-note">avg. retail</span></div>
+              <div class="pc-excerpt">"The best beginner-to-intermediate paddle I've tried. Great for developing touch without breaking the bank. Durable and forgiving on off-center hits."</div>
+              <div class="pc-footer"><div class="pc-author"><div class="pc-av" style="background:linear-gradient(135deg,#8B5CF6,#2AA8C4);">PG</div><div><div class="pc-name-sm">PauloG</div><div class="pc-date">2 weeks ago</div></div></div><div class="pc-actions"><button class="pc-btn">👍 22</button><button class="pc-btn primary" onclick="openModal()">Review</button></div></div>
+            </div>
+          </div>
+          <!-- Paddle 4 -->
+          <div class="paddle-card">
+            <div class="pc-img" style="background:linear-gradient(150deg,#2A1A0A,#4A3010);">🏓<div class="pc-badges"><span class="pc-badge badge-carbon">Carbon Fiber</span><span class="pc-badge badge-pro">Pro</span></div><span class="pc-verified">✓ Verified</span></div>
+            <div class="pc-body">
+              <div class="pc-brand">Franklin</div>
+              <div class="pc-top"><div class="pc-name">Ben Johns Signature Carbon</div><div class="pc-score-wrap"><div class="pc-score-num">4.6</div><div class="pc-score-bar"><div class="pc-bar-track"><div class="pc-bar-fill" style="width:92%"></div></div><div class="pc-reviews">67 reviews</div></div></div></div>
+              <div class="pc-specs"><span class="pc-spec">Carbon Fiber</span><span class="pc-spec">16mm</span><span class="pc-spec">8.0oz</span></div>
+              <div class="pc-price">$129 <span class="price-note">avg. retail</span></div>
+              <div class="pc-excerpt">"Punches well above its price point. The carbon face gives you great spin without the $200+ price tag. A smart choice for 3.5–4.0 players upgrading from fiberglass."</div>
+              <div class="pc-footer"><div class="pc-author"><div class="pc-av" style="background:linear-gradient(135deg,#F5A623,#8EC63F);">SB</div><div><div class="pc-name-sm">SandraB</div><div class="pc-date">3 weeks ago</div></div></div><div class="pc-actions"><button class="pc-btn">👍 19</button><button class="pc-btn primary" onclick="openModal()">Review</button></div></div>
+            </div>
+          </div>
+          <!-- Paddle 5 -->
+          <div class="paddle-card">
+            <div class="pc-img" style="background:linear-gradient(150deg,#0D2A3A,#1A4050);">🏓<div class="pc-badges"><span class="pc-badge badge-composite">Composite</span><span class="pc-badge badge-beginner">Beginner</span></div></div>
+            <div class="pc-body">
+              <div class="pc-brand">Onix</div>
+              <div class="pc-top"><div class="pc-name">Z5 Graphite Pickleball Paddle</div><div class="pc-score-wrap"><div class="pc-score-num">4.3</div><div class="pc-score-bar"><div class="pc-bar-track"><div class="pc-bar-fill" style="width:86%"></div></div><div class="pc-reviews">156 reviews</div></div></div></div>
+              <div class="pc-specs"><span class="pc-spec">Graphite Face</span><span class="pc-spec">Nomex Core</span><span class="pc-spec">7.8oz</span></div>
+              <div class="pc-price">$79 <span class="price-note">avg. retail</span></div>
+              <div class="pc-excerpt">"A classic for a reason. Best value paddle on the market for beginners and casual players. The Nomex core gives it a satisfying pop that's hard to beat at this price."</div>
+              <div class="pc-footer"><div class="pc-author"><div class="pc-av" style="background:linear-gradient(135deg,#7BAE8C,#F5A623);">JK</div><div><div class="pc-name-sm">JamieK</div><div class="pc-date">1 month ago</div></div></div><div class="pc-actions"><button class="pc-btn">👍 41</button><button class="pc-btn primary" onclick="openModal()">Review</button></div></div>
+            </div>
+          </div>
+          <!-- Paddle 6 -->
+          <div class="paddle-card">
+            <div class="pc-img" style="background:linear-gradient(150deg,#1A2E0A,#2A4A14);">🏓<div class="pc-badges"><span class="pc-badge badge-carbon">Carbon Fiber</span><span class="pc-badge badge-pro">Pro</span></div><span class="pc-verified">✓ Verified</span></div>
+            <div class="pc-body">
+              <div class="pc-brand">Engage</div>
+              <div class="pc-top"><div class="pc-name">Pursuit MX 6.0</div><div class="pc-score-wrap"><div class="pc-score-num">4.4</div><div class="pc-score-bar"><div class="pc-bar-track"><div class="pc-bar-fill" style="width:88%"></div></div><div class="pc-reviews">44 reviews</div></div></div></div>
+              <div class="pc-specs"><span class="pc-spec">Carbon Fiber</span><span class="pc-spec">Thick Core</span><span class="pc-spec">8.2oz</span></div>
+              <div class="pc-price">$175 <span class="price-note">avg. retail</span></div>
+              <div class="pc-excerpt">"Very forgiving for a carbon paddle. The thick core absorbs pace well — perfect for players who rely on touch and placement over power. Underrated in the 4.0 community."</div>
+              <div class="pc-footer"><div class="pc-author"><div class="pc-av" style="background:linear-gradient(135deg,#F25C38,#8B5CF6);">AK</div><div><div class="pc-name-sm">AlexK</div><div class="pc-date">2 weeks ago</div></div></div><div class="pc-actions"><button class="pc-btn">👍 11</button><button class="pc-btn primary" onclick="openModal()">Review</button></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="load-more-wrap"><button class="load-more">Load more paddles →</button></div>
+      </div>
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <div class="panel-card">
+          <div class="panel-title">Top Rated Paddles</div>
+          <div class="top-row"><div class="tr-rank">01</div><div class="tr-info"><div class="tr-name">Joola Ben Johns Hyperion</div><div class="tr-sub">Carbon · 16mm · $219</div></div><div class="tr-score">4.8</div></div>
+          <div class="top-row"><div class="tr-rank">02</div><div class="tr-info"><div class="tr-name">Selkirk Vanguard Power Air</div><div class="tr-sub">Carbon · 16mm · $199</div></div><div class="tr-score">4.7</div></div>
+          <div class="top-row"><div class="tr-rank">03</div><div class="tr-info"><div class="tr-name">Franklin Ben Johns Signature</div><div class="tr-sub">Carbon · 16mm · $129</div></div><div class="tr-score">4.6</div></div>
+          <div class="top-row"><div class="tr-rank">04</div><div class="tr-info"><div class="tr-name">Paddletek Bantam EX-L</div><div class="tr-sub">Fiberglass · 13mm · $149</div></div><div class="tr-score">4.5</div></div>
+          <div class="top-row"><div class="tr-rank">05</div><div class="tr-info"><div class="tr-name">Onix Z5 Graphite</div><div class="tr-sub">Graphite · $79</div></div><div class="tr-score">4.3</div></div>
+        </div>
+        <div class="panel-card">
+          <div class="panel-title">How to Choose</div>
+          <table class="spec-table">
+            <tr><th>Spec</th><th>What it means</th></tr>
+            <tr><td>Carbon face</td><td>More spin, less power — needs break-in</td></tr>
+            <tr><td>Fiberglass</td><td>More power, forgiving — great for beginners</td></tr>
+            <tr><td>16mm core</td><td>Better control and touch at the kitchen</td></tr>
+            <tr><td>13mm core</td><td>More power, louder pop</td></tr>
+            <tr><td>Raw face</td><td>Max spin — wears over time</td></tr>
+          </table>
+        </div>
+        <div class="panel-card">
+          <div class="panel-title">By Skill Level</div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">🟢 Beginner</div><div class="tr-sub">Fiberglass or graphite, $50–$100</div></div></div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">🟡 Intermediate</div><div class="tr-sub">Fiberglass or carbon, $100–$150</div></div></div>
+          <div class="top-row"><div class="tr-info"><div class="tr-name">🔴 Advanced</div><div class="tr-sub">Raw carbon face, 16mm, $150–$250</div></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<!-- FOOTER -->
+<div class="app-footer">
+  <div class="footer-brand">DINK<span style="color:rgba(255,255,255,.7)">REVIEWS</span></div>
+  <div class="footer-links">
+    <a href="/dinkreviews/courts/">Courts</a>
+    <a href="/dinkreviews/paddles/">Paddles</a>
+    <a href="/dinkreviews/gear/">Gear</a>
+    <a href="/dinkreviews/events/">Events</a>
+    <a href="/dinkreviews/">Dashboard</a>
+  </div>
+  <div>© 2025 DINKREVIEWS</div>
+</div>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeOut(event)">
+  <div class="modal">
+    <div class="modal-header"><div><h2>Review a <span>Paddle</span></h2><p>Help the community find the best paddles</p></div><button class="modal-x" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div class="mf-row"><label>Paddle Name</label><input type="text" placeholder="e.g. Joola Ben Johns Hyperion CFS 16mm"></div>
+      <div class="mf-row"><label>Brand</label><input type="text" placeholder="e.g. Joola, Selkirk, Franklin…"></div>
+      <div class="mf-row"><label>Your Rating</label><div class="mf-stars" id="mstars"><span class="ms" data-v="1" onclick="setMS(1)">★</span><span class="ms" data-v="2" onclick="setMS(2)">★</span><span class="ms" data-v="3" onclick="setMS(3)">★</span><span class="ms" data-v="4" onclick="setMS(4)">★</span><span class="ms" data-v="5" onclick="setMS(5)">★</span></div></div>
+      <div class="mf-row"><label>Your Skill Level</label><select><option>2.5 – Beginner</option><option>3.0</option><option>3.5</option><option>4.0</option><option>4.5</option><option>5.0 – Pro</option></select></div>
+      <div class="mf-row"><label>Your Review</label><textarea placeholder="Spin, power, control, feel, durability, break-in period…"></textarea></div>
+    </div>
+    <div class="modal-footer"><button class="mc" onclick="closeModal()">Cancel</button><button class="ms-btn" onclick="doSubmit()">Submit Review</button></div>
+  </div>
+</div>
+<script>
+function setSort(el){document.querySelectorAll('.fb-pill').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function closeOut(e){if(e.target.id==='modal')closeModal()}
+let mstar=0;
+function setMS(n){mstar=n;document.querySelectorAll('.ms').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n))}
+document.querySelectorAll('.ms').forEach(s=>{s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});s.addEventListener('mouseleave',()=>{document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=mstar))})});
+function doSubmit(){if(!mstar){alert('Please select a rating.');return}closeModal();setTimeout(()=>alert('✓ Paddle review submitted! Thanks for contributing to DINKREVIEWS. 🏓'),200);mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'))}
+</script>
+</body>
+</html>
