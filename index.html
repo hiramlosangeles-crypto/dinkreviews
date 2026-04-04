@@ -3,737 +3,728 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DINKREVIEWS — The Pickleball Community</title>
-<meta name="description" content="DINKREVIEWS — Rate courts, paddles, gear and events. The pickleball community's review platform.">
-<meta property="og:title" content="DINKREVIEWS — The Pickleball Community">
-<meta property="og:description" content="Find it. Play it. Review it. Community-driven ratings for pickleball courts, paddles, gear, and events.">
-<meta property="og:url" content="https://hiramlosangeles-crypto.github.io/dinkreviews/">
+<title>Courts — DINKREVIEWS</title>
+<meta name="description" content="Find and review pickleball courts near you. Community ratings for West Hollywood, Beverly Hills and greater LA.">
 <meta name="theme-color" content="#1A3A2A">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --forest:#1A3A2A;--forest-mid:#224835;--forest-light:#2D5C42;
-  --amber:#F5A623;--amber-soft:#FEF3DC;--amber-glow:rgba(245,166,35,.18);
-  --sage:#7BAE8C;--sage-soft:#EBF4EE;
-  --cream:#FAF8F4;--warm-white:#FFFFFF;
-  --ink:#111A14;--ink-mid:#2C3E30;--slate:#5C7A66;--mist:#A8C0B0;
-  --rule:#E4EDE7;--rule-dark:#C8D9CE;
-  --coral:#F25C38;--coral-soft:#FEF0EC;
-  --sky:#2AA8C4;--sky-soft:#EAF7FB;
-  --lime:#8EC63F;--lime-soft:#F2FAE6;
-  --shadow-xs:0 1px 3px rgba(26,58,42,.08);
-  --shadow-sm:0 2px 8px rgba(26,58,42,.1),0 1px 3px rgba(26,58,42,.06);
-  --shadow-md:0 6px 24px rgba(26,58,42,.12),0 2px 8px rgba(26,58,42,.06);
-  --shadow-lg:0 16px 48px rgba(26,58,42,.15),0 4px 12px rgba(26,58,42,.08);
-  --r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;
-  --font:'Plus Jakarta Sans',sans-serif;
-}
+:root{--forest:#1A3A2A;--forest-mid:#224835;--forest-light:#2D5C42;--amber:#F5A623;--amber-soft:#FEF3DC;--sage:#7BAE8C;--sage-soft:#EBF4EE;--cream:#FAF8F4;--warm-white:#FFFFFF;--ink:#111A14;--slate:#5C7A66;--mist:#A8C0B0;--rule:#E4EDE7;--rule-dark:#C8D9CE;--coral:#F25C38;--coral-soft:#FEF0EC;--sky:#2AA8C4;--sky-soft:#EAF7FB;--lime:#8EC63F;--lime-soft:#F2FAE6;--shadow-xs:0 1px 3px rgba(26,58,42,.08);--shadow-sm:0 2px 8px rgba(26,58,42,.1);--shadow-md:0 6px 24px rgba(26,58,42,.12);--shadow-lg:0 16px 48px rgba(26,58,42,.15);--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;--font:'Plus Jakarta Sans',sans-serif}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{font-size:16px;height:100%}
-body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
 .app-shell{display:grid;grid-template-columns:260px 1fr;grid-template-rows:56px 1fr;min-height:100vh}
 .topbar{grid-column:1/-1;background:var(--forest);display:flex;align-items:center;padding:0 1.5rem 0 0;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:200}
 .topbar-brand{width:260px;flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0 1.5rem;border-right:1px solid rgba(255,255,255,.08);height:56px}
 .brand-mark{width:32px;height:32px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 2px 10px rgba(245,166,35,.5)}
 .brand-name{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;line-height:1}
 .brand-name .dr-dink{color:var(--warm-white)}.brand-name .dr-reviews{color:var(--amber)}
-.brand-tagline{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem;line-height:1}
+.brand-tagline{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem}
 .topbar-search{flex:1;max-width:480px;margin-left:1.5rem;position:relative}
 .topbar-search input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:99px;color:var(--warm-white);font-family:var(--font);font-size:.85rem;padding:.5rem 1rem .5rem 2.5rem;outline:none;transition:background .2s,border-color .2s}
-.topbar-search input::placeholder{color:rgba(255,255,255,.35)}
-.topbar-search input:focus{background:rgba(255,255,255,.14);border-color:var(--amber)}
+.topbar-search input::placeholder{color:rgba(255,255,255,.35)}.topbar-search input:focus{background:rgba(255,255,255,.14);border-color:var(--amber)}
 .topbar-search .si{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:rgba(255,255,255,.4)}
 .topbar-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
 .tb-pill{font-size:.75rem;font-weight:700;padding:.42rem 1rem;border-radius:99px;cursor:pointer;font-family:var(--font);border:none;transition:all .15s}
 .tb-pill.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}.tb-pill.ghost:hover{background:rgba(255,255,255,.15);color:var(--warm-white)}
-.tb-pill.solid{background:var(--amber);color:var(--forest);box-shadow:0 2px 10px rgba(245,166,35,.4)}.tb-pill.solid:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(245,166,35,.5)}
+.tb-pill.solid{background:var(--amber);color:var(--forest);box-shadow:0 2px 10px rgba(245,166,35,.4)}.tb-pill.solid:hover{transform:translateY(-1px)}
 .tb-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--amber));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:var(--forest);cursor:pointer;border:2px solid rgba(255,255,255,.15)}
 .sidebar{background:var(--warm-white);border-right:1px solid var(--rule);padding:1.5rem 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{display:none}
 .sidebar-brand-strip{padding:.6rem 1.2rem 1.2rem;border-bottom:1px solid var(--rule);margin-bottom:.5rem}
 .sbs-label{font-size:.58rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mist)}
-.sbs-name{font-size:.92rem;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.2;margin-top:.1rem}
-.sbs-name span{color:var(--amber)}
-.sidebar::-webkit-scrollbar{display:none}
+.sbs-name{font-size:.92rem;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.2;margin-top:.1rem}.sbs-name span{color:var(--amber)}
 .sidebar-section{margin-bottom:1.8rem}
 .sidebar-label{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0 1.2rem;margin-bottom:.5rem}
 .nav-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 1.2rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--slate);transition:background .15s,color .15s;border-left:2px solid transparent;text-decoration:none}
-.nav-item:hover{background:var(--sage-soft);color:var(--ink)}
-.nav-item.active{background:var(--sage-soft);color:var(--forest);border-left-color:var(--forest);font-weight:700}
+.nav-item:hover{background:var(--sage-soft);color:var(--ink)}.nav-item.active{background:var(--sage-soft);color:var(--forest);border-left-color:var(--forest);font-weight:700}
 .nav-item .ni{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
 .nav-item .badge{margin-left:auto;font-size:.65rem;font-weight:800;background:var(--amber);color:var(--forest);padding:.12rem .45rem;border-radius:99px}
 .nav-item .badge.new{background:var(--coral);color:white}
 .filter-group{padding:0 1.2rem}
-.filter-group-title{font-size:.7rem;font-weight:700;color:var(--slate);margin-bottom:.6rem;display:flex;align-items:center;justify-content:space-between}
-.filter-group-title button{font-size:.65rem;color:var(--sage);background:none;border:none;cursor:pointer;font-family:var(--font);font-weight:700}
-.filter-check{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--slate);padding:.3rem 0;cursor:pointer;transition:color .15s}
-.filter-check:hover{color:var(--ink)}
+.filter-group-title{font-size:.7rem;font-weight:700;color:var(--slate);margin-bottom:.6rem}
+.filter-check{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--slate);padding:.3rem 0;cursor:pointer}
 .check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--rule-dark);background:var(--warm-white);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .15s}
 .filter-check.checked .check-box{background:var(--forest);border-color:var(--forest);color:white}
 .filter-count{margin-left:auto;font-size:.7rem;color:var(--mist)}
-.rating-range{margin-top:.4rem}
-.range-row{display:flex;justify-content:space-between;font-size:.72rem;color:var(--slate);margin-bottom:.4rem}
-.range-track{height:4px;background:var(--rule);border-radius:99px;position:relative;margin-bottom:.3rem}
-.range-fill{position:absolute;left:60%;right:0;top:0;bottom:0;background:var(--amber);border-radius:99px}
 .sidebar-bottom{margin-top:auto;padding:1.2rem;border-top:1px solid var(--rule)}
-.write-btn-sidebar{width:100%;background:var(--forest);color:var(--warm-white);border:none;border-radius:var(--r-md);padding:.85rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:background .2s,box-shadow .2s;box-shadow:var(--shadow-sm)}
-.write-btn-sidebar:hover{background:var(--forest-light);box-shadow:var(--shadow-md)}
-.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:2rem}
-.welcome-bar{background:var(--forest);border-radius:var(--r-lg);padding:2rem 2.5rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;overflow:hidden;position:relative}
-.welcome-bar::before{content:'';position:absolute;right:-40px;top:-40px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.18) 0%,transparent 70%);pointer-events:none}
-.welcome-bar::after{content:'';position:absolute;left:-30px;bottom:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(123,174,140,.1) 0%,transparent 70%);pointer-events:none}
-.welcome-bar .pb-pattern{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:var(--r-lg);opacity:.045;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:22px 22px}
-.welcome-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
-.welcome-eyebrow::before{content:'';width:20px;height:1.5px;background:var(--amber);display:block}
-.welcome-h{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;color:var(--warm-white);margin-bottom:.5rem}
-.welcome-h em{font-style:normal;color:var(--amber)}
-.welcome-sub{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.6;max-width:460px}
-.welcome-stats{display:flex;gap:1.5rem;position:relative;z-index:1}
-.wstat{text-align:center;background:rgba(255,255,255,.07);border-radius:var(--r-md);padding:1rem 1.4rem;border:1px solid rgba(255,255,255,.08);min-width:90px}
-.wstat-n{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
-.wstat-l{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.45);margin-top:.3rem;text-transform:uppercase;letter-spacing:.08em}
-.quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.qa-card{background:var(--warm-white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);border:1px solid var(--rule);padding:1.3rem;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column;gap:.7rem}
-.qa-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--rule-dark)}
-.qa-icon{width:42px;height:42px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-.qa-label{font-size:.82rem;font-weight:700;letter-spacing:-.01em}
-.qa-count{font-size:.72rem;color:var(--slate);font-weight:500}
-.qa-card.qa-write{background:var(--amber);border-color:transparent;box-shadow:0 4px 16px rgba(245,166,35,.35)}
-.qa-card.qa-write .qa-label{color:var(--forest);font-size:.9rem}
-.qa-card.qa-write .qa-count{color:rgba(26,58,42,.65)}
-.qa-card.qa-write .qa-icon{background:rgba(26,58,42,.12)}
-.qa-card.qa-write:hover{box-shadow:0 6px 24px rgba(245,166,35,.5)}
-.content-grid{display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
-.review-list-col{}
-.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.section-title{font-size:1rem;font-weight:800;letter-spacing:-.02em}
-.section-title .dot{color:var(--amber)}
-.view-all{font-size:.75rem;font-weight:700;color:var(--sage);text-decoration:none;transition:color .2s}
-.view-all:hover{color:var(--forest)}
-.sort-bar{display:flex;align-items:center;gap:.5rem;margin-bottom:1.2rem;flex-wrap:wrap}
-.sort-label{font-size:.75rem;color:var(--slate);font-weight:600}
-.sort-btn{font-size:.73rem;font-weight:600;padding:.35rem .8rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
-.sort-btn:hover{border-color:var(--forest);color:var(--forest)}
-.sort-btn.on{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
-.rev-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);margin-bottom:.9rem;overflow:hidden;cursor:pointer;transition:box-shadow .2s,border-color .2s;display:grid;grid-template-columns:120px 1fr}
-.rev-card:hover{box-shadow:var(--shadow-md);border-color:var(--rule-dark)}
-.rev-card-thumb{display:flex;align-items:center;justify-content:center;font-size:2.2rem;background:var(--sage-soft);border-right:1px solid var(--rule);min-height:130px;overflow:hidden;padding:0}
-.rev-card-body{padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.4rem}
-.rev-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem}
-.rev-cat{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px}
-.cat-c{background:var(--sage-soft);color:var(--forest)}
-.cat-p{background:var(--lime-soft);color:#4A7000}
-.cat-g{background:var(--coral-soft);color:var(--coral)}
-.cat-e{background:var(--amber-soft);color:#8A5A00}
-.cat-t{background:var(--sky-soft);color:var(--sky)}
-.rev-score{display:flex;align-items:center;gap:.35rem;flex-shrink:0}
-.score-num{font-size:1.3rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-.score-bar-wrap{display:flex;flex-direction:column;gap:2px}
-.score-bar-track{width:52px;height:4px;background:var(--rule);border-radius:2px}
-.score-bar-fill{height:100%;background:var(--amber);border-radius:2px;transition:width .4s ease}
-.score-count{font-size:.65rem;color:var(--mist);font-weight:600}
-.rev-title{font-size:.98rem;font-weight:700;letter-spacing:-.02em;line-height:1.3}
-.rev-loc{font-size:.75rem;color:var(--slate);display:flex;align-items:center;gap:.3rem}
-.rev-excerpt{font-size:.82rem;color:var(--slate);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.rev-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.3rem}
-.rev-author{display:flex;align-items:center;gap:.5rem}
-.rev-av{width:22px;height:22px;border-radius:50%;font-size:.6rem;font-weight:800;color:white;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.rev-name{font-size:.75rem;font-weight:700}
-.rev-date{font-size:.68rem;color:var(--mist)}
-.rev-actions{display:flex;gap:.4rem}
-.rev-btn{font-size:.68rem;font-weight:700;padding:.25rem .6rem;border-radius:99px;border:1px solid var(--rule);background:none;color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
-.rev-btn:hover{border-color:var(--sage);color:var(--forest);background:var(--sage-soft)}
+.write-btn-sidebar{width:100%;background:var(--forest);color:var(--warm-white);border:none;border-radius:var(--r-md);padding:.85rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1.8rem}
+.page-hero{background:var(--forest);border-radius:var(--r-lg);padding:2rem 2.5rem;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:22px 22px}
+.page-hero::after{content:'';position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.2) 0%,transparent 70%);pointer-events:none}
+.ph-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.ph-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--amber);display:block}
+.ph-title{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:var(--warm-white);line-height:1.15;margin-bottom:.5rem}
+.ph-title em{font-style:normal;color:var(--amber)}
+.ph-sub{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.6;max-width:420px}
+.ph-stats{display:flex;gap:1.2rem;position:relative;z-index:1}
+.ph-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);padding:.9rem 1.2rem;text-align:center;min-width:80px}
+.ph-stat-n{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
+.ph-stat-l{font-size:.62rem;font-weight:600;color:rgba(255,255,255,.4);margin-top:.2rem;text-transform:uppercase;letter-spacing:.08em}
+.filter-bar{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow-xs)}
+.fb-search{flex:1;min-width:200px;position:relative}
+.fb-search input{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:99px;font-family:var(--font);font-size:.88rem;color:var(--ink);padding:.6rem 1rem .6rem 2.4rem;outline:none;transition:border-color .2s}
+.fb-search input:focus{border-color:var(--forest)}.fb-search input::placeholder{color:var(--mist)}
+.fb-search .fsi{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:var(--mist)}
+.fb-divider{width:1px;height:28px;background:var(--rule);flex-shrink:0}
+.fb-group{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.fb-label{font-size:.72rem;font-weight:700;color:var(--slate);white-space:nowrap}
+.fb-pill{font-size:.75rem;font-weight:600;padding:.38rem .85rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
+.fb-pill:hover{border-color:var(--forest);color:var(--forest)}.fb-pill.on{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
+.content-grid{display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
+.near-me-banner{background:linear-gradient(135deg,var(--sage-soft),#F0FAF5);border:1.5px solid rgba(123,174,140,.3);border-radius:var(--r-md);padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+.nmb-icon{font-size:1.4rem;flex-shrink:0}
+.nmb-text{font-size:.85rem;color:var(--forest);font-weight:600}
+.nmb-text span{font-weight:800}
+.nmb-sub{font-size:.75rem;color:var(--slate);margin-top:.1rem}
+.courts-grid{display:flex;flex-direction:column;gap:1rem}
+.court-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow-xs);display:grid;grid-template-columns:140px 1fr}
+.court-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--rule-dark)}
+.court-card.featured{border-color:var(--amber);border-width:2px}
+.cc-img{display:flex;align-items:flex-start;justify-content:center;font-size:2.8rem;position:relative;overflow:hidden;min-height:160px;padding:0}
+.cc-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:.3rem}
+.cc-badge{font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:99px;display:inline-block}
+.badge-outdoor{background:var(--sage-soft);color:var(--forest)}
+.badge-free{background:var(--lime-soft);color:#4A7000}
+.badge-paid{background:var(--amber-soft);color:#8A5A00}
+.badge-lighted{background:rgba(245,166,35,.15);color:#8A5A00}
+.badge-featured{background:var(--amber);color:var(--forest)}
+.cc-verified{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);border-radius:99px;font-size:.62rem;font-weight:700;color:var(--sage);padding:.2rem .55rem;box-shadow:var(--shadow-xs)}
+.cc-body{padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.35rem}
+.cc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.2rem}
+.cc-name{font-size:1rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.25}
+.cc-score-wrap{display:flex;align-items:center;gap:.35rem;flex-shrink:0}
+.cc-score-num{font-size:1.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.cc-bar-track{width:48px;height:4px;background:var(--rule);border-radius:2px;margin-top:2px}
+.cc-bar-fill{height:100%;background:var(--amber);border-radius:2px}
+.cc-reviews{font-size:.65rem;color:var(--mist);font-weight:600}
+.cc-address{font-size:.78rem;color:var(--slate);display:flex;align-items:flex-start;gap:.35rem;line-height:1.4}
+.cc-distance{font-size:.7rem;font-weight:800;color:var(--amber);background:var(--amber-soft);padding:.12rem .5rem;border-radius:99px;white-space:nowrap;flex-shrink:0;align-self:center}
+.cc-details{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0}
+.cc-detail{font-size:.68rem;font-weight:600;color:var(--slate);background:var(--sage-soft);padding:.18rem .55rem;border-radius:99px}
+.cc-cost{font-size:.78rem;font-weight:700;color:var(--forest)}
+.cc-vibe{font-size:.8rem;color:var(--slate);line-height:1.5;font-style:italic;border-left:2px solid var(--amber);padding-left:.7rem;margin-top:.2rem}
+.cc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;border-top:1px solid var(--rule);margin-top:.2rem}
+.cc-actions{display:flex;gap:.4rem}
+.cc-btn{font-size:.7rem;font-weight:700;padding:.3rem .7rem;border-radius:99px;border:1px solid var(--rule);background:none;color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
+.cc-btn:hover{border-color:var(--sage);color:var(--forest);background:var(--sage-soft)}
+.cc-btn.primary{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
+.cc-btn.primary:hover{background:var(--forest-light)}
+.cc-access{font-size:.72rem;color:var(--mist);font-weight:500}
 .right-panel{display:flex;flex-direction:column;gap:1.2rem}
-.score-widget{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow-xs)}
-.widget-title{font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);margin-bottom:1.2rem}
-.big-score{display:flex;align-items:flex-end;gap:.8rem;margin-bottom:1.2rem}
-.big-score-num{font-size:4rem;font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--forest)}
-.big-score-meta{padding-bottom:.5rem}
-.big-score-stars{font-size:1rem;color:var(--amber);letter-spacing:1px}
-.big-score-count{font-size:.72rem;color:var(--mist);font-weight:600;margin-top:.2rem}
-.score-bars{display:flex;flex-direction:column;gap:.55rem}
-.sbar-row{display:flex;align-items:center;gap:.7rem}
-.sbar-label{font-size:.72rem;font-weight:700;color:var(--slate);width:14px;text-align:right;flex-shrink:0}
-.sbar-star{font-size:.7rem;color:var(--amber)}
-.sbar-track{flex:1;height:6px;background:var(--rule);border-radius:99px;overflow:hidden}
-.sbar-fill{height:100%;background:var(--amber);border-radius:99px}
-.sbar-pct{font-size:.68rem;color:var(--mist);font-weight:600;width:28px;text-align:right;flex-shrink:0}
-.map-widget{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs)}
-.map-placeholder{height:160px;background:linear-gradient(135deg,#1A3A2A 0%,#2D5C42 40%,#1E4A34 70%,#163320 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.map-placeholder::before{content:'';position:absolute;inset:0;opacity:.1;background-image:linear-gradient(rgba(123,174,140,1) 1px,transparent 1px),linear-gradient(90deg,rgba(123,174,140,1) 1px,transparent 1px);background-size:28px 28px}
-.map-pin{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--amber);border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:.7rem;cursor:pointer;transition:transform .2s}
-.map-pin:hover{transform:scale(1.2)}
-.map-pin.active{background:var(--coral)}
-.map-pin-label{position:absolute;top:-22px;left:50%;transform:translateX(-50%);background:var(--forest);color:white;font-size:.6rem;font-weight:700;padding:.15rem .45rem;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .2s}
+.panel-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow-xs)}
+.panel-title{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:1rem}
+.top-row{display:flex;align-items:center;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s;border-radius:8px;margin:0 -.3rem;padding-left:.3rem;padding-right:.3rem}
+.top-row:last-child{border-bottom:none}.top-row:hover{background:var(--sage-soft)}
+.tr-rank{font-size:1.1rem;font-weight:800;color:var(--rule-dark);width:24px;flex-shrink:0}
+.tr-info{flex:1}.tr-name{font-size:.85rem;font-weight:700;color:var(--ink)}.tr-sub{font-size:.7rem;color:var(--mist);margin-top:.1rem}
+.tr-score{font-size:1rem;font-weight:800;color:var(--forest)}
+.map-ph{height:150px;background:linear-gradient(135deg,#1A3A2A 0%,#2D5C42 40%,#1E4A34 70%,#163320 100%);position:relative;overflow:hidden;border-radius:var(--r-sm) var(--r-sm) 0 0}
+.map-ph::before{content:'';position:absolute;inset:0;opacity:.1;background-image:linear-gradient(rgba(123,174,140,1) 1px,transparent 1px),linear-gradient(90deg,rgba(123,174,140,1) 1px,transparent 1px);background-size:24px 24px}
+.map-pin{position:absolute;width:24px;height:24px;border-radius:50%;border:2.5px solid white;display:flex;align-items:center;justify-content:center;font-size:.65rem;cursor:pointer;transition:transform .2s;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.map-pin:hover{transform:scale(1.25)}
+.map-pin-label{position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:var(--forest);color:white;font-size:.55rem;font-weight:700;padding:.1rem .4rem;border-radius:3px;white-space:nowrap;opacity:0;transition:opacity .2s}
 .map-pin:hover .map-pin-label{opacity:1}
-.map-widget-body{padding:1rem 1.2rem}
-.map-widget-title{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:.8rem}
-.nearby-row{display:flex;align-items:center;gap:.8rem;padding:.55rem 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s;margin:0 -.3rem;padding-left:.3rem;padding-right:.3rem;border-radius:8px}
-.nearby-row:last-child{border-bottom:none}
-.nearby-row:hover{background:var(--sage-soft)}
-.nr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.nr-name{font-size:.82rem;font-weight:700;flex:1}
-.nr-dist{font-size:.7rem;color:var(--mist);font-weight:600}
+.map-body{padding:.9rem 1.1rem}
+.nearby-row{display:flex;align-items:center;gap:.7rem;padding:.5rem 0;border-bottom:1px solid var(--rule);cursor:pointer}
+.nearby-row:last-child{border-bottom:none}.nearby-row:hover .nr-name{color:var(--forest)}
+.nr-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.nr-name{font-size:.8rem;font-weight:700;flex:1}
+.nr-dist{font-size:.68rem;color:var(--mist);font-weight:600}
 .nr-score{font-size:.78rem;font-weight:800;color:var(--forest)}
-.quick-write{background:var(--forest);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow-sm)}
-.qw-title{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.8rem}
-.qw-q{font-size:1.05rem;font-weight:700;color:var(--warm-white);line-height:1.35;margin-bottom:1rem;letter-spacing:-.02em}
-.qw-stars{display:flex;gap:.4rem;margin-bottom:1rem}
-.qw-star{font-size:1.6rem;cursor:pointer;color:rgba(255,255,255,.2);transition:color .1s}
-.qw-star.lit{color:var(--amber)}
-.qw-input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);color:var(--warm-white);font-family:var(--font);font-size:.85rem;padding:.7rem .9rem;outline:none;resize:none;transition:border-color .2s;min-height:72px}
-.qw-input::placeholder{color:rgba(255,255,255,.3)}
-.qw-input:focus{border-color:var(--amber)}
-.qw-submit{width:100%;background:var(--amber);color:var(--forest);border:none;border-radius:var(--r-sm);padding:.8rem;font-family:var(--font);font-weight:800;font-size:.88rem;cursor:pointer;margin-top:.8rem;transition:box-shadow .2s,transform .15s}
-.qw-submit:hover{box-shadow:0 4px 16px rgba(245,166,35,.5);transform:translateY(-1px)}
-.trending-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.trend-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.2rem;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-.trend-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber)}
-.trend-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.trend-rank{font-size:2.5rem;font-weight:800;letter-spacing:-.06em;color:var(--rule-dark);line-height:1;margin-bottom:.5rem}
-.trend-cat{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.35rem}
-.trend-name{font-size:.92rem;font-weight:700;letter-spacing:-.02em;line-height:1.3;margin-bottom:.5rem}
-.trend-score{display:flex;align-items:center;gap:.4rem}
-.trend-n{font-size:1.2rem;font-weight:800;letter-spacing:-.03em}
-.trend-stars{font-size:.72rem;color:var(--amber)}
-.trend-c{font-size:.68rem;color:var(--mist);font-weight:600}
-.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem}
-.footer-brand{font-weight:800;color:var(--amber);font-size:.9rem}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;font-weight:500}
-.footer-links a:hover{color:rgba(255,255,255,.8)}
-.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(17,26,20,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(17,26,20,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--warm-white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(16px) scale(.97);transition:transform .25s}
-.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal{background:var(--warm-white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.96) translateY(12px);transition:transform .25s}
+.modal-overlay.open .modal{transform:scale(1) translateY(0)}
 .modal-header{background:var(--forest);padding:1.8rem 2rem;border-radius:var(--r-xl) var(--r-xl) 0 0;display:flex;align-items:flex-start;justify-content:space-between}
 .modal-header h2{font-size:1.4rem;font-weight:800;color:var(--warm-white);letter-spacing:-.03em}
-.modal-header h2 span{color:var(--amber)}
-.modal-header p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.3rem}
-.modal-x{background:rgba(255,255,255,.1);border:none;width:30px;height:30px;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
-.modal-x:hover{background:rgba(255,255,255,.2)}
+.modal-header h2 span{color:var(--amber)}.modal-header p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.3rem}
+.modal-x{background:rgba(255,255,255,.1);border:none;width:30px;height:30px;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .modal-body{padding:1.8rem 2rem}
 .mf-row{margin-bottom:1.3rem}
 .mf-row label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:.5rem}
-.mf-row input,.mf-row select,.mf-row textarea{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.9rem;padding:.75rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s}
-.mf-row input:focus,.mf-row select:focus,.mf-row textarea:focus{border-color:var(--forest);box-shadow:0 0 0 3px rgba(26,58,42,.08);background:white}
+.mf-row input,.mf-row select,.mf-row textarea{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.9rem;padding:.75rem 1rem;outline:none;transition:border-color .2s}
+.mf-row input:focus,.mf-row select:focus,.mf-row textarea:focus{border-color:var(--forest);background:white}
 .mf-row textarea{min-height:100px;resize:vertical}
 .mf-stars{display:flex;gap:.5rem;margin-top:.4rem}
-.ms{font-size:2rem;cursor:pointer;color:var(--rule-dark);transition:color .12s}
-.ms.lit{color:var(--amber)}
+.ms{font-size:2rem;cursor:pointer;color:var(--rule-dark);transition:color .12s}.ms.lit{color:var(--amber)}
 .modal-footer{padding:.5rem 2rem 2rem;display:flex;gap:.8rem}
-.mc{flex:1;background:none;border:1.5px solid var(--rule);border-radius:99px;color:var(--slate);padding:.8rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .15s}
-.mc:hover{border-color:var(--ink);color:var(--ink)}
-.ms-btn{flex:2;background:var(--forest);color:white;border:none;border-radius:99px;padding:.8rem;font-family:var(--font);font-size:.88rem;font-weight:800;cursor:pointer;transition:background .2s,box-shadow .2s}
-.ms-btn:hover{background:var(--forest-light);box-shadow:0 4px 16px rgba(26,58,42,.3)}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.welcome-bar{animation:fadeIn .5s ease both}
-.quick-actions{animation:fadeIn .5s .08s ease both}
-.content-grid{animation:fadeIn .5s .14s ease both}
-.trending-strip{animation:fadeIn .5s .2s ease both}
-@keyframes barGrow{from{width:0}}
-.sbar-fill{animation:barGrow .8s .3s ease both}
-.score-bar-fill{animation:barGrow .6s .2s ease both}
-
-/* ── BOTTOM NAV (mobile only) ── */
+.mc{flex:1;background:none;border:1.5px solid var(--rule);border-radius:99px;color:var(--slate);padding:.8rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer}
+.ms-btn{flex:2;background:var(--forest);color:white;border:none;border-radius:99px;padding:.8rem;font-family:var(--font);font-size:.88rem;font-weight:800;cursor:pointer}
+.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;font-family:var(--font)}
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--warm-white);border-top:1px solid var(--rule);padding:0 0 env(safe-area-inset-bottom,0);box-shadow:0 -4px 20px rgba(26,58,42,.08)}
 .bn-inner{display:flex;align-items:stretch;height:60px}
 .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--mist);font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:color .15s;cursor:pointer;border:none;background:none;font-family:var(--font);padding:0}
 .bn-item .bn-icon{font-size:1.3rem;line-height:1}
 .bn-item.active{color:var(--forest)}
-.bn-item.active .bn-icon{transform:scale(1.1)}
 .bn-item.bn-write{background:var(--amber);color:var(--forest);border-radius:99px;margin:8px 6px;flex:1.2;font-size:.65rem;font-weight:800;box-shadow:0 2px 12px rgba(245,166,35,.4)}
-.bn-item.bn-write .bn-icon{font-size:1.1rem}
-
-/* ── TABLET ── */
-@media(max-width:1024px){
-  .app-shell{grid-template-columns:1fr}
-  .sidebar{display:none}
-  .topbar-brand{width:auto}
-  .quick-actions{grid-template-columns:repeat(2,1fr)}
-  .content-grid{grid-template-columns:1fr}
-  .right-panel{display:none}
-  .trending-strip{grid-template-columns:repeat(2,1fr)}
-}
-
-/* ── MOBILE ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.page-hero{animation:fadeUp .5s ease both}.filter-bar{animation:fadeUp .5s .06s ease both}.content-grid{animation:fadeUp .5s .12s ease both}
+@keyframes barIn{from{width:0}}.cc-bar-fill{animation:barIn .7s .3s ease both}
+@media(max-width:1024px){.app-shell{grid-template-columns:1fr}.sidebar{display:none}.topbar-brand{width:auto}.content-grid{grid-template-columns:1fr}.right-panel{display:none}.ph-stats{display:none}}
 @media(max-width:640px){
-  .bottom-nav{display:block}
-  .main{padding:1rem 1rem 80px;gap:1.2rem}
-  .app-footer{display:none}
-  .topbar{padding:0 .8rem 0 0}
-  .topbar-brand{padding:0 .9rem;gap:7px}
-  .brand-mark{width:28px;height:28px;font-size:.85rem}
-  .brand-name{font-size:.92rem}
-  .brand-tagline{display:none}
-  .topbar-search{margin-left:.9rem}
-  .topbar-search input{font-size:.82rem;padding:.45rem .9rem .45rem 2.2rem}
-  .topbar-right{gap:.5rem}
-  .tb-pill.ghost{display:none}
-  .tb-pill.solid{padding:.4rem .9rem;font-size:.72rem}
-  .tb-av{width:28px;height:28px;font-size:.6rem}
-  .welcome-bar{grid-template-columns:1fr;padding:1.4rem 1.2rem;gap:1rem}
-  .welcome-eyebrow{font-size:.65rem;margin-bottom:.4rem}
-  .welcome-h{font-size:1.6rem}
-  .welcome-sub{font-size:.82rem}
-  .welcome-stats{gap:.7rem;justify-content:flex-start}
-  .wstat{padding:.65rem .9rem;min-width:70px}
-  .wstat-n{font-size:1.3rem}
-  .wstat-l{font-size:.55rem}
-  .quick-actions{grid-template-columns:repeat(2,1fr);gap:.8rem}
-  .qa-card{padding:1rem;gap:.5rem}
-  .qa-icon{width:36px;height:36px;font-size:1rem}
-  .qa-label{font-size:.78rem}
-  .qa-count{font-size:.68rem}
-  .rev-card{grid-template-columns:90px 1fr}
-  .rev-card-thumb{min-height:110px;font-size:1.8rem}
-  .rev-card-body{padding:.85rem .9rem;gap:.3rem}
-  .rev-title{font-size:.88rem}
-  .rev-excerpt{font-size:.78rem}
-  .rev-loc{font-size:.7rem}
-  .score-num{font-size:1.1rem}
-  .score-bar-track{width:44px}
-  .section-head{padding:0}
-  .section-title{font-size:.92rem}
-  .sort-bar{gap:.4rem}
-  .sort-btn{font-size:.68rem;padding:.3rem .65rem}
-  .trending-strip{grid-template-columns:1fr 1fr;gap:.7rem}
-  .trend-card{padding:.9rem}
-  .trend-rank{font-size:1.8rem;margin-bottom:.3rem}
-  .trend-name{font-size:.78rem}
-  .trend-n{font-size:1rem}
-  .modal-overlay{padding:0;align-items:flex-end}
-  .modal{border-radius:var(--r-xl) var(--r-xl) 0 0;max-height:92vh}
-  .modal-header{border-radius:var(--r-xl) var(--r-xl) 0 0;padding:1.4rem 1.5rem}
-  .modal-header h2{font-size:1.2rem}
-  .modal-body{padding:1.4rem 1.5rem}
-  .modal-footer{padding:.3rem 1.5rem 1.5rem}
-  .mf-row{margin-bottom:1rem}
+  .bottom-nav{display:block}.main{padding:1rem 1rem 80px;gap:1.2rem}.app-footer{display:none}
+  .topbar{padding:0 .8rem 0 0}.topbar-brand{padding:0 .9rem;gap:7px}.brand-mark{width:28px;height:28px;font-size:.85rem}.brand-name{font-size:.92rem}.brand-tagline{display:none}
+  .topbar-search{margin-left:.9rem}.topbar-search input{font-size:.82rem;padding:.45rem .9rem .45rem 2.2rem}
+  .topbar-right{gap:.5rem}.tb-pill.ghost{display:none}.tb-pill.solid{padding:.4rem .9rem;font-size:.72rem}.tb-av{width:28px;height:28px}
+  .page-hero{grid-template-columns:1fr;padding:1.4rem 1.2rem;gap:1rem}.ph-title{font-size:1.6rem}
+  .filter-bar{flex-direction:column;align-items:stretch}
+  .court-card{grid-template-columns:100px 1fr}.cc-img{min-height:130px;font-size:2.2rem}.cc-body{padding:1rem}.cc-name{font-size:.9rem}.cc-vibe{font-size:.75rem}
+  .modal-overlay{padding:0;align-items:flex-end}.modal{border-radius:var(--r-xl) var(--r-xl) 0 0;max-height:92vh}
+  .modal-header{border-radius:var(--r-xl) var(--r-xl) 0 0;padding:1.4rem 1.5rem}.modal-body{padding:1.4rem 1.5rem}.modal-footer{padding:.3rem 1.5rem 1.5rem}
 }
 </style>
 </head>
 <body>
 <div class="app-shell">
 
-  <!-- TOPBAR -->
   <div class="topbar">
-    <div class="topbar-brand">
-      <div class="brand-mark">🏓</div>
-      <div>
-        <div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div>
-        <div class="brand-tagline">Pickleball Community</div>
-      </div>
-    </div>
-    <div class="topbar-search"><span class="si">🔍</span><input type="text" placeholder="Search courts, paddles, gear, events…"></div>
+    <div class="topbar-brand"><div class="brand-mark">🏓</div><div><div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div><div class="brand-tagline">Pickleball Community</div></div></div>
+    <div class="topbar-search"><span class="si">🔍</span><input type="text" placeholder="Search courts by name or city…"></div>
     <div class="topbar-right">
-      <button class="tb-pill ghost">Community</button>
-      <button class="tb-pill ghost">My Reviews</button>
+      <button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button>
       <button class="tb-pill solid" onclick="openModal()">+ Write Review</button>
       <div class="tb-av">JK</div>
     </div>
   </div>
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="sidebar-brand-strip">
-      <div class="sbs-label">The Pickleball Community</div>
-      <div class="sbs-name">DINK<span>REVIEWS</span></div>
-    </div>
+    <div class="sidebar-brand-strip"><div class="sbs-label">The Pickleball Community</div><div class="sbs-name">DINK<span>REVIEWS</span></div></div>
     <div class="sidebar-section">
       <div class="sidebar-label">Discover</div>
-      <a class="nav-item active" href="/dinkreviews/"><span class="ni">🏠</span> Dashboard</a>
-      <a class="nav-item" href="/dinkreviews/courts/"><span class="ni">🏟️</span> Courts <span class="badge">618</span></a>
+      <a class="nav-item" href="/dinkreviews/"><span class="ni">🏠</span> Dashboard</a>
+      <a class="nav-item active" href="/dinkreviews/courts/"><span class="ni">🏟️</span> Courts <span class="badge">618</span></a>
       <a class="nav-item" href="/dinkreviews/paddles/"><span class="ni">🏓</span> Paddles</a>
       <a class="nav-item" href="/dinkreviews/gear/"><span class="ni">👟</span> Gear</a>
       <a class="nav-item" href="/dinkreviews/events/"><span class="ni">📅</span> Events <span class="badge new">3</span></a>
       <a class="nav-item" href="/dinkreviews/training/"><span class="ni">🎯</span> Training</a>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-label">My Activity</div>
-      <a class="nav-item" href="/dinkreviews/my-reviews/"><span class="ni">✏️</span> My Reviews</a>
-      <a class="nav-item" href="/dinkreviews/saved/"><span class="ni">❤️</span> Saved</a>
-      <a class="nav-item" href="/dinkreviews/courts/?filter=near-me"><span class="ni">📍</span> Near Me</a>
-    </div>
-    <div class="sidebar-section">
       <div class="filter-group">
-        <div class="filter-group-title">Category <button onclick="">Clear</button></div>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Courts <span class="filter-count">618</span></label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Paddles <span class="filter-count">342</span></label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Gear <span class="filter-count">204</span></label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Events <span class="filter-count">89</span></label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Training <span class="filter-count">41</span></label>
+        <div class="filter-group-title">Court Type</div>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Outdoor <span class="filter-count">412</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Indoor <span class="filter-count">206</span></label>
       </div>
     </div>
     <div class="sidebar-section">
       <div class="filter-group">
-        <div class="filter-group-title">Min Rating</div>
-        <div class="rating-range">
-          <div class="range-row"><span>3.0+</span><span style="color:var(--amber);font-weight:700;">4.0+</span></div>
-          <div class="range-track"><div class="range-fill"></div></div>
-          <div class="range-row" style="justify-content:flex-end;"><span>5.0</span></div>
-        </div>
+        <div class="filter-group-title">Amenities</div>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Lighted <span class="filter-count">189</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Free <span class="filter-count">298</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Open Play <span class="filter-count">341</span></label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Restrooms <span class="filter-count">204</span></label>
       </div>
     </div>
-    <div class="sidebar-section">
-      <div class="filter-group">
-        <div class="filter-group-title">Location</div>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Near Me (&lt; 5mi)</label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Los Angeles</label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Anywhere</label>
-      </div>
-    </div>
-    <div class="sidebar-bottom">
-      <button class="write-btn-sidebar" onclick="openModal()">✏️ Write a DINKREVIEWS Review</button>
-    </div>
+    <div class="sidebar-bottom"><button class="write-btn-sidebar" onclick="openModal()">✏️ Review a Court</button></div>
   </aside>
 
-  <!-- MAIN -->
   <main class="main">
 
-    <!-- WELCOME BAR -->
-    <div class="welcome-bar">
-      <div class="pb-pattern"></div>
-      <div class="welcome-text">
-        <div class="welcome-eyebrow">Welcome back — West Hollywood</div>
-        <div class="welcome-h">Your court.<br>Your community.<br><em>DINKREVIEWS.</em></div>
-        <div class="welcome-sub">Real reviews from real players. Your community is talking.</div>
+    <div class="page-hero">
+      <div>
+        <div class="ph-eyebrow">Los Angeles Area — Near You</div>
+        <div class="ph-title">Find your next<br><em>favorite court.</em></div>
+        <div class="ph-sub">Community-rated courts across West Hollywood, Beverly Hills and greater LA. Real reviews from real players.</div>
       </div>
-      <div class="welcome-stats">
-        <div class="wstat"><div class="wstat-n">4.2k</div><div class="wstat-l">Reviews</div></div>
-        <div class="wstat"><div class="wstat-n">618</div><div class="wstat-l">Courts</div></div>
-        <div class="wstat"><div class="wstat-n">12k</div><div class="wstat-l">Players</div></div>
+      <div class="ph-stats">
+        <div class="ph-stat"><div class="ph-stat-n">4</div><div class="ph-stat-l">Near You</div></div>
+        <div class="ph-stat"><div class="ph-stat-n">618</div><div class="ph-stat-l">Total</div></div>
+        <div class="ph-stat"><div class="ph-stat-n">4.4</div><div class="ph-stat-l">Avg Score</div></div>
       </div>
     </div>
 
-    <!-- QUICK ACTIONS -->
-    <div class="quick-actions">
-      <div class="qa-card qa-write" onclick="openModal()"><div class="qa-icon">✏️</div><div class="qa-label">Write a Review</div><div class="qa-count">Add your voice to DINKREVIEWS</div></div>
-      <div class="qa-card" onclick="window.location='/dinkreviews/courts/'"><div class="qa-icon" style="background:var(--sage-soft);">🏟️</div><div class="qa-label">Find Courts</div><div class="qa-count">618 courts rated</div></div>
-      <div class="qa-card" onclick="window.location='/dinkreviews/paddles/'"><div class="qa-icon" style="background:var(--lime-soft);">🏓</div><div class="qa-label">Browse Paddles</div><div class="qa-count">342 paddle reviews</div></div>
-      <div class="qa-card" onclick="window.location='/dinkreviews/events/'"><div class="qa-icon" style="background:var(--amber-soft);">📅</div><div class="qa-label">Upcoming Events</div><div class="qa-count">3 near you this week</div></div>
+    <div class="filter-bar">
+      <div class="fb-search"><span class="fsi">🔍</span><input type="text" placeholder="Search courts by name, city, or zip…"></div>
+      <div class="fb-divider"></div>
+      <div class="fb-group">
+        <span class="fb-label">Sort:</span>
+        <button class="fb-pill on" onclick="setSort(this)">Near Me</button>
+        <button class="fb-pill" onclick="setSort(this)">Top Rated</button>
+        <button class="fb-pill" onclick="setSort(this)">Most Reviewed</button>
+        <button class="fb-pill" onclick="setSort(this)">Free Only</button>
+      </div>
     </div>
 
-    <!-- CONTENT GRID -->
     <div class="content-grid">
-      <div class="review-list-col">
-        <div class="section-head">
-          <div class="section-title">Recent Reviews <span class="dot">·</span></div>
-          <a class="view-all" href="#">View all →</a>
-        </div>
-        <div class="sort-bar">
-          <span class="sort-label">Sort:</span>
-          <button class="sort-btn on" onclick="setSort(this)">Most Recent</button>
-          <button class="sort-btn" onclick="setSort(this)">Top Rated</button>
-          <button class="sort-btn" onclick="setSort(this)">Near Me</button>
-          <button class="sort-btn" onclick="setSort(this)">Trending</button>
-        </div>
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="padding:0;overflow:hidden;"><svg xmlns="http://www.w3.org/2000/svg" width="90" height="120" viewBox="0 0 90 120" style="display:block">
-  <rect x="0" y="0" width="90" height="120" rx="5" fill="#3A6899"/>
-  <rect x="12" y="0" width="66" height="120" fill="#4A7FC1"/>
-  <rect x="12" y="8" width="66" height="26" fill="#3D9E6B"/>
-  <rect x="12" y="86" width="66" height="26" fill="#3D9E6B"/>
-  <line x1="0" y1="60" x2="90" y2="60" stroke="white" stroke-width="2.5"/>
-  <circle cx="12" cy="60" r="2.5" fill="white"/>
-  <circle cx="78" cy="60" r="2.5" fill="white"/>
-  <rect x="12" y="8" width="66" height="104" fill="none" stroke="white" stroke-width="1.8"/>
-  <line x1="12" y1="34" x2="78" y2="34" stroke="white" stroke-width="1.4"/>
-  <line x1="12" y1="86" x2="78" y2="86" stroke="white" stroke-width="1.4"/>
-  <line x1="45" y1="34" x2="45" y2="86" stroke="rgba(255,255,255,0.4)" stroke-width="1.1" stroke-dasharray="3,2"/>
-  <g transform="translate(62,74) rotate(-25)">
-    <rect x="-7" y="-10" width="14" height="13" rx="3" fill="#F5A623"/>
-    <line x1="-4" y1="-5" x2="4" y2="-5" stroke="#C47A0A" stroke-width="1" stroke-opacity="0.6"/>
-    <line x1="-5" y1="-1" x2="5" y2="-1" stroke="#C47A0A" stroke-width="1" stroke-opacity="0.6"/>
-    <rect x="-3" y="3" width="6" height="8" rx="2" fill="#C4844A"/>
-  </g>
-  <circle cx="50" cy="48" r="6" fill="#D4E84A" stroke="#A8C000" stroke-width="0.8"/>
-  <circle cx="48" cy="46" r="1" fill="#8A9E00"/>
-  <circle cx="52" cy="45" r="1" fill="#8A9E00"/>
-  <circle cx="53" cy="49" r="1" fill="#8A9E00"/>
-  <circle cx="49" cy="51" r="1" fill="#8A9E00"/>
-</svg></div>
-          <div class="rev-card-body">
-            <div class="rev-top"><span class="rev-cat cat-c">Court</span><div class="rev-score"><span class="score-num">4.9</span><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:98%"></div></div><div class="score-count">147 reviews</div></div></div></div>
-            <div class="rev-title">Plummer Park Pickleball Courts</div>
-            <div class="rev-loc">📍 West Hollywood, CA</div>
-            <div class="rev-excerpt">"Best free courts in the LA area. Well-maintained, regulation nets, and the Sunday open play group is the most welcoming community I've found."</div>
-            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sage),var(--amber));">JK</div><div><div class="rev-name">JamieK</div><div class="rev-date">2 days ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 32</button></div></div>
+      <div>
+        <div class="near-me-banner">
+          <div class="nmb-icon">📍</div>
+          <div>
+            <div class="nmb-text"><span>4 courts</span> near West Hollywood / 90046–90069</div>
+            <div class="nmb-sub">Your closest pickleball courts — sorted by distance</div>
           </div>
         </div>
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="padding:0;overflow:hidden;"><svg xmlns="http://www.w3.org/2000/svg" width="90" height="120" viewBox="0 0 90 120" style="display:block">
-  <rect width="90" height="120" rx="5" fill="#2E4A1E"/>
-  <rect x="10" y="10" width="70" height="100" rx="4" fill="#1A3A10" opacity="0.5"/>
-  <g transform="translate(45,58) rotate(-15)">
-    <rect x="-18" y="-28" width="36" height="32" rx="9" fill="#7BAE8C" stroke="#5A9070" stroke-width="1.5"/>
-    <line x1="-10" y1="-18" x2="10" y2="-18" stroke="#5A9070" stroke-width="1.5" stroke-opacity="0.6"/>
-    <line x1="-12" y1="-10" x2="12" y2="-10" stroke="#5A9070" stroke-width="1.5" stroke-opacity="0.6"/>
-    <line x1="-12" y1="-2" x2="12" y2="-2" stroke="#5A9070" stroke-width="1.5" stroke-opacity="0.6"/>
-    <rect x="-6" y="4" width="12" height="22" rx="3" fill="#C4A870" stroke="#A08050" stroke-width="1"/>
-    <line x1="-3" y1="8" x2="3" y2="8" stroke="#A08050" stroke-width="1.5" stroke-opacity="0.5"/>
-    <line x1="-3" y1="12" x2="3" y2="12" stroke="#A08050" stroke-width="1.5" stroke-opacity="0.5"/>
-    <line x1="-3" y1="16" x2="3" y2="16" stroke="#A08050" stroke-width="1.5" stroke-opacity="0.5"/>
+
+        <div class="courts-grid">
+
+          <!-- PLUMMER PARK -->
+          <div class="court-card featured">
+            <div class="cc-img" style="background:linear-gradient(150deg,#0D3B2E,#1E5C44,#0D3020);padding:0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120" style="display:block;width:100%;height:100%">
+  <rect x="0" y="0" width="200" height="120" rx="0" fill="#1E6B4A"/>
+  <rect x="28" y="0" width="144" height="38" fill="#0D3B2E"/>
+  <rect x="28" y="82" width="144" height="38" fill="#0D3B2E"/>
+  <line x1="0" y1="60" x2="200" y2="60" stroke="white" stroke-width="3"/>
+  <circle cx="0" cy="60" r="4" fill="white"/>
+  <circle cx="200" cy="60" r="4" fill="white"/>
+  <rect x="28" y="0" width="144" height="120" fill="none" stroke="white" stroke-width="2.2"/>
+  <line x1="28" y1="38" x2="172" y2="38" stroke="white" stroke-width="1.8"/>
+  <line x1="28" y1="82" x2="172" y2="82" stroke="white" stroke-width="1.8"/>
+  <line x1="100" y1="0" x2="100" y2="120" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <g transform="translate(150,88) rotate(-35)">
+    <rect x="-14" y="-18" width="28" height="26" rx="7" fill="#F5A623" stroke="#C47A0A" stroke-width="1.2"/>
+    <line x1="-7" y1="-10" x2="7" y2="-10" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-8" y1="-4" x2="8" y2="-4" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-7" y1="2" x2="7" y2="2" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="-5" y="8" width="10" height="16" rx="3" fill="#C4844A" stroke="#A06030" stroke-width="1"/>
+    <line x1="-2" y1="12" x2="2" y2="12" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-2" y1="16" x2="2" y2="16" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
   </g>
-  <circle cx="58" cy="32" r="8" fill="#D4E84A" stroke="#A8C000" stroke-width="1"/>
-  <circle cx="55" cy="30" r="1.3" fill="#8A9E00"/>
-  <circle cx="59" cy="28" r="1.3" fill="#8A9E00"/>
-  <circle cx="61" cy="32" r="1.3" fill="#8A9E00"/>
-  <circle cx="57" cy="35" r="1.3" fill="#8A9E00"/>
-</svg></div>
-          <div class="rev-card-body">
-            <div class="rev-top"><span class="rev-cat cat-p">Paddle</span><div class="rev-score"><span class="score-num">4.5</span><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:90%"></div></div><div class="score-count">89 reviews</div></div></div></div>
-            <div class="rev-title">Joola Ben Johns Hyperion CFS 16mm</div>
-            <div class="rev-loc">🏓 Carbon Fiber · 16mm Core</div>
-            <div class="rev-excerpt">"The spin control is next-level. Once you dial it in, the pop on third-shot drops is genuinely something special."</div>
-            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--coral),#FF9A3A);">MR</div><div><div class="rev-name">Marco_R</div><div class="rev-date">1 week ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 55</button></div></div>
-          </div>
-        </div>
-        <div class="rev-card">
-          <div class="rev-card-thumb" style="padding:0;overflow:hidden;"><svg xmlns="http://www.w3.org/2000/svg" width="90" height="120" viewBox="0 0 90 120" style="display:block">
-  <rect width="90" height="120" rx="5" fill="#1A3A5C"/>
-  <rect x="10" y="10" width="70" height="100" rx="4" fill="#0A2040" opacity="0.5"/>
-  <g transform="translate(10, 45)">
-    <path d="M8,32 Q6,20 14,14 Q22,8 32,10 L58,12 Q66,13 68,18 Q70,24 64,26 L48,27 Q42,28 40,32 Z" fill="#2AA8C4" stroke="#1A8098" stroke-width="1.5"/>
-    <path d="M8,32 L64,32 Q70,32 70,36 L70,38 Q70,40 64,40 L8,40 Q4,40 4,36 L4,34 Q4,32 8,32 Z" fill="#1A5C7A" stroke="#0A4060" stroke-width="1"/>
-    <path d="M14,14 L14,10 Q14,8 18,8 L36,8 Q40,8 40,10 L40,14 Z" fill="#F5A623" stroke="#C47A00" stroke-width="1"/>
-    <line x1="28" y1="18" x2="52" y2="19" stroke="white" stroke-width="1.5" stroke-opacity="0.5"/>
-    <line x1="26" y1="23" x2="54" y2="24" stroke="white" stroke-width="1.5" stroke-opacity="0.5"/>
-    <circle cx="20" cy="36" r="3" fill="#0A2040"/>
-    <circle cx="52" cy="36" r="3" fill="#0A2040"/>
+  <g transform="translate(117,28)">
+    <defs>
+      <radialGradient id="bga1" cx="38%" cy="32%" r="60%">
+        <stop offset="0%" stop-color="#FFF59D"/>
+        <stop offset="35%" stop-color="#FFD600"/>
+        <stop offset="75%" stop-color="#F9A800"/>
+        <stop offset="100%" stop-color="#C47800"/>
+      </radialGradient>
+      <radialGradient id="bha1" cx="25%" cy="25%" r="70%">
+        <stop offset="0%" stop-color="#8A5200"/>
+        <stop offset="100%" stop-color="#3A2000"/>
+      </radialGradient>
+      <radialGradient id="bsa1" cx="34%" cy="28%" r="42%">
+        <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="bwa1" cx="50%" cy="85%" r="50%">
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="black" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle r="15" fill="url(#bga1)"/>
+    <circle r="15" fill="url(#bwa1)"/>
+    <ellipse cx="-4" cy="-8" rx="3" ry="2.8" fill="url(#bha1)"/>
+    <ellipse cx="4" cy="-9" rx="3" ry="2.8" fill="url(#bha1)"/>
+    <ellipse cx="-9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha1)"/>
+    <ellipse cx="9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha1)"/>
+    <ellipse cx="-4" cy="7" rx="3" ry="2.8" fill="url(#bha1)"/>
+    <ellipse cx="4" cy="7" rx="3" ry="2.8" fill="url(#bha1)"/>
+    <ellipse cx="0" cy="-12" rx="2.5" ry="2.2" fill="url(#bha1)"/>
+    <ellipse cx="0" cy="11" rx="2.5" ry="2.2" fill="url(#bha1)"/>
+    <ellipse cx="-12" cy="5" rx="2.2" ry="2.8" fill="url(#bha1)" opacity="0.7"/>
+    <ellipse cx="12" cy="5" rx="2.2" ry="2.8" fill="url(#bha1)" opacity="0.7"/>
+    <circle r="15" fill="url(#bsa1)"/>
+    <circle r="15" fill="none" stroke="#8A5800" stroke-width="1" opacity="0.2"/>
   </g>
-</svg></div>
-          <div class="rev-card-body">
-            <div class="rev-top"><span class="rev-cat cat-g">Gear</span><div class="rev-score"><span class="score-num">5.0</span><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:100%"></div></div><div class="score-count">203 reviews</div></div></div></div>
-            <div class="rev-title">ASICS Gel-Rocket 11 Court Shoes</div>
-            <div class="rev-loc">👟 Non-Marking · All Surfaces</div>
-            <div class="rev-excerpt">"Incredible lateral support at the kitchen. Zero ankle roll on hard outdoor surfaces."</div>
-            <div class="rev-footer"><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sky),var(--sage));">TL</div><div><div class="rev-name">TinaL</div><div class="rev-date">5 days ago</div></div></div><div class="rev-actions"><button class="rev-btn">👍 76</button></div></div>
+</svg>
+              <div class="cc-badges">
+                <span class="cc-badge badge-featured">⭐ Your Home Court</span>
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-lighted">Lighted</span>
+              </div>
+              <span class="cc-verified">✓ Verified</span>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">Plummer Park Pickleball Courts</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.9</div>
+                  <div><div class="cc-bar-track"><div class="cc-bar-fill" style="width:98%"></div></div><div class="cc-reviews">147 reviews</div></div>
+                </div>
+              </div>
+              <div class="cc-address">📍 <span>1200 N Vista St, West Hollywood, CA 90046</span> <span class="cc-distance">0.4 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 4 dedicated + 1 multi-use</span>
+                <span class="cc-detail">💡 Lighted</span>
+                <span class="cc-detail">📱 Reservation app</span>
+                <span class="cc-detail">🅿️ Parking</span>
+              </div>
+              <div class="cc-cost">💵 ~$5–$7 per session (residents cheaper)</div>
+              <div class="cc-vibe">Your main hub — strong community, organized play, and the best Sunday open play in LA. Home of Pickleball Sunday with Friends every week. 🏓</div>
+              <div class="cc-footer">
+                <div class="cc-access">🔒 Reservation via app required</div>
+                <div class="cc-actions">
+                  <button class="cc-btn">💾 Save</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- WEHO ROOFTOP -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#0A2040,#1A3A5C);padding:0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120" style="display:block;width:100%;height:100%">
+  <rect x="0" y="0" width="200" height="120" rx="0" fill="#1A5C9C"/>
+  <rect x="28" y="0" width="144" height="38" fill="#0A3060"/>
+  <rect x="28" y="82" width="144" height="38" fill="#0A3060"/>
+  <line x1="0" y1="60" x2="200" y2="60" stroke="white" stroke-width="3"/>
+  <circle cx="0" cy="60" r="4" fill="white"/>
+  <circle cx="200" cy="60" r="4" fill="white"/>
+  <rect x="28" y="0" width="144" height="120" fill="none" stroke="white" stroke-width="2.2"/>
+  <line x1="28" y1="38" x2="172" y2="38" stroke="white" stroke-width="1.8"/>
+  <line x1="28" y1="82" x2="172" y2="82" stroke="white" stroke-width="1.8"/>
+  <line x1="100" y1="0" x2="100" y2="120" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <g transform="translate(150,88) rotate(-35)">
+    <rect x="-14" y="-18" width="28" height="26" rx="7" fill="#5BC8F0" stroke="#C47A0A" stroke-width="1.2"/>
+    <line x1="-7" y1="-10" x2="7" y2="-10" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-8" y1="-4" x2="8" y2="-4" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-7" y1="2" x2="7" y2="2" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="-5" y="8" width="10" height="16" rx="3" fill="#C4844A" stroke="#A06030" stroke-width="1"/>
+    <line x1="-2" y1="12" x2="2" y2="12" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-2" y1="16" x2="2" y2="16" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+  </g>
+  <g transform="translate(117,28)">
+    <defs>
+      <radialGradient id="bga2" cx="38%" cy="32%" r="60%">
+        <stop offset="0%" stop-color="#FFF59D"/>
+        <stop offset="35%" stop-color="#FFD600"/>
+        <stop offset="75%" stop-color="#F9A800"/>
+        <stop offset="100%" stop-color="#C47800"/>
+      </radialGradient>
+      <radialGradient id="bha2" cx="25%" cy="25%" r="70%">
+        <stop offset="0%" stop-color="#8A5200"/>
+        <stop offset="100%" stop-color="#3A2000"/>
+      </radialGradient>
+      <radialGradient id="bsa2" cx="34%" cy="28%" r="42%">
+        <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="bwa2" cx="50%" cy="85%" r="50%">
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="black" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle r="15" fill="url(#bga2)"/>
+    <circle r="15" fill="url(#bwa2)"/>
+    <ellipse cx="-4" cy="-8" rx="3" ry="2.8" fill="url(#bha2)"/>
+    <ellipse cx="4" cy="-9" rx="3" ry="2.8" fill="url(#bha2)"/>
+    <ellipse cx="-9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha2)"/>
+    <ellipse cx="9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha2)"/>
+    <ellipse cx="-4" cy="7" rx="3" ry="2.8" fill="url(#bha2)"/>
+    <ellipse cx="4" cy="7" rx="3" ry="2.8" fill="url(#bha2)"/>
+    <ellipse cx="0" cy="-12" rx="2.5" ry="2.2" fill="url(#bha2)"/>
+    <ellipse cx="0" cy="11" rx="2.5" ry="2.2" fill="url(#bha2)"/>
+    <ellipse cx="-12" cy="5" rx="2.2" ry="2.8" fill="url(#bha2)" opacity="0.7"/>
+    <ellipse cx="12" cy="5" rx="2.2" ry="2.8" fill="url(#bha2)" opacity="0.7"/>
+    <circle r="15" fill="url(#bsa2)"/>
+    <circle r="15" fill="none" stroke="#8A5800" stroke-width="1" opacity="0.2"/>
+  </g>
+</svg>
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-lighted">Rooftop</span>
+              </div>
+              <span class="cc-verified">✓ Verified</span>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">West Hollywood Park Rooftop Courts</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.7</div>
+                  <div><div class="cc-bar-track"><div class="cc-bar-fill" style="width:94%"></div></div><div class="cc-reviews">88 reviews</div></div>
+                </div>
+              </div>
+              <div class="cc-address">📍 <span>647 N San Vicente Blvd, West Hollywood, CA 90069</span> <span class="cc-distance">0.8 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 6 courts</span>
+                <span class="cc-detail">💡 Lighted</span>
+                <span class="cc-detail">🏙️ Rooftop views</span>
+                <span class="cc-detail">📱 Reservation</span>
+              </div>
+              <div class="cc-cost">💵 ~$8/hr or free during open play windows</div>
+              <div class="cc-vibe">Best newer, cleaner courts in the area. More structured and less chaotic than Plummer. Great for focused play sessions.</div>
+              <div class="cc-footer">
+                <div class="cc-access">🔒 Reservation system</div>
+                <div class="cc-actions">
+                  <button class="cc-btn">💾 Save</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LA CIENEGA -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#1A2A1A,#2E4A2E);padding:0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120" style="display:block;width:100%;height:100%">
+  <rect x="0" y="0" width="200" height="120" rx="0" fill="#2E6A3E"/>
+  <rect x="28" y="0" width="144" height="38" fill="#1A3A20"/>
+  <rect x="28" y="82" width="144" height="38" fill="#1A3A20"/>
+  <line x1="0" y1="60" x2="200" y2="60" stroke="white" stroke-width="3"/>
+  <circle cx="0" cy="60" r="4" fill="white"/>
+  <circle cx="200" cy="60" r="4" fill="white"/>
+  <rect x="28" y="0" width="144" height="120" fill="none" stroke="white" stroke-width="2.2"/>
+  <line x1="28" y1="38" x2="172" y2="38" stroke="white" stroke-width="1.8"/>
+  <line x1="28" y1="82" x2="172" y2="82" stroke="white" stroke-width="1.8"/>
+  <line x1="100" y1="0" x2="100" y2="120" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <g transform="translate(150,88) rotate(-35)">
+    <rect x="-14" y="-18" width="28" height="26" rx="7" fill="#7BAE8C" stroke="#C47A0A" stroke-width="1.2"/>
+    <line x1="-7" y1="-10" x2="7" y2="-10" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-8" y1="-4" x2="8" y2="-4" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-7" y1="2" x2="7" y2="2" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="-5" y="8" width="10" height="16" rx="3" fill="#C4844A" stroke="#A06030" stroke-width="1"/>
+    <line x1="-2" y1="12" x2="2" y2="12" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-2" y1="16" x2="2" y2="16" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+  </g>
+  <g transform="translate(117,28)">
+    <defs>
+      <radialGradient id="bga3" cx="38%" cy="32%" r="60%">
+        <stop offset="0%" stop-color="#FFF59D"/>
+        <stop offset="35%" stop-color="#FFD600"/>
+        <stop offset="75%" stop-color="#F9A800"/>
+        <stop offset="100%" stop-color="#C47800"/>
+      </radialGradient>
+      <radialGradient id="bha3" cx="25%" cy="25%" r="70%">
+        <stop offset="0%" stop-color="#8A5200"/>
+        <stop offset="100%" stop-color="#3A2000"/>
+      </radialGradient>
+      <radialGradient id="bsa3" cx="34%" cy="28%" r="42%">
+        <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="bwa3" cx="50%" cy="85%" r="50%">
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="black" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle r="15" fill="url(#bga3)"/>
+    <circle r="15" fill="url(#bwa3)"/>
+    <ellipse cx="-4" cy="-8" rx="3" ry="2.8" fill="url(#bha3)"/>
+    <ellipse cx="4" cy="-9" rx="3" ry="2.8" fill="url(#bha3)"/>
+    <ellipse cx="-9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha3)"/>
+    <ellipse cx="9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha3)"/>
+    <ellipse cx="-4" cy="7" rx="3" ry="2.8" fill="url(#bha3)"/>
+    <ellipse cx="4" cy="7" rx="3" ry="2.8" fill="url(#bha3)"/>
+    <ellipse cx="0" cy="-12" rx="2.5" ry="2.2" fill="url(#bha3)"/>
+    <ellipse cx="0" cy="11" rx="2.5" ry="2.2" fill="url(#bha3)"/>
+    <ellipse cx="-12" cy="5" rx="2.2" ry="2.8" fill="url(#bha3)" opacity="0.7"/>
+    <ellipse cx="12" cy="5" rx="2.2" ry="2.8" fill="url(#bha3)" opacity="0.7"/>
+    <circle r="15" fill="url(#bsa3)"/>
+    <circle r="15" fill="none" stroke="#8A5800" stroke-width="1" opacity="0.2"/>
+  </g>
+</svg>
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+              </div>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">La Cienega Tennis Center</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">4.2</div>
+                  <div><div class="cc-bar-track"><div class="cc-bar-fill" style="width:84%"></div></div><div class="cc-reviews">34 reviews</div></div>
+                </div>
+              </div>
+              <div class="cc-address">📍 <span>325 S La Cienega Blvd, Beverly Hills, CA</span> <span class="cc-distance">1.6 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🏓 2–4 temp. courts</span>
+                <span class="cc-detail">🎾 Shared w/ tennis</span>
+                <span class="cc-detail">🏛️ City-run</span>
+              </div>
+              <div class="cc-cost">💵 Low cost / reservation-based</div>
+              <div class="cc-vibe">Tennis-first facility with pickleball setups. Good backup option — solid courts when Plummer and WeHo are fully booked.</div>
+              <div class="cc-footer">
+                <div class="cc-access">🌐 City reservation system</div>
+                <div class="cc-actions">
+                  <button class="cc-btn">💾 Save</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROXBURY -->
+          <div class="court-card">
+            <div class="cc-img" style="background:linear-gradient(150deg,#2A1A0A,#4A3010);padding:0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120" style="display:block;width:100%;height:100%">
+  <rect x="0" y="0" width="200" height="120" rx="0" fill="#3A5A2A"/>
+  <rect x="28" y="0" width="144" height="38" fill="#1E3A12"/>
+  <rect x="28" y="82" width="144" height="38" fill="#1E3A12"/>
+  <line x1="0" y1="60" x2="200" y2="60" stroke="white" stroke-width="3"/>
+  <circle cx="0" cy="60" r="4" fill="white"/>
+  <circle cx="200" cy="60" r="4" fill="white"/>
+  <rect x="28" y="0" width="144" height="120" fill="none" stroke="white" stroke-width="2.2"/>
+  <line x1="28" y1="38" x2="172" y2="38" stroke="white" stroke-width="1.8"/>
+  <line x1="28" y1="82" x2="172" y2="82" stroke="white" stroke-width="1.8"/>
+  <line x1="100" y1="0" x2="100" y2="120" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <g transform="translate(150,88) rotate(-35)">
+    <rect x="-14" y="-18" width="28" height="26" rx="7" fill="#D4A84A" stroke="#C47A0A" stroke-width="1.2"/>
+    <line x1="-7" y1="-10" x2="7" y2="-10" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-8" y1="-4" x2="8" y2="-4" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-7" y1="2" x2="7" y2="2" stroke="#C47A0A" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="-5" y="8" width="10" height="16" rx="3" fill="#C4844A" stroke="#A06030" stroke-width="1"/>
+    <line x1="-2" y1="12" x2="2" y2="12" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="-2" y1="16" x2="2" y2="16" stroke="#A06030" stroke-width="1.5" stroke-opacity="0.5"/>
+  </g>
+  <g transform="translate(117,28)">
+    <defs>
+      <radialGradient id="bga4" cx="38%" cy="32%" r="60%">
+        <stop offset="0%" stop-color="#FFF59D"/>
+        <stop offset="35%" stop-color="#FFD600"/>
+        <stop offset="75%" stop-color="#F9A800"/>
+        <stop offset="100%" stop-color="#C47800"/>
+      </radialGradient>
+      <radialGradient id="bha4" cx="25%" cy="25%" r="70%">
+        <stop offset="0%" stop-color="#8A5200"/>
+        <stop offset="100%" stop-color="#3A2000"/>
+      </radialGradient>
+      <radialGradient id="bsa4" cx="34%" cy="28%" r="42%">
+        <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="bwa4" cx="50%" cy="85%" r="50%">
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="black" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle r="15" fill="url(#bga4)"/>
+    <circle r="15" fill="url(#bwa4)"/>
+    <ellipse cx="-4" cy="-8" rx="3" ry="2.8" fill="url(#bha4)"/>
+    <ellipse cx="4" cy="-9" rx="3" ry="2.8" fill="url(#bha4)"/>
+    <ellipse cx="-9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha4)"/>
+    <ellipse cx="9" cy="-1" rx="2.8" ry="3.2" fill="url(#bha4)"/>
+    <ellipse cx="-4" cy="7" rx="3" ry="2.8" fill="url(#bha4)"/>
+    <ellipse cx="4" cy="7" rx="3" ry="2.8" fill="url(#bha4)"/>
+    <ellipse cx="0" cy="-12" rx="2.5" ry="2.2" fill="url(#bha4)"/>
+    <ellipse cx="0" cy="11" rx="2.5" ry="2.2" fill="url(#bha4)"/>
+    <ellipse cx="-12" cy="5" rx="2.2" ry="2.8" fill="url(#bha4)" opacity="0.7"/>
+    <ellipse cx="12" cy="5" rx="2.2" ry="2.8" fill="url(#bha4)" opacity="0.7"/>
+    <circle r="15" fill="url(#bsa4)"/>
+    <circle r="15" fill="none" stroke="#8A5800" stroke-width="1" opacity="0.2"/>
+  </g>
+</svg>
+              <div class="cc-badges">
+                <span class="cc-badge badge-outdoor">Outdoor</span>
+                <span class="cc-badge badge-free">Free</span>
+              </div>
+            </div>
+            <div class="cc-body">
+              <div class="cc-top">
+                <div class="cc-name">Roxbury Memorial Park</div>
+                <div class="cc-score-wrap">
+                  <div class="cc-score-num">3.8</div>
+                  <div><div class="cc-bar-track"><div class="cc-bar-fill" style="width:76%"></div></div><div class="cc-reviews">21 reviews</div></div>
+                </div>
+              </div>
+              <div class="cc-address">📍 <span>471 S Roxbury Dr, Beverly Hills, CA</span> <span class="cc-distance">2.1 mi</span></div>
+              <div class="cc-details">
+                <span class="cc-detail">🎾 Tennis + occasional PB</span>
+                <span class="cc-detail">🌳 Quiet park</span>
+                <span class="cc-detail">🆓 Public / free</span>
+              </div>
+              <div class="cc-cost">💵 Free — public park, no reservation</div>
+              <div class="cc-vibe">Quiet, local Beverly Hills park. Not a dedicated pickleball scene but great for a casual low-key session when you want calm over competition.</div>
+              <div class="cc-footer">
+                <div class="cc-access">🌐 Public — no reservation needed</div>
+                <div class="cc-actions">
+                  <button class="cc-btn">💾 Save</button>
+                  <button class="cc-btn primary" onclick="openModal()">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- RIGHT PANEL (desktop only) -->
+      <!-- RIGHT PANEL -->
       <div class="right-panel">
-        <div class="score-widget">
-          <div class="widget-title">Community Score</div>
-          <div class="big-score"><div class="big-score-num">4.7</div><div class="big-score-meta"><div class="big-score-stars">★★★★★</div><div class="big-score-count">1,284 reviews this month</div></div></div>
-          <div class="score-bars">
-            <div class="sbar-row"><span class="sbar-label">5</span><span class="sbar-star">★</span><div class="sbar-track"><div class="sbar-fill" style="width:72%"></div></div><span class="sbar-pct">72%</span></div>
-            <div class="sbar-row"><span class="sbar-label">4</span><span class="sbar-star">★</span><div class="sbar-track"><div class="sbar-fill" style="width:18%"></div></div><span class="sbar-pct">18%</span></div>
-            <div class="sbar-row"><span class="sbar-label">3</span><span class="sbar-star">★</span><div class="sbar-track"><div class="sbar-fill" style="width:6%"></div></div><span class="sbar-pct">6%</span></div>
-            <div class="sbar-row"><span class="sbar-label">2</span><span class="sbar-star">★</span><div class="sbar-track"><div class="sbar-fill" style="width:3%"></div></div><span class="sbar-pct">3%</span></div>
-            <div class="sbar-row"><span class="sbar-label">1</span><span class="sbar-star">★</span><div class="sbar-track"><div class="sbar-fill" style="width:1%"></div></div><span class="sbar-pct">1%</span></div>
-          </div>
+        <div class="panel-card">
+          <div class="panel-title">Top Rated Near You</div>
+          <div class="top-row"><div class="tr-rank">01</div><div class="tr-info"><div class="tr-name">Plummer Park</div><div class="tr-sub">West Hollywood · 0.4 mi</div></div><div class="tr-score">4.9</div></div>
+          <div class="top-row"><div class="tr-rank">02</div><div class="tr-info"><div class="tr-name">WeHo Park Rooftop</div><div class="tr-sub">West Hollywood · 0.8 mi</div></div><div class="tr-score">4.7</div></div>
+          <div class="top-row"><div class="tr-rank">03</div><div class="tr-info"><div class="tr-name">La Cienega Tennis Ctr</div><div class="tr-sub">Beverly Hills · 1.6 mi</div></div><div class="tr-score">4.2</div></div>
+          <div class="top-row"><div class="tr-rank">04</div><div class="tr-info"><div class="tr-name">Roxbury Memorial Park</div><div class="tr-sub">Beverly Hills · 2.1 mi</div></div><div class="tr-score">3.8</div></div>
         </div>
-        <div class="map-widget">
-          <div class="map-placeholder">
-            <div class="map-pin active" style="top:35%;left:42%">🏟️<div class="map-pin-label">Plummer Park</div></div>
-            <div class="map-pin" style="top:55%;left:62%">🏟️<div class="map-pin-label">MacArthur Park</div></div>
-            <div class="map-pin" style="top:25%;left:68%">🏟️<div class="map-pin-label">Pan Pacific</div></div>
-          </div>
-          <div class="map-widget-body">
-            <div class="map-widget-title">Courts Near You</div>
-            <div class="nearby-row"><div class="nr-dot" style="background:var(--coral)"></div><div class="nr-name">Plummer Park</div><div class="nr-dist">0.4 mi</div><div class="nr-score">4.9</div></div>
-            <div class="nearby-row"><div class="nr-dot" style="background:var(--amber)"></div><div class="nr-name">MacArthur Park</div><div class="nr-dist">1.2 mi</div><div class="nr-score">4.8</div></div>
-            <div class="nearby-row"><div class="nr-dot" style="background:var(--sage)"></div><div class="nr-name">Pan Pacific Park</div><div class="nr-dist">1.9 mi</div><div class="nr-score">4.5</div></div>
-          </div>
-        </div>
-        <div class="quick-write">
-          <div class="qw-title">Quick Review</div>
-          <div class="qw-q">Just played somewhere? Rate it now.</div>
-          <div class="qw-stars" id="qwstars">
-            <span class="qw-star" data-v="1" onclick="setQW(1)">★</span>
-            <span class="qw-star" data-v="2" onclick="setQW(2)">★</span>
-            <span class="qw-star" data-v="3" onclick="setQW(3)">★</span>
-            <span class="qw-star" data-v="4" onclick="setQW(4)">★</span>
-            <span class="qw-star" data-v="5" onclick="setQW(5)">★</span>
-          </div>
-          <textarea class="qw-input" placeholder="What did you think?"></textarea>
-          <button class="qw-submit" onclick="openModal()">Post Review →</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- TRENDING -->
-    <div>
-      <div class="section-head">
-        <div class="section-title">Trending This Week <span class="dot">·</span></div>
-        <a class="view-all" href="#">Full rankings →</a>
-      </div>
-      <div class="trending-strip">
-        <div class="trend-card"><div class="trend-rank">01</div><div class="trend-cat">Courts</div><div class="trend-name">Plummer Park Courts</div><div class="trend-score"><span class="trend-n">4.9</span><span class="trend-stars">★★★★★</span><span class="trend-c">147 reviews</span></div></div>
-        <div class="trend-card"><div class="trend-rank">02</div><div class="trend-cat">Paddles</div><div class="trend-name">Selkirk Vanguard Power Air</div><div class="trend-score"><span class="trend-n">4.7</span><span class="trend-stars">★★★★</span><span class="trend-c">112 reviews</span></div></div>
-        <div class="trend-card"><div class="trend-rank">03</div><div class="trend-cat">Gear</div><div class="trend-name">ASICS Gel-Rocket 11</div><div class="trend-score"><span class="trend-n">5.0</span><span class="trend-stars">★★★★★</span><span class="trend-c">203 reviews</span></div></div>
-        <div class="trend-card"><div class="trend-rank">04</div><div class="trend-cat">Events</div><div class="trend-name">SoCal Classic Open</div><div class="trend-score"><span class="trend-n">4.8</span><span class="trend-stars">★★★★★</span><span class="trend-c">38 reviews</span></div></div>
+        <div class="panel-card" style="padding:0;overflow:hidden;border-radius:var(--r-lg)">
+          <div class="map-ph">
+            <div class="map-pin" style="top:28%;left:36%;background:var(--coral);">🏟️<div class="map-pin-label">Plummer Park</div></div>
+            <div class="map-pin" style="top:18%;left:54%;background:var(--amber);">🏟️<div class="map-pin-label">WeHo Rooftop</div></div>
+            <div class="map-pin" style="top:50%;left:46%;background:var(--sage);">🏟️<div class="map-pin-label">La Cienega</div></div>
+            <div class="map-pin" style="top:60%;left:60%;background:var(--sky);">🏟️<div class="map-pin-label">Roxbury Park</div></div>
+          </div>
+          <div class="map-body">
+            <div class="panel-title">Courts Near You</div>
+            <div class="nearby-row"><div class="nr-dot" style="background:var(--coral)"></div><div class="nr-name">Plummer Park</div><div class="nr-dist">0.4 mi</div><div class="nr-score">4.9</div></div>
+            <div class="nearby-row"><div class="nr-dot" style="background:var(--amber)"></div><div class="nr-name">WeHo Rooftop</div><div class="nr-dist">0.8 mi</div><div class="nr-score">4.7</div></div>
+            <div class="nearby-row"><div class="nr-dot" style="background:var(--sage)"></div><div class="nr-name">La Cienega</div><div class="nr-dist">1.6 mi</div><div class="nr-score">4.2</div></div>
+            <div class="nearby-row"><div class="nr-dot" style="background:var(--sky)"></div><div class="nr-name">Roxbury Park</div><div class="nr-dist">2.1 mi</div><div class="nr-score">3.8</div></div>
+          </div>
+        </div>
+
+        <div class="panel-card" style="background:var(--forest)">
+          <div class="panel-title" style="color:rgba(255,255,255,.45)">Every Sunday</div>
+          <div style="font-size:.88rem;color:var(--amber);font-weight:800;margin-bottom:.4rem;">Pickleball Sunday with Friends</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.6;">Plummer Park · Every Sunday · 8:00 AM<br>All levels welcome. Show up, play, have fun.</div>
+          <a href="/dinkreviews/events/" style="display:inline-block;margin-top:.9rem;font-size:.75rem;font-weight:700;color:var(--amber);text-decoration:none;">See all events →</a>
+        </div>
       </div>
     </div>
 
   </main>
 </div>
 
-<!-- FOOTER (desktop) -->
 <div class="app-footer">
-  <div class="footer-brand">DINK<span style="color:var(--amber)">REVIEWS</span></div>
-  <div class="footer-links">
-    <a href="/dinkreviews/courts/">Courts</a>
-    <a href="/dinkreviews/paddles/">Paddles</a>
-    <a href="/dinkreviews/gear/">Gear</a>
-    <a href="/dinkreviews/events/">Events</a>
-    <a href="/dinkreviews/community/">Community</a>
-  </div>
-  <div>© 2025 DINKREVIEWS — The Pickleball Community</div>
+  <div style="font-weight:800;color:var(--amber);font-size:.9rem;">DINK<span style="color:rgba(255,255,255,.7)">REVIEWS</span></div>
+  <div style="display:flex;gap:1.5rem;"><a href="/dinkreviews/courts/" style="color:rgba(255,255,255,.4);text-decoration:none;">Courts</a><a href="/dinkreviews/paddles/" style="color:rgba(255,255,255,.4);text-decoration:none;">Paddles</a><a href="/dinkreviews/gear/" style="color:rgba(255,255,255,.4);text-decoration:none;">Gear</a><a href="/dinkreviews/events/" style="color:rgba(255,255,255,.4);text-decoration:none;">Events</a><a href="/dinkreviews/" style="color:rgba(255,255,255,.4);text-decoration:none;">Dashboard</a></div>
+  <div>© 2025 DINKREVIEWS</div>
 </div>
 
-<!-- BOTTOM NAV (mobile) -->
 <nav class="bottom-nav">
   <div class="bn-inner">
-    <a class="bn-item active" href="/dinkreviews/"><span class="bn-icon">🏠</span><span>Home</span></a>
-    <a class="bn-item" href="/dinkreviews/courts/"><span class="bn-icon">🏟️</span><span>Courts</span></a>
+    <a class="bn-item" href="/dinkreviews/"><span class="bn-icon">🏠</span><span>Home</span></a>
+    <a class="bn-item active" href="/dinkreviews/courts/"><span class="bn-icon">🏟️</span><span>Courts</span></a>
     <button class="bn-item bn-write" onclick="openModal()"><span class="bn-icon">✏️</span><span>Review</span></button>
     <a class="bn-item" href="/dinkreviews/paddles/"><span class="bn-icon">🏓</span><span>Paddles</span></a>
     <a class="bn-item" href="/dinkreviews/events/"><span class="bn-icon">📅</span><span>Events</span></a>
   </div>
 </nav>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeOut(event)">
   <div class="modal">
-    <div class="modal-header">
-      <div><h2>Write a <span>Review</span></h2><p>Help the DINKREVIEWS community find the best courts & gear</p></div>
-      <button class="modal-x" onclick="closeModal()">✕</button>
-    </div>
+    <div class="modal-header"><div><h2>Review a <span>Court</span></h2><p>Help the DINKREVIEWS community find the best courts</p></div><button class="modal-x" onclick="closeModal()">✕</button></div>
     <div class="modal-body">
-      <div class="mf-row"><label>Category</label><select><option>🏟️ Court</option><option>🏓 Paddle</option><option>👟 Gear & Apparel</option><option>📅 Event or Tournament</option><option>🎯 Training & Clinics</option></select></div>
-      <div class="mf-row"><label>Name or Title</label><input type="text" id="review-name" placeholder="e.g. Plummer Park Courts…"></div>
+      <div class="mf-row"><label>Court Name</label><input type="text" id="review-name" placeholder="e.g. Plummer Park Pickleball Courts"></div>
+      <div class="mf-row"><label>Location</label><input type="text" id="review-location" placeholder="City, State"></div>
       <div class="mf-row"><label>Your Rating</label><div class="mf-stars" id="mstars"><span class="ms" data-v="1" onclick="setMS(1)">★</span><span class="ms" data-v="2" onclick="setMS(2)">★</span><span class="ms" data-v="3" onclick="setMS(3)">★</span><span class="ms" data-v="4" onclick="setMS(4)">★</span><span class="ms" data-v="5" onclick="setMS(5)">★</span></div></div>
-      <div class="mf-row"><label>Your Review</label><textarea id="review-text" placeholder="What stood out? Tips for fellow players…"></textarea></div>
-      <div class="mf-row"><label>Location (optional)</label><input type="text" id="review-location" placeholder="City, State"></div>
+      <div class="mf-row"><label>Court Type</label><select><option>Outdoor — Public / Free</option><option>Outdoor — Paid / Reservation</option><option>Indoor — Public</option><option>Indoor — Membership / Club</option></select></div>
+      <div class="mf-row"><label>Your Review</label><textarea id="review-text" placeholder="Surface condition, nets, lighting, community, open play schedule…"></textarea></div>
     </div>
-    <div class="modal-footer">
-      <button class="mc" onclick="closeModal()">Cancel</button>
-      <button class="ms-btn" onclick="doSubmit()">Submit Review</button>
-    </div>
+    <div class="modal-footer"><button class="mc" onclick="closeModal()">Cancel</button><button class="ms-btn" onclick="doSubmit()">Submit Review</button></div>
   </div>
 </div>
 
 <script>
-  const API = 'https://script.google.com/macros/s/AKfycbzi1Yak6BkCtu7l-ZwoeuX0VRnle_sICOYx7DoyQUJzzOK-KV8D_xZ2tqqW01vMlRvnwQ/exec';
-
-  async function loadReviews(category='All',sort='newest'){
-    const container=document.querySelector('.review-list-col');
-    if(!container)return;
-    const existing=container.querySelectorAll('.rev-card');
-    existing.forEach(c=>c.style.opacity='.4');
-    try{
-      const res=await fetch(`${API}?action=getReviews&category=${category}&limit=10&sort=${sort}`);
-      const data=await res.json();
-      if(!data.success||!data.reviews.length){existing.forEach(c=>c.style.opacity='1');return;}
-      existing.forEach(c=>c.remove());
-      const sortBar=container.querySelector('.sort-bar');
-      data.reviews.forEach(r=>sortBar.after(buildCard(r)));
-    }catch(e){existing.forEach(c=>c.style.opacity='1');}
-  }
-
-  async function loadStats(){
-    try{
-      const res=await fetch(`${API}?action=getStats&category=All`);
-      const data=await res.json();
-      if(!data.success||!data.stats.total)return;
-      const{total,avg,distribution}=data.stats;
-      const n=document.querySelector('.big-score-num');
-      if(n)n.textContent=avg.toFixed(1);
-      const c=document.querySelector('.big-score-count');
-      if(c)c.textContent=total.toLocaleString()+' reviews total';
-      const fills=document.querySelectorAll('.sbar-fill');
-      const pcts=document.querySelectorAll('.sbar-pct');
-      [5,4,3,2,1].forEach((s,i)=>{
-        const p=distribution[s]||0;
-        if(fills[i])fills[i].style.width=p+'%';
-        if(pcts[i])pcts[i].textContent=p+'%';
-      });
-      const w=document.querySelectorAll('.wstat-n');
-      if(w[0])w[0].textContent=total>999?(total/1000).toFixed(1)+'k':total;
-    }catch(e){}
-  }
-
-  function buildCard(r){
-    const cc={Court:'cat-c',Paddle:'cat-p',Gear:'cat-g',Event:'cat-e',Training:'cat-t'};
-    const ce={Court:'🏟️',Paddle:'🏓',Gear:'👟',Event:'📅',Training:'🎯'};
-    const pct=Math.round((r.rating/5)*100);
-    const ini=(r.reviewer||'A').substring(0,2).toUpperCase();
-    const d=document.createElement('div');
-    d.className='rev-card';
-    d.innerHTML=`
-      <div class="rev-card-thumb" style="padding:0;overflow:hidden;">${r.category==='Court' ? `<svg xmlns="http://www.w3.org/2000/svg" width="90" height="120" viewBox="0 0 90 120" style="display:block">  <rect x="0" y="0" width="90" height="120" rx="5" fill="#3A6899"/>  <rect x="12" y="0" width="66" height="120" fill="#4A7FC1"/>  <rect x="12" y="8" width="66" height="26" fill="#3D9E6B"/>  <rect x="12" y="86" width="66" height="26" fill="#3D9E6B"/>  <line x1="0" y1="60" x2="90" y2="60" stroke="white" stroke-width="2.5"/>  <circle cx="12" cy="60" r="2.5" fill="white"/>  <circle cx="78" cy="60" r="2.5" fill="white"/>  <rect x="12" y="8" width="66" height="104" fill="none" stroke="white" stroke-width="1.8"/>  <line x1="12" y1="34" x2="78" y2="34" stroke="white" stroke-width="1.4"/>  <line x1="12" y1="86" x2="78" y2="86" stroke="white" stroke-width="1.4"/>  <line x1="45" y1="34" x2="45" y2="86" stroke="rgba(255,255,255,0.4)" stroke-width="1.1" stroke-dasharray="3,2"/>  <g transform="translate(62,74) rotate(-25)">    <rect x="-7" y="-10" width="14" height="13" rx="3" fill="#F5A623"/>    <line x1="-4" y1="-5" x2="4" y2="-5" stroke="#C47A0A" stroke-width="1" stroke-opacity="0.6"/>    <line x1="-5" y1="-1" x2="5" y2="-1" stroke="#C47A0A" stroke-width="1" stroke-opacity="0.6"/>    <rect x="-3" y="3" width="6" height="8" rx="2" fill="#C4844A"/>  </g>  <circle cx="50" cy="48" r="6" fill="#D4E84A" stroke="#A8C000" stroke-width="0.8"/>  <circle cx="48" cy="46" r="1" fill="#8A9E00"/>  <circle cx="52" cy="45" r="1" fill="#8A9E00"/>  <circle cx="53" cy="49" r="1" fill="#8A9E00"/>  <circle cx="49" cy="51" r="1" fill="#8A9E00"/></svg>` : `<div style="width:90px;min-height:120px;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(150deg,#0D3B2E,#1E5C44)">${ce[r.category]||'🏓'}</div>`}</div>
-      <div class="rev-card-body">
-        <div class="rev-top"><span class="rev-cat ${cc[r.category]||'cat-c'}">${esc(r.category)}</span>
-        <div class="rev-score"><span class="score-num">${Number(r.rating).toFixed(1)}</span>
-        <div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:${pct}%"></div></div></div></div></div>
-        <div class="rev-title">${esc(r.name)}</div>
-        ${r.location?`<div class="rev-loc">📍 ${esc(r.location)}</div>`:''}
-        <div class="rev-excerpt">"${esc(r.review)}"</div>
-        <div class="rev-footer"><div class="rev-author">
-        <div class="rev-av" style="background:linear-gradient(135deg,var(--sage),var(--amber));">${ini}</div>
-        <div><div class="rev-name">${esc(r.reviewer||'Anonymous')}</div><div class="rev-date">${ago(r.timestamp)}</div></div>
-        </div><div class="rev-actions"><button class="rev-btn">👍</button></div></div>
-      </div>`;
-    return d;
-  }
-
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-  function ago(ts){
-    const d=Math.floor((new Date()-new Date(ts))/1000);
-    if(isNaN(d)||d<0)return'Recently';
-    if(d<60)return'Just now';
-    if(d<3600)return Math.floor(d/60)+' min ago';
-    if(d<86400)return Math.floor(d/3600)+' hours ago';
-    if(d<604800)return Math.floor(d/86400)+' days ago';
-    return new Date(ts).toLocaleDateString();
-  }
-
-  async function doSubmit(){
-    if(!mstar){alert('Please select a rating.');return;}
-    const category=document.querySelector('#modal select').value.replace(/^.\s/,'');
-    const name=document.getElementById('review-name').value.trim();
-    const review=document.getElementById('review-text').value.trim();
-    const location=document.getElementById('review-location').value.trim();
-    if(!name){alert('Please enter a name.');return;}
-    if(!review){alert('Please write a review.');return;}
-    const btn=document.querySelector('.ms-btn');
-    btn.textContent='Submitting…';btn.disabled=true;
-    try{
-      const res=await fetch(API,{method:'POST',body:JSON.stringify({category,name,location,rating:mstar,review,reviewer:'Community Member'})});
-      const data=await res.json();
-      if(data.success){
-        closeModal();
-        setTimeout(()=>{alert('✓ Review submitted! Thanks for contributing to DINKREVIEWS. 🏓');loadReviews();loadStats();},200);
-      }else{alert('Error: '+(data.error||'Submission failed'));}
-    }catch(e){alert('Connection error. Please try again.');}
-    btn.textContent='Submit Review';btn.disabled=false;
-    mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'));
-  }
-
-  function setSort(el){document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('on'));el.classList.add('on');loadReviews('All',el.textContent.includes('Rated')?'top':'newest')}
-  function openModal(){document.getElementById('modal').classList.add('open')}
-  function closeModal(){document.getElementById('modal').classList.remove('open')}
-  function closeOut(e){if(e.target.id==='modal')closeModal()}
-
-  let mstar=0;
-  function setMS(n){mstar=n;document.querySelectorAll('.ms').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n))}
-  document.querySelectorAll('.ms').forEach(s=>{
-    s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});
-    s.addEventListener('mouseleave',()=>{document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=mstar))});
-  });
-  let qwStar=0;
-  function setQW(n){qwStar=n;document.querySelectorAll('.qw-star').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n))}
-  document.querySelectorAll('.qw-star').forEach(s=>{
-    s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.qw-star').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});
-    s.addEventListener('mouseleave',()=>{document.querySelectorAll('.qw-star').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=qwStar))});
-  });
-  document.querySelectorAll('.nav-item').forEach(item=>{
-    item.addEventListener('click',function(e){if(this.getAttribute('href')==='#')e.preventDefault();document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));this.classList.add('active')});
-  });
-
-  document.addEventListener('DOMContentLoaded',()=>{loadReviews();loadStats();});
+const API='https://script.google.com/macros/s/AKfycbzi1Yak6BkCtu7l-ZwoeuX0VRnle_sICOYx7DoyQUJzzOK-KV8D_xZ2tqqW01vMlRvnwQ/exec';
+function setSort(el){document.querySelectorAll('.fb-pill').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function closeOut(e){if(e.target.id==='modal')closeModal()}
+let mstar=0;
+function setMS(n){mstar=n;document.querySelectorAll('.ms').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n))}
+document.querySelectorAll('.ms').forEach(s=>{
+  s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});
+  s.addEventListener('mouseleave',()=>{document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=mstar))});
+});
+async function doSubmit(){
+  if(!mstar){alert('Please select a rating.');return;}
+  const name=document.getElementById('review-name').value.trim();
+  const review=document.getElementById('review-text').value.trim();
+  const location=document.getElementById('review-location').value.trim();
+  if(!name){alert('Please enter the court name.');return;}
+  if(!review){alert('Please write a review.');return;}
+  const btn=document.querySelector('.ms-btn');
+  btn.textContent='Submitting…';btn.disabled=true;
+  try{
+    const res=await fetch(API,{method:'POST',body:JSON.stringify({category:'Court',name,location,rating:mstar,review,reviewer:'Community Member'})});
+    const data=await res.json();
+    if(data.success){closeModal();setTimeout(()=>alert('✓ Court review submitted! Thanks for contributing to DINKREVIEWS. 🏓'),200);}
+    else{alert('Error: '+(data.error||'Submission failed'));}
+  }catch(e){alert('Connection error. Please try again.');}
+  btn.textContent='Submit Review';btn.disabled=false;
+  mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'));
+}
 </script>
 </body>
 </html>
