@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Events — DINKREVIEWS</title>
-<meta name="description" content="Pickleball events, tournaments, and open play near you — reviewed and rated by the community.">
+<meta name="description" content="Pickleball events near you. Join Pickleball Sunday with Friends every week at Plummer Park, West Hollywood.">
 <meta name="theme-color" content="#1A3A2A">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--forest:#1A3A2A;--forest-mid:#224835;--forest-light:#2D5C42;--amber:#F5A623;--amber-soft:#FEF3DC;--sage:#7BAE8C;--sage-soft:#EBF4EE;--cream:#FAF8F4;--warm-white:#FFFFFF;--ink:#111A14;--slate:#5C7A66;--mist:#A8C0B0;--rule:#E4EDE7;--rule-dark:#C8D9CE;--coral:#F25C38;--coral-soft:#FEF0EC;--sky:#2AA8C4;--sky-soft:#EAF7FB;--lime:#8EC63F;--lime-soft:#F2FAE6;--yellow:#F9C22E;--yellow-soft:#FEF6DC;--purple:#8B5CF6;--purple-soft:#F3EFFF;--shadow-xs:0 1px 3px rgba(26,58,42,.08);--shadow-sm:0 2px 8px rgba(26,58,42,.1);--shadow-md:0 6px 24px rgba(26,58,42,.12);--shadow-lg:0 16px 48px rgba(26,58,42,.15);--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;--font:'Plus Jakarta Sans',sans-serif}
+:root{--forest:#1A3A2A;--forest-light:#2D5C42;--amber:#F5A623;--amber-soft:#FEF3DC;--sage:#7BAE8C;--sage-soft:#EBF4EE;--cream:#FAF8F4;--warm-white:#FFFFFF;--ink:#111A14;--slate:#5C7A66;--mist:#A8C0B0;--rule:#E4EDE7;--rule-dark:#C8D9CE;--coral:#F25C38;--coral-soft:#FEF0EC;--sky:#2AA8C4;--sky-soft:#EAF7FB;--purple:#8B5CF6;--purple-soft:#F3EFFF;--shadow-xs:0 1px 3px rgba(26,58,42,.08);--shadow-sm:0 2px 8px rgba(26,58,42,.1);--shadow-md:0 6px 24px rgba(26,58,42,.12);--shadow-lg:0 16px 48px rgba(26,58,42,.15);--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:32px;--font:'Plus Jakarta Sans',sans-serif}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
 .app-shell{display:grid;grid-template-columns:260px 1fr;grid-template-rows:56px 1fr;min-height:100vh}
@@ -19,13 +19,13 @@ html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:va
 .brand-name .dr-dink{color:var(--warm-white)}.brand-name .dr-reviews{color:var(--amber)}
 .brand-tagline{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem}
 .topbar-search{flex:1;max-width:480px;margin-left:1.5rem;position:relative}
-.topbar-search input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:99px;color:var(--warm-white);font-family:var(--font);font-size:.85rem;padding:.5rem 1rem .5rem 2.5rem;outline:none;transition:background .2s,border-color .2s}
-.topbar-search input::placeholder{color:rgba(255,255,255,.35)}.topbar-search input:focus{background:rgba(255,255,255,.14);border-color:var(--amber)}
+.topbar-search input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:99px;color:var(--warm-white);font-family:var(--font);font-size:.85rem;padding:.5rem 1rem .5rem 2.5rem;outline:none}
+.topbar-search input::placeholder{color:rgba(255,255,255,.35)}
 .topbar-search .si{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.8rem;color:rgba(255,255,255,.4)}
 .topbar-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
 .tb-pill{font-size:.75rem;font-weight:700;padding:.42rem 1rem;border-radius:99px;cursor:pointer;font-family:var(--font);border:none;transition:all .15s}
-.tb-pill.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}.tb-pill.ghost:hover{background:rgba(255,255,255,.15);color:var(--warm-white)}
-.tb-pill.solid{background:var(--amber);color:var(--forest);box-shadow:0 2px 10px rgba(245,166,35,.4)}.tb-pill.solid:hover{transform:translateY(-1px)}
+.tb-pill.ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.tb-pill.solid{background:var(--amber);color:var(--forest)}
 .tb-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--amber));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:var(--forest);cursor:pointer;border:2px solid rgba(255,255,255,.15)}
 .sidebar{background:var(--warm-white);border-right:1px solid var(--rule);padding:1.5rem 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column}
 .sidebar::-webkit-scrollbar{display:none}
@@ -34,7 +34,7 @@ html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:va
 .sbs-name{font-size:.92rem;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.2;margin-top:.1rem}.sbs-name span{color:var(--amber)}
 .sidebar-section{margin-bottom:1.8rem}
 .sidebar-label{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0 1.2rem;margin-bottom:.5rem}
-.nav-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 1.2rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--slate);transition:background .15s,color .15s;border-left:2px solid transparent;text-decoration:none}
+.nav-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--slate);transition:background .15s;border-left:2px solid transparent;text-decoration:none}
 .nav-item:hover{background:var(--sage-soft);color:var(--ink)}.nav-item.active{background:var(--sage-soft);color:var(--forest);border-left-color:var(--forest);font-weight:700}
 .nav-item .ni{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
 .nav-item .badge{margin-left:auto;font-size:.65rem;font-weight:800;background:var(--amber);color:var(--forest);padding:.12rem .45rem;border-radius:99px}
@@ -42,116 +42,180 @@ html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:va
 .filter-group{padding:0 1.2rem}
 .filter-group-title{font-size:.7rem;font-weight:700;color:var(--slate);margin-bottom:.6rem}
 .filter-check{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--slate);padding:.3rem 0;cursor:pointer}
-.check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--rule-dark);background:var(--warm-white);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .15s}
+.check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--rule-dark);background:var(--warm-white);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem}
 .filter-check.checked .check-box{background:var(--forest);border-color:var(--forest);color:white}
 .filter-count{margin-left:auto;font-size:.7rem;color:var(--mist)}
 .sidebar-bottom{margin-top:auto;padding:1.2rem;border-top:1px solid var(--rule)}
 .write-btn-sidebar{width:100%;background:var(--forest);color:var(--warm-white);border:none;border-radius:var(--r-md);padding:.85rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1.8rem}
-.page-hero{background:var(--forest);border-radius:var(--r-lg);padding:2rem 2.5rem;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
-.page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:22px 22px}
-.page-hero::after{content:'';position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.2) 0%,transparent 70%);pointer-events:none}
-.ph-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
-.ph-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--amber);display:block}
-.ph-title{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:var(--warm-white);line-height:1.15;margin-bottom:.5rem}
-.ph-title em{font-style:normal;color:var(--amber)}
-.ph-sub{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.6;max-width:420px}
-.ph-stats{display:flex;gap:1.2rem;position:relative;z-index:1}
-.ph-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);padding:.9rem 1.2rem;text-align:center;min-width:80px}
-.ph-stat-n{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
-.ph-stat-l{font-size:.62rem;font-weight:600;color:rgba(255,255,255,.4);margin-top:.2rem;text-transform:uppercase;letter-spacing:.08em}
-.filter-bar{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow-xs)}
-.fb-group{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-.fb-label{font-size:.72rem;font-weight:700;color:var(--slate);white-space:nowrap}
-.fb-pill{font-size:.75rem;font-weight:600;padding:.38rem .85rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
-.fb-pill:hover{border-color:var(--forest);color:var(--forest)}.fb-pill.on{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
-.content-grid{display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
-/* UPCOMING EVENTS */
-.upcoming-banner{background:linear-gradient(135deg,var(--amber-soft),#FFF8EC);border:1.5px solid var(--amber);border-radius:var(--r-md);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1.2rem;margin-bottom:1.2rem}
-.ub-icon{font-size:2rem;flex-shrink:0}
-.ub-text h3{font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.02em}
-.ub-text p{font-size:.8rem;color:var(--slate);margin-top:.2rem}
-.ub-btn{margin-left:auto;background:var(--amber);color:var(--forest);border:none;border-radius:99px;padding:.6rem 1.3rem;font-family:var(--font);font-size:.8rem;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(245,166,35,.3)}
+.main{padding:2rem;overflow-y:auto;display:flex;flex-direction:column;gap:1.5rem}
+
+/* FEATURED HERO */
+.featured-hero{background:var(--forest);border-radius:var(--r-lg);overflow:hidden;position:relative;display:grid;grid-template-columns:1fr 280px}
+.featured-hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:22px 22px}
+.fh-glow{position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.22) 0%,transparent 65%);pointer-events:none}
+.fh-body{padding:2rem 2rem 2rem 2.5rem;display:flex;flex-direction:column;gap:.8rem;position:relative;z-index:1}
+.fh-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.fh-badge{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:99px}
+.badge-recurring{background:var(--amber);color:var(--forest)}
+.badge-open-play{background:rgba(123,174,140,.25);color:#9BCFB0}
+.badge-free{background:rgba(139,92,246,.2);color:#C4A8FF}
+.badge-all-levels{background:rgba(42,168,196,.2);color:#8ADCF0}
+.fh-title{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;letter-spacing:-.03em;color:var(--warm-white);line-height:1.15}
+.fh-title em{font-style:normal;color:var(--amber)}
+.fh-meta{display:flex;flex-wrap:wrap;gap:.8rem;margin:.2rem 0}
+.fh-meta-item{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:rgba(255,255,255,.65);font-weight:500}
+.fh-meta-item strong{color:var(--warm-white);font-weight:700}
+.fh-desc{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.65;max-width:460px}
+.fh-desc strong{color:rgba(255,255,255,.9)}
+.fh-actions{display:flex;gap:.7rem;margin-top:.4rem;flex-wrap:wrap}
+.fh-btn{font-size:.8rem;font-weight:700;padding:.6rem 1.3rem;border-radius:99px;cursor:pointer;font-family:var(--font);border:none;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.fh-btn.primary{background:var(--amber);color:var(--forest)}
+.fh-btn.primary:hover{transform:translateY(-1px)}
+.fh-btn.ghost{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
+.fh-rating{display:flex;align-items:center;gap:.6rem}
+.fh-stars{color:var(--amber);font-size:.9rem}
+.fh-rating-num{font-size:1.1rem;font-weight:800;color:var(--warm-white)}
+.fh-rating-count{font-size:.72rem;color:rgba(255,255,255,.4)}
+.fh-court{display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.2);position:relative;overflow:hidden;min-height:200px}
+.fh-court-label{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:rgba(255,255,255,.8);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:99px;white-space:nowrap}
+
+/* NEAR ALERT */
+.near-alert{background:linear-gradient(135deg,var(--amber-soft),#FFF8E8);border:1.5px solid rgba(245,166,35,.3);border-radius:var(--r-md);padding:1rem 1.3rem;display:flex;align-items:center;gap:.9rem}
+.na-icon{font-size:1.4rem;flex-shrink:0}
+.na-text{font-size:.88rem;color:#6A4400;font-weight:600;flex:1}
+.na-text span{font-weight:800;color:var(--forest)}
+.na-sub{font-size:.75rem;color:#8A6020;margin-top:.15rem}
+.na-btn{font-size:.75rem;font-weight:700;padding:.45rem 1rem;border-radius:99px;background:var(--amber);color:var(--forest);border:none;cursor:pointer;font-family:var(--font);white-space:nowrap;flex-shrink:0}
+
+/* VIEW TABS */
+.view-tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+.view-tab{font-size:.78rem;font-weight:600;padding:.42rem 1rem;border-radius:99px;border:1.5px solid var(--rule);background:var(--warm-white);color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
+.view-tab:hover{border-color:var(--forest);color:var(--forest)}
+.view-tab.on{background:var(--forest);color:var(--warm-white);border-color:var(--forest)}
+
+/* CONTENT GRID */
+.content-grid{display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+.events-list{display:flex;flex-direction:column;gap:.9rem}
+
 /* EVENT CARDS */
-.events-list{display:flex;flex-direction:column;gap:1rem}
-.event-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow-xs);display:grid;grid-template-columns:100px 1fr}
+.event-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;display:grid;grid-template-columns:72px 1fr;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow-xs)}
 .event-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--rule-dark)}
-.ec-date{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.2rem;border-right:1px solid var(--rule)}
-.ec-month{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--amber)}
-.ec-day{font-size:2.2rem;font-weight:800;letter-spacing:-.05em;color:var(--ink);line-height:1}
-.ec-year{font-size:.65rem;color:var(--mist);font-weight:600}
-.ec-body{padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.35rem}
+.event-card.sunday-card{border-color:var(--amber);border-width:2px}
+.ec-date{background:var(--forest);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.6rem .4rem;gap:1px}
+.ec-date.recurring{background:var(--amber)}
+.ec-month{font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ec-date.recurring .ec-month{color:rgba(26,58,42,.6)}
+.ec-day{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;color:white;line-height:1}
+.ec-date.recurring .ec-day{color:var(--forest)}
+.ec-year{font-size:.58rem;color:rgba(255,255,255,.45);font-weight:600}
+.ec-date.recurring .ec-year{color:rgba(26,58,42,.5)}
+.ec-recur{font-size:.55rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:rgba(26,58,42,.15);padding:.15rem .4rem;border-radius:99px;margin-top:.2rem}
+.ec-body{padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.3rem}
 .ec-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem}
-.ec-name{font-size:1rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.3}
-.ec-badge{font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;flex-shrink:0}
-.badge-tournament{background:var(--coral-soft);color:var(--coral)}
-.badge-open{background:var(--lime-soft);color:#4A7000}
-.badge-clinic{background:var(--purple-soft);color:var(--purple)}
-.badge-social{background:var(--sky-soft);color:var(--sky)}
-.ec-meta{display:flex;gap:1rem;flex-wrap:wrap}
-.ec-meta-item{font-size:.75rem;color:var(--slate);display:flex;align-items:center;gap:.3rem;font-weight:500}
-.ec-score{display:flex;align-items:center;gap:.4rem}
-.ec-score-n{font-size:1rem;font-weight:800;color:var(--forest)}
-.ec-score-stars{font-size:.75rem;color:var(--amber)}
-.ec-score-c{font-size:.68rem;color:var(--mist)}
-.ec-excerpt{font-size:.82rem;color:var(--slate);line-height:1.55;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-.ec-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.7rem;border-top:1px solid var(--rule)}
-.ec-reviewer{font-size:.7rem;color:var(--mist);font-weight:600}
-.ec-actions{display:flex;gap:.35rem}
-.ec-btn{font-size:.68rem;font-weight:700;padding:.25rem .6rem;border-radius:99px;border:1px solid var(--rule);background:none;color:var(--slate);cursor:pointer;font-family:var(--font);transition:all .15s}
-.ec-btn:hover{border-color:var(--sage);color:var(--forest);background:var(--sage-soft)}
-.ec-btn.primary{background:var(--forest);color:white;border-color:var(--forest)}
+.ec-type{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;border-radius:99px;flex-shrink:0}
+.type-open-play{background:var(--sage-soft);color:var(--forest)}
+.type-tournament{background:var(--coral-soft);color:var(--coral)}
+.type-clinic{background:var(--purple-soft);color:var(--purple)}
+.type-social{background:var(--sky-soft);color:var(--sky)}
+.ec-score{display:flex;align-items:center;gap:.3rem;flex-shrink:0}
+.ec-score-num{font-size:1rem;font-weight:800;letter-spacing:-.03em}
+.ec-stars{font-size:.65rem;color:var(--amber)}
+.ec-reviews{font-size:.62rem;color:var(--mist);font-weight:600}
+.ec-name{font-size:.95rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.25}
+.ec-meta{display:flex;flex-wrap:wrap;gap:.5rem}
+.ec-meta-item{font-size:.72rem;color:var(--slate);display:flex;align-items:center;gap:.25rem}
+.ec-level{font-size:.65rem;font-weight:700;color:var(--sky);background:var(--sky-soft);padding:.12rem .45rem;border-radius:99px}
+.ec-excerpt{font-size:.8rem;color:var(--slate);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-style:italic}
+.ec-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.6rem;border-top:1px solid var(--rule);margin-top:.1rem}
+.ec-author{display:flex;align-items:center;gap:.45rem}
+.ec-av{width:20px;height:20px;border-radius:50%;font-size:.55rem;font-weight:800;color:white;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ec-author-name{font-size:.72rem;font-weight:700;color:var(--slate)}
+.ec-author-date{font-size:.65rem;color:var(--mist)}
+.ec-actions{display:flex;gap:.4rem;align-items:center}
+.ec-likes{font-size:.68rem;font-weight:700;color:var(--mist)}
+.ec-review-btn{font-size:.68rem;font-weight:800;padding:.28rem .7rem;border-radius:99px;background:var(--forest);color:white;border:none;cursor:pointer;font-family:var(--font)}
+
 /* RIGHT PANEL */
 .right-panel{display:flex;flex-direction:column;gap:1.2rem}
 .panel-card{background:var(--warm-white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow-xs)}
-.panel-title{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:1.1rem}
-.mini-cal{width:100%}
-.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem}
-.cal-month{font-size:.85rem;font-weight:800;color:var(--ink)}
-.cal-nav{background:none;border:1px solid var(--rule);border-radius:6px;width:24px;height:24px;cursor:pointer;font-size:.7rem;color:var(--slate);display:flex;align-items:center;justify-content:center}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
-.cal-day-label{font-size:.6rem;font-weight:700;color:var(--mist);padding:.2rem 0}
-.cal-day{font-size:.72rem;font-weight:600;color:var(--slate);padding:.3rem .2rem;border-radius:6px;cursor:pointer;transition:background .15s}
-.cal-day:hover{background:var(--sage-soft)}
-.cal-day.has-event{background:var(--amber-soft);color:var(--forest);font-weight:800}
+.panel-title{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:1rem}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem}
+.cal-month-label{font-size:.88rem;font-weight:800;color:var(--ink)}
+.cal-arrow{background:none;border:none;cursor:pointer;font-size:.8rem;color:var(--mist);padding:.2rem .4rem;border-radius:6px;font-family:var(--font)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-dow{font-size:.6rem;font-weight:700;text-transform:uppercase;color:var(--mist);text-align:center;padding:.3rem 0}
+.cal-day{font-size:.75rem;font-weight:600;color:var(--slate);text-align:center;padding:.35rem .2rem;border-radius:6px;cursor:pointer}
+.cal-day:hover{background:var(--sage-soft);color:var(--forest)}
 .cal-day.today{background:var(--forest);color:white;font-weight:800}
-.cal-day.empty{color:transparent;pointer-events:none}
-.top-row{display:flex;align-items:center;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s;border-radius:8px;margin:0 -.3rem;padding-left:.3rem;padding-right:.3rem}
-.top-row:last-child{border-bottom:none}.top-row:hover{background:var(--sage-soft)}
-.tr-info{flex:1}.tr-name{font-size:.85rem;font-weight:700;color:var(--ink)}.tr-sub{font-size:.7rem;color:var(--mist);margin-top:.1rem}
-.tr-score{font-size:1rem;font-weight:800;color:var(--forest)}
+.cal-day.has-event{color:var(--forest);font-weight:800;position:relative}
+.cal-day.has-event::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--amber)}
+.cal-day.sunday-event{background:var(--amber-soft);color:var(--forest);font-weight:800;position:relative}
+.cal-day.sunday-event::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--amber)}
+.cal-day.empty{cursor:default}
+.top-event-row{display:flex;align-items:center;gap:.7rem;padding:.6rem 0;border-bottom:1px solid var(--rule);cursor:pointer}
+.top-event-row:last-child{border-bottom:none}
+.ter-rank{font-size:1rem;font-weight:800;color:var(--rule-dark);width:22px;flex-shrink:0}
+.ter-info{flex:1}.ter-name{font-size:.82rem;font-weight:700;color:var(--ink)}.ter-sub{font-size:.68rem;color:var(--mist);margin-top:.1rem}
+.ter-score{font-size:.95rem;font-weight:800;color:var(--forest)}
+.sunday-panel{background:linear-gradient(135deg,var(--forest),#2D5C42);border-radius:var(--r-lg);padding:1.4rem;position:relative;overflow:hidden}
+.sunday-panel::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:18px 18px}
+.sp-eyebrow{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
+.sp-title{font-size:1rem;font-weight:800;color:var(--warm-white);line-height:1.3;margin-bottom:.4rem;letter-spacing:-.02em}
+.sp-detail{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:.9rem}
+.sp-detail strong{color:rgba(255,255,255,.9)}
+.sp-btn{display:block;text-align:center;background:var(--amber);color:var(--forest);border:none;border-radius:99px;padding:.7rem 1rem;font-family:var(--font);font-size:.8rem;font-weight:800;cursor:pointer;text-decoration:none}
+
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(17,26,20,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--warm-white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.96) translateY(12px);transition:transform .25s}
-.modal-overlay.open .modal{transform:scale(1) translateY(0)}
+.modal{background:var(--warm-white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);max-width:540px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(16px) scale(.97);transition:transform .25s}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
 .modal-header{background:var(--forest);padding:1.8rem 2rem;border-radius:var(--r-xl) var(--r-xl) 0 0;display:flex;align-items:flex-start;justify-content:space-between}
-.modal-header h2{font-size:1.4rem;font-weight:800;color:var(--warm-white);letter-spacing:-.03em}
-.modal-header h2 span{color:var(--amber)}.modal-header p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.3rem}
+.modal-header h2{font-size:1.4rem;font-weight:800;color:var(--warm-white);letter-spacing:-.03em}.modal-header h2 span{color:var(--amber)}
+.modal-header p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.3rem}
 .modal-x{background:rgba(255,255,255,.1);border:none;width:30px;height:30px;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .modal-body{padding:1.8rem 2rem}
 .mf-row{margin-bottom:1.3rem}
 .mf-row label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin-bottom:.5rem}
-.mf-row input,.mf-row select,.mf-row textarea{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.9rem;padding:.75rem 1rem;outline:none;transition:border-color .2s}
-.mf-row input:focus,.mf-row select:focus,.mf-row textarea:focus{border-color:var(--forest);background:white}
+.mf-row input,.mf-row select,.mf-row textarea{width:100%;background:var(--cream);border:1.5px solid var(--rule);border-radius:var(--r-sm);color:var(--ink);font-family:var(--font);font-size:.9rem;padding:.75rem 1rem;outline:none}
 .mf-row textarea{min-height:100px;resize:vertical}
 .mf-stars{display:flex;gap:.5rem;margin-top:.4rem}
 .ms{font-size:2rem;cursor:pointer;color:var(--rule-dark);transition:color .12s}.ms.lit{color:var(--amber)}
 .modal-footer{padding:.5rem 2rem 2rem;display:flex;gap:.8rem}
 .mc{flex:1;background:none;border:1.5px solid var(--rule);border-radius:99px;color:var(--slate);padding:.8rem;font-family:var(--font);font-size:.85rem;font-weight:700;cursor:pointer}
 .ms-btn{flex:2;background:var(--forest);color:white;border:none;border-radius:99px;padding:.8rem;font-family:var(--font);font-size:.88rem;font-weight:800;cursor:pointer}
-.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem;font-family:var(--font)}
+.app-footer{background:var(--forest);color:rgba(255,255,255,.5);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.75rem}
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--warm-white);border-top:1px solid var(--rule);padding:0 0 env(safe-area-inset-bottom,0);box-shadow:0 -4px 20px rgba(26,58,42,.08)}
+.bn-inner{display:flex;align-items:stretch;height:60px}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--mist);font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;border:none;background:none;font-family:var(--font);padding:0}
+.bn-item .bn-icon{font-size:1.3rem;line-height:1}
+.bn-item.active{color:var(--forest)}
+.bn-item.bn-write{background:var(--amber);color:var(--forest);border-radius:99px;margin:8px 6px;flex:1.2;font-size:.65rem;font-weight:800}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.page-hero{animation:fadeUp .5s ease both}.filter-bar{animation:fadeUp .5s .06s ease both}.content-grid{animation:fadeUp .5s .12s ease both}
-@media(max-width:1024px){.app-shell{grid-template-columns:1fr}.sidebar{display:none}.topbar-brand{width:auto}.content-grid{grid-template-columns:1fr}.right-panel{display:none}.ph-stats{display:none}.event-card{grid-template-columns:80px 1fr}}
-@media(max-width:640px){.main{padding:1rem}}
+.featured-hero{animation:fadeUp .5s ease both}.content-grid{animation:fadeUp .5s .1s ease both}
+@media(max-width:1024px){.app-shell{grid-template-columns:1fr}.sidebar{display:none}.topbar-brand{width:auto}.featured-hero{grid-template-columns:1fr}.fh-court{display:none}.content-grid{grid-template-columns:1fr}.right-panel{display:none}}
+@media(max-width:640px){
+  .bottom-nav{display:block}.main{padding:1rem 1rem 80px;gap:1.2rem}.app-footer{display:none}
+  .topbar{padding:0 .8rem 0 0}.topbar-brand{padding:0 .9rem;gap:7px}.brand-mark{width:28px;height:28px}.brand-name{font-size:.92rem}.brand-tagline{display:none}
+  .topbar-search{margin-left:.9rem}.topbar-search input{font-size:.82rem;padding:.45rem .9rem .45rem 2.2rem}
+  .topbar-right{gap:.5rem}.tb-pill.ghost{display:none}.tb-pill.solid{padding:.4rem .9rem;font-size:.72rem}.tb-av{width:28px;height:28px}
+  .fh-body{padding:1.4rem 1.2rem}.fh-title{font-size:1.4rem}
+  .event-card{grid-template-columns:60px 1fr}.ec-day{font-size:1.3rem}.ec-body{padding:.85rem .9rem}.ec-name{font-size:.88rem}
+  .modal-overlay{padding:0;align-items:flex-end}.modal{border-radius:var(--r-xl) var(--r-xl) 0 0;max-height:92vh}
+  .modal-header{border-radius:var(--r-xl) var(--r-xl) 0 0;padding:1.4rem 1.5rem}.modal-body{padding:1.4rem 1.5rem}.modal-footer{padding:.3rem 1.5rem 1.5rem}
+}
 </style>
 </head>
 <body>
 <div class="app-shell">
   <div class="topbar">
     <div class="topbar-brand"><div class="brand-mark">🏓</div><div><div class="brand-name"><span class="dr-dink">DINK</span><span class="dr-reviews">REVIEWS</span></div><div class="brand-tagline">Pickleball Community</div></div></div>
-    <div class="topbar-search"><span class="si">🔍</span><input type="text" placeholder="Search events by name or location…"></div>
-    <div class="topbar-right"><button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button><button class="tb-pill solid" onclick="openModal()">+ Write Review</button><div class="tb-av">JK</div></div>
+    <div class="topbar-search"><span class="si">🔍</span><input type="text" placeholder="Search events, tournaments, clinics…"></div>
+    <div class="topbar-right">
+      <button class="tb-pill ghost" onclick="window.location='/dinkreviews/'">← Dashboard</button>
+      <button class="tb-pill solid" onclick="openModal()">+ Review Event</button>
+      <div class="tb-av">JK</div>
+    </div>
   </div>
   <aside class="sidebar">
     <div class="sidebar-brand-strip"><div class="sbs-label">The Pickleball Community</div><div class="sbs-name">DINK<span>REVIEWS</span></div></div>
@@ -167,173 +231,290 @@ html{font-size:16px}body{background:var(--cream);color:var(--ink);font-family:va
     <div class="sidebar-section">
       <div class="filter-group">
         <div class="filter-group-title">Event Type</div>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Tournament <span class="filter-count">24</span></label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Open Play <span class="filter-count">38</span></label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Clinic <span class="filter-count">15</span></label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Social / Fun <span class="filter-count">12</span></label>
-      </div>
-    </div>
-    <div class="sidebar-section">
-      <div class="filter-group">
-        <div class="filter-group-title">When</div>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> This Week</label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> This Month</label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Next 3 Months</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Open Play <span class="filter-count">41</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Tournament <span class="filter-count">28</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Clinic <span class="filter-count">19</span></label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> Social <span class="filter-count">14</span></label>
       </div>
     </div>
     <div class="sidebar-section">
       <div class="filter-group">
         <div class="filter-group-title">Skill Level</div>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> All Levels</label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> 3.0 – 3.5</label>
-        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> 4.0 – 4.5</label>
-        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> 5.0+</label>
+        <label class="filter-check checked" onclick="this.classList.toggle('checked')"><span class="check-box">✓</span> All Levels</label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Beginner (2.0–3.0)</label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Intermediate (3.0–4.0)</label>
+        <label class="filter-check" onclick="this.classList.toggle('checked')"><span class="check-box"></span> Advanced (4.0–5.0+)</label>
       </div>
     </div>
     <div class="sidebar-bottom"><button class="write-btn-sidebar" onclick="openModal()">✏️ Review an Event</button></div>
   </aside>
   <main class="main">
-    <div class="page-hero">
+
+    <!-- FEATURED HERO: PICKLEBALL SUNDAY WITH FRIENDS -->
+    <div class="featured-hero">
+      <div class="fh-glow"></div>
+      <div class="fh-body">
+        <div class="fh-badges">
+          <span class="fh-badge badge-recurring">↻ Every Sunday</span>
+          <span class="fh-badge badge-open-play">Open Play</span>
+          <span class="fh-badge badge-free">Free</span>
+          <span class="fh-badge badge-all-levels">All Levels</span>
+        </div>
+        <div class="fh-title">Pickleball Sunday<br>with <em>Friends</em></div>
+        <div class="fh-meta">
+          <div class="fh-meta-item">📍 <strong>Plummer Park, West Hollywood</strong></div>
+          <div class="fh-meta-item">🕗 <strong>8:00 AM – 12:00 PM</strong></div>
+          <div class="fh-meta-item">📅 <strong>Every Sunday</strong></div>
+          <div class="fh-meta-item">🎯 <strong>All skill levels welcome</strong></div>
+        </div>
+        <div class="fh-desc">The most welcoming weekly open play in LA. Show up, warm up, play. <strong>No registration required</strong> — just bring your paddle and your game. Rotating partners, all skill levels, great community vibes every single week.</div>
+        <div class="fh-rating">
+          <span class="fh-stars">★★★★★</span>
+          <span class="fh-rating-num">4.9</span>
+          <span class="fh-rating-count">147 reviews</span>
+        </div>
+        <div class="fh-actions">
+          <button class="fh-btn primary" onclick="openModal()">✏️ Write a Review</button>
+          <a class="fh-btn ghost" href="/dinkreviews/courts/">🏟️ View Plummer Park</a>
+        </div>
+      </div>
+      <div class="fh-court">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="160" viewBox="0 0 220 160" style="display:block;opacity:.9">
+          <rect x="0" y="0" width="220" height="160" fill="#1A3A2A"/>
+          <rect x="22" y="0" width="176" height="160" fill="#1E5C42"/>
+          <rect x="22" y="10" width="176" height="48" fill="#0D3B2E"/>
+          <rect x="22" y="102" width="176" height="48" fill="#0D3B2E"/>
+          <line x1="0" y1="80" x2="220" y2="80" stroke="white" stroke-width="3.5"/>
+          <circle cx="22" cy="80" r="4" fill="white"/><circle cx="198" cy="80" r="4" fill="white"/>
+          <rect x="22" y="10" width="176" height="140" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+          <line x1="22" y1="58" x2="198" y2="58" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+          <line x1="22" y1="102" x2="198" y2="102" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+          <line x1="110" y1="58" x2="110" y2="102" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <g transform="translate(170,118) rotate(-30)">
+            <rect x="-16" y="-20" width="32" height="28" rx="8" fill="#F5A623" stroke="#C47A0A" stroke-width="1.5"/>
+            <line x1="-8" y1="-12" x2="8" y2="-12" stroke="#C47A0A" stroke-width="1.8" stroke-opacity="0.5"/>
+            <line x1="-9" y1="-5" x2="9" y2="-5" stroke="#C47A0A" stroke-width="1.8" stroke-opacity="0.5"/>
+            <rect x="-6" y="8" width="12" height="18" rx="3" fill="#C4844A" stroke="#A06030" stroke-width="1.2"/>
+          </g>
+          <circle cx="132" cy="38" r="12" fill="#D4E84A" stroke="#A8C000" stroke-width="1.2"/>
+          <circle cx="128" cy="35" r="1.8" fill="#8A9E00"/><circle cx="133" cy="32" r="1.8" fill="#8A9E00"/>
+          <circle cx="136" cy="38" r="1.8" fill="#8A9E00"/><circle cx="131" cy="42" r="1.8" fill="#8A9E00"/>
+        </svg>
+        <div class="fh-court-label">Plummer Park · WeHo</div>
+      </div>
+    </div>
+
+    <!-- NEAR ALERT -->
+    <div class="near-alert">
+      <div class="na-icon">🔔</div>
       <div>
-        <div class="ph-eyebrow">89 events reviewed by the community</div>
-        <div class="ph-title">Find your next<br><em>big match.</em></div>
-        <div class="ph-sub">Tournaments, open play, clinics, and social events — all reviewed by players who were there.</div>
+        <div class="na-text"><span>3 events</span> happening near you this week</div>
+        <div class="na-sub">Pickleball Sunday with Friends this Sunday · SoCal Classic qualifier Apr 19 · Beginner clinic in Santa Monica Apr 22</div>
       </div>
-      <div class="ph-stats">
-        <div class="ph-stat"><div class="ph-stat-n">89</div><div class="ph-stat-l">Events</div></div>
-        <div class="ph-stat"><div class="ph-stat-n">412</div><div class="ph-stat-l">Reviews</div></div>
-        <div class="ph-stat"><div class="ph-stat-n">3</div><div class="ph-stat-l">Near You</div></div>
-      </div>
+      <button class="na-btn">See all →</button>
     </div>
-    <div class="filter-bar">
-      <div class="fb-group">
-        <span class="fb-label">View:</span>
-        <button class="fb-pill on" onclick="setSort(this)">All Events</button>
-        <button class="fb-pill" onclick="setSort(this)">Upcoming</button>
-        <button class="fb-pill" onclick="setSort(this)">Past (Reviewed)</button>
-        <button class="fb-pill" onclick="setSort(this)">Near Me</button>
-        <button class="fb-pill" onclick="setSort(this)">Tournaments</button>
-        <button class="fb-pill" onclick="setSort(this)">Open Play</button>
-      </div>
+
+    <!-- VIEW TABS -->
+    <div class="view-tabs">
+      <button class="view-tab on" onclick="setTab(this)">All Events</button>
+      <button class="view-tab" onclick="setTab(this)">Upcoming</button>
+      <button class="view-tab" onclick="setTab(this)">Past (Reviewed)</button>
+      <button class="view-tab" onclick="setTab(this)">Near Me</button>
+      <button class="view-tab" onclick="setTab(this)">Tournaments</button>
+      <button class="view-tab" onclick="setTab(this)">Open Play</button>
     </div>
+
+    <!-- CONTENT GRID -->
     <div class="content-grid">
-      <div>
-        <div class="upcoming-banner">
-          <div class="ub-icon">🔔</div>
-          <div class="ub-text"><h3>3 events happening near you this week</h3><p>Sunday open play at Plummer Park, SoCal Classic qualifier, and a beginner clinic in Santa Monica.</p></div>
-          <button class="ub-btn">See all →</button>
-        </div>
-        <div class="events-list">
-          <!-- Event 1 -->
-          <div class="event-card">
-            <div class="ec-date" style="background:var(--coral-soft);"><div class="ec-month" style="color:var(--coral)">APR</div><div class="ec-day">19</div><div class="ec-year">2025</div></div>
-            <div class="ec-body">
-              <div class="ec-top"><div class="ec-name">SoCal Pickleball Classic — Spring Open</div><span class="ec-badge badge-tournament">Tournament</span></div>
-              <div class="ec-meta"><span class="ec-meta-item">📍 Griffith Park, LA</span><span class="ec-meta-item">⏰ 8:00 AM – 6:00 PM</span><span class="ec-meta-item">🎽 3.5 – 5.0</span></div>
-              <div class="ec-score"><span class="ec-score-n">4.8</span><span class="ec-score-stars">★★★★★</span><span class="ec-score-c">38 reviews</span></div>
-              <div class="ec-excerpt">"Best organized tournament in the region. Clear brackets, great refs, and the vendor area is stacked."</div>
-              <div class="ec-footer"><div class="ec-reviewer">SandraB · 3 weeks ago</div><div class="ec-actions"><button class="ec-btn">👍 24</button><button class="ec-btn primary" onclick="openModal()">Review</button></div></div>
-            </div>
+      <div class="events-list">
+
+        <!-- PICKLEBALL SUNDAY — PINNED -->
+        <div class="event-card sunday-card">
+          <div class="ec-date recurring">
+            <div class="ec-month">SUN</div>
+            <div class="ec-day">↻</div>
+            <div class="ec-year">Weekly</div>
+            <div class="ec-recur">Pinned</div>
           </div>
-          <!-- Event 2 -->
-          <div class="event-card">
-            <div class="ec-date" style="background:var(--lime-soft);"><div class="ec-month" style="color:#4A7000">APR</div><div class="ec-day">20</div><div class="ec-year">2025</div></div>
-            <div class="ec-body">
-              <div class="ec-top"><div class="ec-name">Sunday Open Play — Plummer Park</div><span class="ec-badge badge-open">Open Play</span></div>
-              <div class="ec-meta"><span class="ec-meta-item">📍 West Hollywood, CA</span><span class="ec-meta-item">⏰ 8:00 AM – 12:00 PM</span><span class="ec-meta-item">🎽 All Levels</span></div>
-              <div class="ec-score"><span class="ec-score-n">4.9</span><span class="ec-score-stars">★★★★★</span><span class="ec-score-c">147 reviews</span></div>
-              <div class="ec-excerpt">"The most welcoming open play in LA. Every Sunday without fail. Bring your own water."</div>
-              <div class="ec-footer"><div class="ec-reviewer">JamieK · 2 days ago</div><div class="ec-actions"><button class="ec-btn">👍 52</button><button class="ec-btn primary" onclick="openModal()">Review</button></div></div>
+          <div class="ec-body">
+            <div class="ec-top">
+              <span class="ec-type type-open-play">Open Play</span>
+              <div class="ec-score"><span class="ec-score-num">4.9</span><span class="ec-stars">★★★★★</span><span class="ec-reviews">147 reviews</span></div>
             </div>
-          </div>
-          <!-- Event 3 -->
-          <div class="event-card">
-            <div class="ec-date" style="background:var(--purple-soft);"><div class="ec-month" style="color:var(--purple)">APR</div><div class="ec-day">22</div><div class="ec-year">2025</div></div>
-            <div class="ec-body">
-              <div class="ec-top"><div class="ec-name">Third Shot Drop Clinic — Santa Monica</div><span class="ec-badge badge-clinic">Clinic</span></div>
-              <div class="ec-meta"><span class="ec-meta-item">📍 Santa Monica, CA</span><span class="ec-meta-item">⏰ 9:00 AM – 1:00 PM</span><span class="ec-meta-item">🎽 3.0 – 4.0</span></div>
-              <div class="ec-score"><span class="ec-score-n">4.5</span><span class="ec-score-stars">★★★★</span><span class="ec-score-c">28 reviews</span></div>
-              <div class="ec-excerpt">"Coach Dave finally made the third shot drop click for me. Small group, tons of personal feedback."</div>
-              <div class="ec-footer"><div class="ec-reviewer">PauloG · 2 weeks ago</div><div class="ec-actions"><button class="ec-btn">👍 12</button><button class="ec-btn primary" onclick="openModal()">Review</button></div></div>
+            <div class="ec-name">Pickleball Sunday with Friends — Plummer Park</div>
+            <div class="ec-meta">
+              <span class="ec-meta-item">📍 West Hollywood, CA</span>
+              <span class="ec-meta-item">🕗 8:00 AM – 12:00 PM</span>
+              <span class="ec-level">All Levels</span>
             </div>
-          </div>
-          <!-- Event 4 -->
-          <div class="event-card">
-            <div class="ec-date" style="background:var(--sky-soft);"><div class="ec-month" style="color:var(--sky)">MAY</div><div class="ec-day">3</div><div class="ec-year">2025</div></div>
-            <div class="ec-body">
-              <div class="ec-top"><div class="ec-name">Sunset Social Pickleball Night</div><span class="ec-badge badge-social">Social</span></div>
-              <div class="ec-meta"><span class="ec-meta-item">📍 Pan Pacific Park, WeHo</span><span class="ec-meta-item">⏰ 6:00 PM – 9:00 PM</span><span class="ec-meta-item">🎽 All Levels</span></div>
-              <div class="ec-score"><span class="ec-score-n">4.6</span><span class="ec-score-stars">★★★★★</span><span class="ec-score-c">19 reviews</span></div>
-              <div class="ec-excerpt">"Casual and fun. Great way to meet new players. The lights at Pan Pacific make for a perfect evening session."</div>
-              <div class="ec-footer"><div class="ec-reviewer">TomW · 1 week ago</div><div class="ec-actions"><button class="ec-btn">👍 9</button><button class="ec-btn primary" onclick="openModal()">Review</button></div></div>
-            </div>
-          </div>
-          <!-- Event 5 -->
-          <div class="event-card">
-            <div class="ec-date" style="background:var(--amber-soft);"><div class="ec-month">MAY</div><div class="ec-day">10</div><div class="ec-year">2025</div></div>
-            <div class="ec-body">
-              <div class="ec-top"><div class="ec-name">LA Pickleball Open — Season Finale</div><span class="ec-badge badge-tournament">Tournament</span></div>
-              <div class="ec-meta"><span class="ec-meta-item">📍 Exposition Park, LA</span><span class="ec-meta-item">⏰ 7:30 AM – 7:00 PM</span><span class="ec-meta-item">🎽 3.5 – 5.0</span></div>
-              <div class="ec-score"><span class="ec-score-n">4.7</span><span class="ec-score-stars">★★★★★</span><span class="ec-score-c">41 reviews</span></div>
-              <div class="ec-excerpt">"The best tournament format in Southern California. Double elimination, great refs, and the crowd energy at the finals is electric."</div>
-              <div class="ec-footer"><div class="ec-reviewer">MikeK · 5 days ago</div><div class="ec-actions"><button class="ec-btn">👍 33</button><button class="ec-btn primary" onclick="openModal()">Review</button></div></div>
+            <div class="ec-excerpt">"The most welcoming open play in LA. Every Sunday without fail. Rotating partners, all levels, just bring your paddle and show up."</div>
+            <div class="ec-footer">
+              <div class="ec-author"><div class="ec-av" style="background:linear-gradient(135deg,var(--sage),var(--amber));">JK</div><div><div class="ec-author-name">JamieK</div><div class="ec-author-date">2 days ago</div></div></div>
+              <div class="ec-actions"><span class="ec-likes">👍 52</span><button class="ec-review-btn" onclick="openModal()">Review</button></div>
             </div>
           </div>
         </div>
+
+        <!-- SOCAL CLASSIC -->
+        <div class="event-card">
+          <div class="ec-date"><div class="ec-month">APR</div><div class="ec-day">19</div><div class="ec-year">2025</div></div>
+          <div class="ec-body">
+            <div class="ec-top"><span class="ec-type type-tournament">Tournament</span><div class="ec-score"><span class="ec-score-num">4.8</span><span class="ec-stars">★★★★★</span><span class="ec-reviews">38 reviews</span></div></div>
+            <div class="ec-name">SoCal Pickleball Classic — Spring Open</div>
+            <div class="ec-meta"><span class="ec-meta-item">📍 Griffith Park, LA</span><span class="ec-meta-item">🕗 8:00 AM – 6:00 PM</span><span class="ec-level">3.5 – 5.0</span></div>
+            <div class="ec-excerpt">"Best organized tournament in the region. Clear brackets, great refs, and the vendor area is stacked."</div>
+            <div class="ec-footer">
+              <div class="ec-author"><div class="ec-av" style="background:linear-gradient(135deg,var(--coral),#FF9A3A);">SB</div><div><div class="ec-author-name">SandraB</div><div class="ec-author-date">3 weeks ago</div></div></div>
+              <div class="ec-actions"><span class="ec-likes">👍 24</span><button class="ec-review-btn" onclick="openModal()">Review</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- THIRD SHOT DROP CLINIC -->
+        <div class="event-card">
+          <div class="ec-date"><div class="ec-month">APR</div><div class="ec-day">22</div><div class="ec-year">2025</div></div>
+          <div class="ec-body">
+            <div class="ec-top"><span class="ec-type type-clinic">Clinic</span><div class="ec-score"><span class="ec-score-num">4.5</span><span class="ec-stars">★★★★</span><span class="ec-reviews">28 reviews</span></div></div>
+            <div class="ec-name">Third Shot Drop Clinic — Santa Monica</div>
+            <div class="ec-meta"><span class="ec-meta-item">📍 Santa Monica, CA</span><span class="ec-meta-item">🕘 9:00 AM – 1:00 PM</span><span class="ec-level">3.0 – 4.0</span></div>
+            <div class="ec-excerpt">"Coach Dave finally made the third shot drop click for me. Small group, tons of personal feedback."</div>
+            <div class="ec-footer">
+              <div class="ec-author"><div class="ec-av" style="background:linear-gradient(135deg,var(--purple),var(--sky));">PG</div><div><div class="ec-author-name">PauloG</div><div class="ec-author-date">2 weeks ago</div></div></div>
+              <div class="ec-actions"><span class="ec-likes">👍 12</span><button class="ec-review-btn" onclick="openModal()">Review</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUNSET SOCIAL -->
+        <div class="event-card">
+          <div class="ec-date"><div class="ec-month">MAY</div><div class="ec-day">3</div><div class="ec-year">2025</div></div>
+          <div class="ec-body">
+            <div class="ec-top"><span class="ec-type type-social">Social</span><div class="ec-score"><span class="ec-score-num">4.6</span><span class="ec-stars">★★★★★</span><span class="ec-reviews">19 reviews</span></div></div>
+            <div class="ec-name">Sunset Social Pickleball Night</div>
+            <div class="ec-meta"><span class="ec-meta-item">📍 Pan Pacific Park, WeHo</span><span class="ec-meta-item">🕕 6:00 PM – 9:00 PM</span><span class="ec-level">All Levels</span></div>
+            <div class="ec-excerpt">"Casual and fun. Great way to meet new players. The lights at Pan Pacific make for a perfect evening session."</div>
+            <div class="ec-footer">
+              <div class="ec-author"><div class="ec-av" style="background:linear-gradient(135deg,var(--sky),var(--sage));">TW</div><div><div class="ec-author-name">TomW</div><div class="ec-author-date">1 week ago</div></div></div>
+              <div class="ec-actions"><span class="ec-likes">👍 9</span><button class="ec-review-btn" onclick="openModal()">Review</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LA OPEN FINALE -->
+        <div class="event-card">
+          <div class="ec-date"><div class="ec-month">MAY</div><div class="ec-day">10</div><div class="ec-year">2025</div></div>
+          <div class="ec-body">
+            <div class="ec-top"><span class="ec-type type-tournament">Tournament</span><div class="ec-score"><span class="ec-score-num">4.7</span><span class="ec-stars">★★★★★</span><span class="ec-reviews">41 reviews</span></div></div>
+            <div class="ec-name">LA Pickleball Open — Season Finale</div>
+            <div class="ec-meta"><span class="ec-meta-item">📍 Exposition Park, LA</span><span class="ec-meta-item">🕖 7:30 AM – 7:00 PM</span><span class="ec-level">3.5 – 5.0</span></div>
+            <div class="ec-excerpt">"The best tournament format in Southern California. Double elimination, great refs, crowd energy at the finals is electric."</div>
+            <div class="ec-footer">
+              <div class="ec-author"><div class="ec-av" style="background:linear-gradient(135deg,var(--amber),var(--coral));">MK</div><div><div class="ec-author-name">MikeK</div><div class="ec-author-date">5 days ago</div></div></div>
+              <div class="ec-actions"><span class="ec-likes">👍 33</span><button class="ec-review-btn" onclick="openModal()">Review</button></div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- RIGHT PANEL -->
       <div class="right-panel">
+
+        <div class="sunday-panel">
+          <div class="sp-eyebrow">This Sunday · Every Week</div>
+          <div class="sp-title">Pickleball Sunday with Friends</div>
+          <div class="sp-detail"><strong>Plummer Park, West Hollywood</strong><br>Every Sunday · 8:00 AM · All levels<br>No sign-up. Just show up.</div>
+          <button class="sp-btn" onclick="openModal()">✏️ Write a Review</button>
+        </div>
+
         <div class="panel-card">
-          <div class="panel-title">April 2025</div>
-          <div class="mini-cal">
-            <div class="cal-header"><span class="cal-month">April 2025</span><div style="display:flex;gap:4px"><button class="cal-nav">‹</button><button class="cal-nav">›</button></div></div>
-            <div class="cal-grid">
-              <div class="cal-day-label">S</div><div class="cal-day-label">M</div><div class="cal-day-label">T</div><div class="cal-day-label">W</div><div class="cal-day-label">T</div><div class="cal-day-label">F</div><div class="cal-day-label">S</div>
-              <div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div>
-              <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div>
-              <div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day has-event">19</div><div class="cal-day has-event">20</div>
-              <div class="cal-day today">21</div><div class="cal-day has-event">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div>
-              <div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
-            </div>
+          <div class="cal-nav"><span class="cal-month-label">April 2025</span><div style="display:flex;gap:.2rem"><button class="cal-arrow">‹</button><button class="cal-arrow">›</button></div></div>
+          <div class="cal-grid">
+            <div class="cal-dow">S</div><div class="cal-dow">M</div><div class="cal-dow">T</div><div class="cal-dow">W</div><div class="cal-dow">T</div><div class="cal-dow">F</div><div class="cal-dow">S</div>
+            <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div>
+            <div class="cal-day sunday-event">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+            <div class="cal-day sunday-event">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day has-event">19</div>
+            <div class="cal-day sunday-event today">20</div><div class="cal-day">21</div><div class="cal-day has-event">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div>
+            <div class="cal-day sunday-event">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div>
+          </div>
+          <div style="display:flex;gap:1rem;margin-top:.8rem">
+            <div style="display:flex;align-items:center;gap:.35rem;font-size:.65rem;color:var(--slate)"><div style="width:8px;height:8px;border-radius:2px;background:var(--amber-soft);border:1px solid var(--amber)"></div>Pickleball Sunday</div>
+            <div style="display:flex;align-items:center;gap:.35rem;font-size:.65rem;color:var(--slate)"><div style="width:8px;height:8px;border-radius:50%;background:var(--amber)"></div>Other events</div>
           </div>
         </div>
+
         <div class="panel-card">
           <div class="panel-title">Top Rated Events</div>
-          <div class="top-row"><div class="tr-info"><div class="tr-name">Sunday Open Play — Plummer Park</div><div class="tr-sub">Weekly · All levels</div></div><div class="tr-score">4.9</div></div>
-          <div class="top-row"><div class="tr-info"><div class="tr-name">SoCal Classic Spring Open</div><div class="tr-sub">Apr 19 · Tournament</div></div><div class="tr-score">4.8</div></div>
-          <div class="top-row"><div class="tr-info"><div class="tr-name">LA Pickleball Open Finale</div><div class="tr-sub">May 10 · Tournament</div></div><div class="tr-score">4.7</div></div>
-          <div class="top-row"><div class="tr-info"><div class="tr-name">Sunset Social Night</div><div class="tr-sub">May 3 · Social</div></div><div class="tr-score">4.6</div></div>
+          <div class="top-event-row"><div class="ter-rank">01</div><div class="ter-info"><div class="ter-name">Pickleball Sunday with Friends</div><div class="ter-sub">Weekly · All levels</div></div><div class="ter-score">4.9</div></div>
+          <div class="top-event-row"><div class="ter-rank">02</div><div class="ter-info"><div class="ter-name">SoCal Classic Spring Open</div><div class="ter-sub">Apr 19 · Tournament</div></div><div class="ter-score">4.8</div></div>
+          <div class="top-event-row"><div class="ter-rank">03</div><div class="ter-info"><div class="ter-name">LA Pickleball Open Finale</div><div class="ter-sub">May 10 · Tournament</div></div><div class="ter-score">4.7</div></div>
+          <div class="top-event-row"><div class="ter-rank">04</div><div class="ter-info"><div class="ter-name">Sunset Social Night</div><div class="ter-sub">May 3 · Social</div></div><div class="ter-score">4.6</div></div>
         </div>
+
       </div>
     </div>
   </main>
 </div>
+
 <div class="app-footer">
   <div style="font-weight:800;color:var(--amber);font-size:.9rem;">DINK<span style="color:rgba(255,255,255,.7)">REVIEWS</span></div>
-  <div style="display:flex;gap:1.5rem;"><a href="/dinkreviews/courts/" style="color:rgba(255,255,255,.4);text-decoration:none;">Courts</a><a href="/dinkreviews/paddles/" style="color:rgba(255,255,255,.4);text-decoration:none;">Paddles</a><a href="/dinkreviews/gear/" style="color:rgba(255,255,255,.4);text-decoration:none;">Gear</a><a href="/dinkreviews/events/" style="color:rgba(255,255,255,.4);text-decoration:none;">Events</a><a href="/dinkreviews/" style="color:rgba(255,255,255,.4);text-decoration:none;">Dashboard</a></div>
+  <div style="display:flex;gap:1.5rem"><a href="/dinkreviews/courts/" style="color:rgba(255,255,255,.4);text-decoration:none">Courts</a><a href="/dinkreviews/paddles/" style="color:rgba(255,255,255,.4);text-decoration:none">Paddles</a><a href="/dinkreviews/events/" style="color:rgba(255,255,255,.4);text-decoration:none">Events</a><a href="/dinkreviews/" style="color:rgba(255,255,255,.4);text-decoration:none">Dashboard</a></div>
   <div>© 2025 DINKREVIEWS</div>
 </div>
+
+<nav class="bottom-nav">
+  <div class="bn-inner">
+    <a class="bn-item" href="/dinkreviews/"><span class="bn-icon">🏠</span><span>Home</span></a>
+    <a class="bn-item" href="/dinkreviews/courts/"><span class="bn-icon">🏟️</span><span>Courts</span></a>
+    <button class="bn-item bn-write" onclick="openModal()"><span class="bn-icon">✏️</span><span>Review</span></button>
+    <a class="bn-item" href="/dinkreviews/paddles/"><span class="bn-icon">🏓</span><span>Paddles</span></a>
+    <a class="bn-item active" href="/dinkreviews/events/"><span class="bn-icon">📅</span><span>Events</span></a>
+  </div>
+</nav>
+
 <div class="modal-overlay" id="modal" onclick="closeOut(event)">
   <div class="modal">
-    <div class="modal-header"><div><h2>Review an <span>Event</span></h2><p>Help the community find the best events</p></div><button class="modal-x" onclick="closeModal()">✕</button></div>
+    <div class="modal-header"><div><h2>Review an <span>Event</span></h2><p>Help the DINKREVIEWS community find the best events</p></div><button class="modal-x" onclick="closeModal()">✕</button></div>
     <div class="modal-body">
-      <div class="mf-row"><label>Event Name</label><input type="text" placeholder="e.g. SoCal Pickleball Classic"></div>
-      <div class="mf-row"><label>Event Type</label><select><option>Tournament</option><option>Open Play</option><option>Clinic</option><option>Social / Fun Event</option></select></div>
+      <div class="mf-row"><label>Event Name</label><input type="text" id="review-name" placeholder="e.g. Pickleball Sunday with Friends"></div>
+      <div class="mf-row"><label>Location</label><input type="text" id="review-location" placeholder="City, State"></div>
       <div class="mf-row"><label>Your Rating</label><div class="mf-stars" id="mstars"><span class="ms" data-v="1" onclick="setMS(1)">★</span><span class="ms" data-v="2" onclick="setMS(2)">★</span><span class="ms" data-v="3" onclick="setMS(3)">★</span><span class="ms" data-v="4" onclick="setMS(4)">★</span><span class="ms" data-v="5" onclick="setMS(5)">★</span></div></div>
-      <div class="mf-row"><label>Your Review</label><textarea placeholder="Organization, competition level, atmosphere, value, what to expect…"></textarea></div>
-      <div class="mf-row"><label>Location</label><input type="text" placeholder="City, State"></div>
+      <div class="mf-row"><label>Event Type</label><select><option>Open Play</option><option>Tournament</option><option>Clinic / Instruction</option><option>Social / Mixer</option></select></div>
+      <div class="mf-row"><label>Your Review</label><textarea id="review-text" placeholder="Organization, atmosphere, skill level mix, would you recommend it…"></textarea></div>
     </div>
     <div class="modal-footer"><button class="mc" onclick="closeModal()">Cancel</button><button class="ms-btn" onclick="doSubmit()">Submit Review</button></div>
   </div>
 </div>
+
 <script>
-function setSort(el){document.querySelectorAll('.fb-pill').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
+const API='https://script.google.com/macros/s/AKfycbzi1Yak6BkCtu7l-ZwoeuX0VRnle_sICOYx7DoyQUJzzOK-KV8D_xZ2tqqW01vMlRvnwQ/exec';
+function setTab(el){document.querySelectorAll('.view-tab').forEach(b=>b.classList.remove('on'));el.classList.add('on')}
 function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 function closeOut(e){if(e.target.id==='modal')closeModal()}
 let mstar=0;
 function setMS(n){mstar=n;document.querySelectorAll('.ms').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n))}
-document.querySelectorAll('.ms').forEach(s=>{s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});s.addEventListener('mouseleave',()=>{document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=mstar))})});
-function doSubmit(){if(!mstar){alert('Please select a rating.');return}closeModal();setTimeout(()=>alert('✓ Event review submitted! Thanks for contributing to DINKREVIEWS. 🏓'),200);mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'))}
+document.querySelectorAll('.ms').forEach(s=>{
+  s.addEventListener('mouseenter',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=v))});
+  s.addEventListener('mouseleave',()=>{document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('lit',parseInt(x.dataset.v)<=mstar))});
+});
+async function doSubmit(){
+  if(!mstar){alert('Please select a rating.');return;}
+  const name=document.getElementById('review-name').value.trim();
+  const review=document.getElementById('review-text').value.trim();
+  const location=document.getElementById('review-location').value.trim();
+  if(!name){alert('Please enter the event name.');return;}
+  if(!review){alert('Please write a review.');return;}
+  const btn=document.querySelector('.ms-btn');btn.textContent='Submitting…';btn.disabled=true;
+  try{
+    const res=await fetch(API,{method:'POST',body:JSON.stringify({category:'Event',name,location,rating:mstar,review,reviewer:'Community Member'})});
+    const data=await res.json();
+    if(data.success){closeModal();setTimeout(()=>alert('✓ Event review submitted! Thanks for contributing to DINKREVIEWS. 🏓'),200);}
+    else{alert('Error: '+(data.error||'Submission failed'));}
+  }catch(e){alert('Connection error. Please try again.');}
+  btn.textContent='Submit Review';btn.disabled=false;
+  mstar=0;document.querySelectorAll('.ms').forEach(s=>s.classList.remove('lit'));
+}
 </script>
 </body>
 </html>
